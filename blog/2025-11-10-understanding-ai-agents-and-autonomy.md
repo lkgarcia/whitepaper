@@ -34,8 +34,11 @@ This section provides precise definitions for key terms used throughout this pap
 - Define objectives and constraints
 - Monitor and evaluate agent performance
 
-> [!WARNING] Common Misconception: AI Agents vs. Agentic AI
-> The term "Agentic AI" is often used ambiguously in literature and popular discourse. While some use it interchangeably with "AI Agents," others define it specifically as AI systems with the highest levels of autonomy and agency. This paper focuses on "AI Agents" as defined above, providing a more precise and technically grounded framework for discussion.
+:::warning[Common Misconception: AI Agents vs. Agentic AI]
+
+The term "Agentic AI" is often used ambiguously in literature and popular discourse. While some use it interchangeably with "AI Agents," others define it specifically as AI systems with the highest levels of autonomy and agency. This paper focuses on "AI Agents" as defined above, providing a more precise and technically grounded framework for discussion.
+
+:::
 
 ### 2.2 Understanding Agency and Autonomy
 
@@ -52,27 +55,33 @@ This section provides precise definitions for key terms used throughout this pap
 - Scope of decision-making authority
 - Extent of self-governance permitted
 
-> [!NOTE] Key Distinction
-> **Agency** is about what the AI *can* do.  
-> **Autonomy** is about what the AI *is allowed* to do on its own.
+:::note[Key Distinction]
+
+**Agency** is about what the AI *can* do.  
+**Autonomy** is about what the AI *is allowed* to do on its own.
+
+:::
 
 #### Practical Example
-> [!NOTE] Real-World Analogy: The Self-Driving Car
-> Consider a modern self-driving vehicle system:
-> 
-> **Agency Capabilities:**
-> - Perceive environment through sensors
-> - Process traffic patterns and road conditions
-> - Calculate optimal routes
-> - Make real-time driving decisions
-> 
-> **Autonomy Levels:**
-> - Level 0: No automation (human drives)
-> - Level 1-2: Driver assistance (AI helps)
-> - Level 3-4: Conditional automation (AI drives with human backup)
-> - Level 5: Full autonomy (AI drives independently)
-> 
-> A car might possess advanced agency (capable of fully autonomous driving) but operate at a lower autonomy level (requiring human approval for certain actions) due to regulatory, safety, or design choices.
+:::tip[Real-World Analogy: The Self-Driving Car]
+
+Consider a modern self-driving vehicle system:
+
+**Agency Capabilities:**
+- Perceive environment through sensors
+- Process traffic patterns and road conditions
+- Calculate optimal routes
+- Make real-time driving decisions
+
+**Autonomy Levels:**
+- Level 0: No automation (human drives)
+- Level 1-2: Driver assistance (AI helps)
+- Level 3-4: Conditional automation (AI drives with human backup)
+- Level 5: Full autonomy (AI drives independently)
+
+A car might possess advanced agency (capable of fully autonomous driving) but operate at a lower autonomy level (requiring human approval for certain actions) due to regulatory, safety, or design choices.
+
+:::
 
 ## 3. The Importance of Autonomy in AI Agents
 
