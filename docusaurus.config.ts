@@ -75,7 +75,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'White Paper',
+      title: 'Whitepaper',
       logo: {
         alt: 'White Paper',
         src: 'img/logo.svg',
