@@ -21,7 +21,29 @@ This section provides precise definitions for key terms used throughout this pap
 ### 2.1 Core Components
 
 #### AI Agents and Users
-**AI Agents** are compound software systems that consist of:
+
+```mermaid
+graph TB
+    %% User and Agent relationship
+    U("🧑‍💼 User<br><small>(Human or AI)</small>")
+    A["🤖 AI Agent"]
+
+    U -- issues requests --> A
+    U -- defines<br>objectives<br>& contraints --> A
+    U -- monitors<br>& evaluates --> A
+
+```
+
+An **AI agent** is a software entity that perceives its environment, makes autonomous decisions using artificial intelligence, and acts on behalf of users or systems to achieve defined or adaptive goals.
+
+**Key Features:**
+- **Perceptive:** Collects and processes data from its environment.
+- **Goal-Oriented:** Pursues objectives or optimizes defined reward functions.
+- **Autonomous:** Operates with minimal human intervention, adapting through learning.
+- **Collaborative:** Can coordinate with other agents to solve complex, multi-step tasks.
+- **Cognitive:** Exhibits reasoning, planning, and memory to interact effectively and automate processes.
+
+are compound software systems that consist of: [^1]
 - One or more AI models as core components
 - Environmental sensors or data inputs
 - Decision-making mechanisms
@@ -101,7 +123,20 @@ While higher autonomy offers significant benefits, it also presents challenges:
 ## 4. Levels of Autonomy in AI Agents
 
 ### 4.1 Framework Overview
+
 Based on recent research, AI agent autonomy can be classified into five distinct levels, each characterized by the role of the user in the interaction:
+
+#### Quick Reference: Autonomy Levels Diagram
+
+```mermaid
+flowchart TD
+	L1["Level 1: User as Operator\n- User directs and makes decisions\n- Agent acts on instructions\nExamples: ChatGPT Canvas, Microsoft Copilot"]
+	L2["Level 2: User as Collaborator\n- Collaborative planning and execution\n- Shared control\nExamples: OpenAI Operator, Cocoa"]
+	L3["Level 3: User as Consultant\n- Agent leads planning and execution\n- User provides expertise\nExamples: Gemini Deep Research, GitHub Copilot Agent"]
+	L4["Level 4: User as Approver\n- Agent operates independently\n- User approves high-risk actions\nExamples: SWE Agent, Devin"]
+	L5["Level 5: User as Observer\n- Full autonomy, monitoring only\n- Emergency controls\nExamples: Voyager, The AI Scientist"]
+	L1 --> L2 --> L3 --> L4 --> L5
+```
 
 #### Level 1: User as Operator
 - User directs and makes decisions
@@ -154,5 +189,6 @@ As AI agents become more autonomous, several considerations become crucial:
 ## 6. Conclusion
 Understanding the distinctions between AI agents, agentic AI, autonomy, and agency is crucial for the future development of artificial intelligence. As we move toward higher levels of autonomy, careful consideration must be given to the design, implementation, and governance of these systems. The framework of autonomy levels provides a structured approach to developing and deploying AI agents while maintaining appropriate human oversight and control.
 
-## References
-1. [Feng, K. J., McDonald, D. W., & Zhang, A. X. (2025). Levels of Autonomy for AI Agents. arXiv preprint arXiv:2506.12469.](https://arxiv.org/abs/2506.12469) | [PDF](https://arxiv.org/pdf/2506.12469)
+---
+
+[^1]: [Feng, K. J., McDonald, D. W., & Zhang, A. X. (2025). Levels of Autonomy for AI Agents. arXiv preprint arXiv:2506.12469.](https://arxiv.org/abs/2506.12469) | [PDF](https://arxiv.org/pdf/2506.12469)
