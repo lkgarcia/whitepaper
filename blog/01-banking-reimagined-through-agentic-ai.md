@@ -56,7 +56,12 @@ Agentic AI – AI systems endowed with autonomous decision-making – promises t
 
 ## Introduction
 
-The banking sector is experiencing rapid innovation in artificial intelligence. Recent advances in **generative AI** (e.g. large language models capable of producing human-like text) have already begun to augment customer service, fraud detection, and more. Now, a new evolution is underway toward **“agentic AI,”** where AI systems don’t just inform humans but can **take action** on their own. In banking, this means moving beyond static chatbots or decision support tools to AI-driven agents that can autonomously perform tasks – from executing transactions to answering complex customer requests – all while navigating the bank’s systems and rules. This paradigm shift carries significant implications for retail banking: it offers the potential for unprecedented efficiency and 24/7 personalized service, but also demands careful design to ensure compliance, security, and trust. In this paper, we explore what agentic AI is, how it can be applied in banking, a forward-looking scenario of agents in action, current industry developments, and recommendations for banks to adopt these technologies responsibly.
+The banking sector is experiencing rapid innovation in artificial intelligence. Recent advances in **generative AI** (e.g. large language models capable of producing human-like text) have already begun to augment customer service, fraud detection, and more.
+
+> *By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate.*  
+> *Gartner, 2025[^6]*
+
+Now, a new evolution is underway toward **“agentic AI,”** where AI systems don’t just inform humans but can **take action** on their own. In banking, this means moving beyond static chatbots or decision support tools to AI-driven agents that can autonomously perform tasks – from executing transactions to answering complex customer requests – all while navigating the bank’s systems and rules. This paradigm shift carries significant implications for retail banking: it offers the potential for unprecedented efficiency and 24/7 personalized service, but also demands careful design to ensure compliance, security, and trust. In this paper, we explore what agentic AI is, how it can be applied in banking, a forward-looking scenario of agents in action, current industry developments, and recommendations for banks to adopt these technologies responsibly.
 
 ## Technical Fundamentals of Agentic AI
 
@@ -100,15 +105,15 @@ sequenceDiagram
     participant CompAgent as Compliance AI Agent
     participant Core as Core Banking System
 
-    User-&gt;&gt;CAgent: "Please transfer $50k abroad"
-    CAgent-&gt;&gt;BAgent: Send transfer request (amount, recipient, etc.)
-    BAgent-&gt;&gt;CompAgent: Perform AML/KYC compliance check
-    CompAgent--&gt;&gt;BAgent: Approved (no issues found)
+    User->>CAgent: "Please transfer $50k abroad"
+    CAgent->>BAgent: Send transfer request (amount, recipient, etc.)
+    BAgent->>CompAgent: Perform AML/KYC compliance check
+    CompAgent-->>BAgent: Approved (no issues found)
     Note over CompAgent,BAgent: *If flagged, human<br/>compliance review is triggered*
-    BAgent-&gt;&gt;Core: Execute transfer transaction
-    Core--&gt;&gt;BAgent: Transaction successful
-    BAgent-&gt;&gt;CAgent: Confirm completion (details & receipt)
-    CAgent--&gt;&gt;User: "Transfer completed successfully!"
+    BAgent->>Core: Execute transfer transaction
+    Core-->>BAgent: Transaction successful
+    BAgent->>CAgent: Confirm completion (details & receipt)
+    CAgent-->>User: "Transfer completed successfully!"
 ```
 
 **Benefits of this agentic interaction:** This scenario showcases several potential benefits of agentic AI in retail banking:
@@ -187,10 +192,12 @@ For banking leaders, the prudent course is to proactively explore agentic AI’s
 
 [^1]: Deloitte Insights (2025). _How banks can supercharge intelligent automation with agentic AI_. Definition of agentic AI and its proactive, autonomous capabilities.
 
-[^1]: Gartner Press Release (2025) – via CMSWire. _Agentic AI Set to Transform Customer Service & Support_ (March 5, 2025). Prediction that by 2029, 80% of common service issues will be resolved autonomously by AI.
+[^2]: Gartner Press Release (2025) – via CMSWire. _Agentic AI Set to Transform Customer Service & Support_ (March 5, 2025). Prediction that by 2029, 80% of common service issues will be resolved autonomously by AI.
 
 [^3]: Posh AI Blog (2025). _Generative AI vs Agentic AI in Banking: What Sets Them Apart?_ Explanation of how agentic AI can plan and execute tasks versus generative AI’s content generation.
 
 [^4]: Reuters (2025). _“Over 40% of agentic AI projects will be scrapped by 2027, Gartner says”_ (June 25, 2025). Highlights hype versus reality: many current projects are PoCs driven by hype, lack of mature ROI.
 
 [^5]: Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439). Discusses challenges of agentic systems, noting the need for human-in-the-loop oversight and guardrails to handle errors, unpredictable behaviors, and to ensure safety.
+
+[^6]: [Gartner Press Release (2025). Top Predictions for IT Organizations and Users in 2026 and Beyond.](https://www.gartner.com/en/newsroom/press-releases/2025-10-21-gartner-unveils-top-predictions-for-it-organizations-and-users-in-2026-and-beyond)
