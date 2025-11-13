@@ -47,6 +47,7 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
+          routeBasePath: '/',
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -75,11 +76,11 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Whitepaper',
-      logo: {
-        alt: 'White Paper',
-        src: 'img/logo.svg',
-      },
+      title: 'WHITE PAPER',
+      // logo: {
+      //   alt: 'White Paper',
+      //   src: 'img/research-paper-2.png',
+      // },
       items: [
         {
           type: 'docSidebar',
