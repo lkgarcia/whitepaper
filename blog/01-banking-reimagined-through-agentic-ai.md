@@ -86,55 +86,32 @@ Together, these components enable a cycle of *perceive → decide → act*. The 
 
 While advancing quickly, fully autonomous banking agents remain in early stages. Most current uses are narrow—like basic bots or single-step tasks—due to the difficulty of reliably managing complex workflows[^3]. Research shows that even top-tier models struggle with domain knowledge and multi-step reasoning, lagging far behind human experts[^4]. Realizing the full vision requires further progress in reasoning, reliability, and system integration.
 
+## Future in Action: Agent-to-Agent Customer Service Interaction
+
+![Agentic AI Concept](/img/agentic-ai-concept.svg)
+
+This scenario illustrates how AI agents in retail banking can autonomously collaborate to fulfill a high-value customer request—such as transferring $50,000 internationally—while embedding compliance and oversight.
+
+1. **Customer Agent Initiates:** The customer’s AI assistant sends a transfer request to the bank’s service agent.
+2. **Service Agent Plans:** It authenticates the request and detects the need for a compliance check.
+3. **Compliance Agent Reviews:** This agent screens the transaction for AML/KYC issues and flags concerns if needed.
+4. **Decision Point:** If approved, the process proceeds. If flagged, it escalates to a human or requests more data.
+5. **Transfer Execution:** The service agent completes the transfer via core banking APIs.
+6. **Confirmation:** The service agent notifies the customer’s AI, which relays the result to the user.
+
+**Benefits:**
+
+* **Seamless and Fast:** Full automation delivers near-instant execution, reducing reliance on manual steps.
+* **Personalized Experience:** The customer’s AI communicates in their preferred format, streamlining interaction.
+* **Operational Efficiency:** Multi-step workflows are handled autonomously, freeing human staff for complex tasks. Gartner projects 80% of service issues could be agent-resolved by 2029, cutting costs by up to 30%[^5].
+* **Regulatory Consistency:** Compliance is embedded, auditable, and enforced uniformly, with human-in-the-loop controls for exceptions.
+
+
 :::danger BOOKMARK
 
 This is where review ended.
 
 :::
-
-## Visionary Scenario: Agent-to-Agent Customer Service Interaction
-
-![Agentic AI Concept](/img/agentic-ai-concept.svg)
-
-To concretely illustrate agentic AI in action, consider a **future retail banking scenario** where multiple AI agents collaborate to serve a customer’s request. In this scenario, a customer has an AI assistant of their own, and the bank employs AI agents on its side for customer service and compliance checks. Let’s walk through a step-by-step interaction:
-
-1. **Customer’s AI Assistant Initiates a Request:** A banking customer uses their personal AI assistant (running on their phone or smart device) to handle a task. For example, the user says, *“I need to transfer $50,000 from my savings to an overseas account.”* The customer’s AI agent formulates this request in the bank’s required format and sends it to the bank’s service agent. (Input: transfer details including amount, origin/destination accounts, etc.)
-
-2. **Bank’s Service Agent Receives and Plans:** The bank’s AI **service agent** (think of it as the bank’s autonomous customer service representative) authenticates the request and breaks it down into necessary steps. It recognizes that a large international transfer requires a compliance check (for anti-money-laundering rules) before execution. The service agent thus decides to invoke a specialized compliance agent as the next step.
-
-3. **Compliance Agent Performs Regulatory Checks:** The bank’s **compliance AI agent** is designed to analyze transactions for potential violations of regulations or fraud indicators. The service agent passes the transfer details to this compliance agent. The compliance agent checks the recipient against sanctions lists, analyzes the transfer pattern for fraud risk, and ensures the transaction meets KYC/AML guidelines. (It may access internal databases and external watchlists as tools.) The outcome might be either “approved” (no issues found) or a flagged alert if something looks suspicious.
-
-4. **Decision Point – Compliance Outcome:** If the **compliance agent approves** the transfer (no red flags), it signals the all-clear to the service agent. If the compliance agent **flags a concern** – say the recipient is on a watchlist or the amount is unusual for the customer’s profile – it will alert the service agent that additional review is needed. In a flagged case, the service agent might escalate to a human compliance officer or ask the customer’s agent for additional information (introducing a human-in-the-loop for final decision). For our successful scenario, let’s assume the compliance check passes.
-
-5. **Execution of Transfer:** Upon approval, the bank’s service agent proceeds to execute the transfer by interacting with the core banking system. The service agent uses its tool/API access to debit the customer’s savings account and initiate the international payment through the appropriate payments network. This may involve another internal **payment agent** or direct API call – either way, the action is carried out without a human teller. The core banking system returns a confirmation once the transaction is completed.
-
-6. **Response to Customer’s Agent:** The service agent compiles a response back to the customer’s AI assistant. It might include a confirmation number, exchange rate applied, fees, and a message like “Transfer of $50,000 to XYZ Bank (recipient account) has been completed successfully.” The customer’s AI assistant receives this and in turn notifies the human customer in their preferred format (e.g. a spoken confirmation or a mobile notification). If any additional steps are required (for instance, if the transfer was flagged and needs user input), the agents handle that dialogue accordingly (which in a failure case could involve informing the user of a delay or requesting documents).
-
-```mermaid
-sequenceDiagram
-    participant User as Customer
-    participant CAgent as Customer's AI Assistant
-    participant BAgent as Bank's Service Agent
-    participant CompAgent as Compliance AI Agent
-    participant Core as Core Banking System
-
-    User->>CAgent: "Please transfer $50k abroad"
-    CAgent->>BAgent: Send transfer request (amount, recipient, etc.)
-    BAgent->>CompAgent: Perform AML/KYC compliance check
-    CompAgent-->>BAgent: Approved (no issues found)
-    Note over CompAgent,BAgent: *If flagged, human<br/>compliance review is triggered*
-    BAgent->>Core: Execute transfer transaction
-    Core-->>BAgent: Transaction successful
-    BAgent->>CAgent: Confirm completion (details & receipt)
-    CAgent-->>User: "Transfer completed successfully!"
-```
-
-**Benefits of this agentic interaction:** This scenario showcases several potential benefits of agentic AI in retail banking:
-
-- **Seamless Service:** The customer’s request is handled end-to-end in a matter of seconds by AI, without waiting for human office hours or manual processing. Both the customer and bank benefit from faster turnaround.
-- **Personalization and Convenience:** The customer’s own AI assistant communicates in the user’s preferred style and can manage the interaction, making banking more convenient. The bank’s agent can handle requests in natural language and adapt to complex multi-step tasks, enhancing user experience.
-- **Efficiency and Cost Savings:** Automation of multi-step processes (compliance checking, payment execution, confirmation) reduces the workload on human staff. Routine transfers or service queries could be almost entirely handled by agents, freeing employees to focus on more complex or high-value activities. Gartner predicts that by 2029, up to **80% of common customer service issues could be autonomously resolved by agentic AI systems**, potentially cutting operational costs by 30%[^5]. This illustrates the significant efficiency gains at stake.
-- **Consistency and Compliance:** The compliance agent applies regulatory checks uniformly using up-to-date rules and data. This reduces the risk of human error or oversight in compliance screening. Every step the agents take can be logged for audit purposes. The scenario also allows for **built-in checkpoints** – for example, if something abnormal is detected, the process pauses for human intervention, ensuring control is maintained at critical points.
 
 ## Industry Trends in Agentic AI Adoption
 
