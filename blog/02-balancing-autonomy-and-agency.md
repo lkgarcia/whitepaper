@@ -111,25 +111,25 @@ To assess risk, it's critical to define **agency** and **autonomy** in AI system
 
 Agency and autonomy are distinct **governance levers**. An agent may have low agency (e.g., limited tools) but high autonomy (e.g., runs unsupervised), or vice versa. Seeking approval signals limited autonomy; modifying systems reflects greater agency. Disentangling the two helps tailor oversight to the nature and risk of the task.
 
+## Levels of Autonomy in AI Agents
+
+Autonomy in AI agents exists on a spectrum, not as an all-or-nothing property. A five-level framework—ranging from **Operator** to **Observer**—is commonly used to describe how much independence an agent has in decision-making and execution[^d]. This structure clarifies the balance of control between human and AI across different use cases:
+
+| **Level** | **Role**     | **Description**                                                                        | **Example**                                                               |
+| :-------- | :----------- | :------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
+| **1**     | Operator     | AI acts only when explicitly instructed by a human.                                    | A task bot triggered manually to retrieve reports.                        |
+| **2**     | Collaborator | AI assists users but requires frequent guidance or intervention.                       | A chatbot that drafts replies but needs staff approval to send them.      |
+| **3**     | Consultant   | AI performs defined tasks with some independence, deferring major decisions to humans. | A credit risk agent that recommends approvals reviewed by an underwriter. |
+| **4**     | Approver     | AI operates independently in routine tasks, escalating exceptions to humans.           | A fraud system that blocks common cases but flags unusual ones.           |
+| **5**     | Observer     | AI functions autonomously end-to-end, with little to no human involvement.             | An IT monitoring agent that restarts servers without human input.         |
+
+In real-world deployments, an agent's autonomy may vary by task or context. For instance, a customer service agent might autonomously answer basic queries but escalate sensitive topics to a human. Many agent designs incorporate such dynamic shifts in autonomy to match risk levels and regulatory expectations.
+
+This tiered approach also aligns with emerging concepts like **AI autonomy certification**, which may eventually help institutions communicate an agent's oversight level more transparently[^d]. While formal standards are still evolving, defining and documenting each agent’s autonomy level can support clearer governance, risk assessment, and stakeholder alignment.
+
 :::danger Bookmark
 Review ends here.
 :::
-
-## Levels of Autonomy in AI Agents
-
-As mentioned, one way to systematically manage risk is by defining **levels of autonomy** for AI agents. Rather than treating autonomy as an all-or-nothing property, banks can adopt a tiered approach like the **five-level framework** (Operator → Collaborator → Consultant → Approver → Observer) derived from recent research[^d]. This user-centric model forces clarity about *who* is in control at each level.
-
-| **Level** | **Role**       | **Description** |
-|:-----------|:----------------|:-----------------|
-| **1**     | Operator       | The human controls every action; the AI acts only when instructed—like a remote-controlled tool. |
-| **2**     | Collaborator   | The agent works alongside a human, taking some initiative but with frequent human intervention. |
-| **3**     | Consultant     | The agent can recommend or perform limited actions but defers major decisions to human oversight. |
-| **4**     | Approver       | The agent acts independently in most tasks, involving humans only for key approvals or exceptions. |
-| **5**     | Observer       | The agent is fully autonomous; humans monitor passively, if at all, with full decision authority delegated. |
-
-Notably, **the appropriate level of autonomy can vary by use case and even by transaction**. A single AI agent might dynamically shift levels: a “virtual financial advisor” agent could operate autonomously for routine questions (Level 4, providing advice from approved materials), but drop to a lower autonomy level (Level 2 or 3) when a question involves sensitive areas like regulated investment advice or a customer complaint, by routing a human advisor into the loop. Designing agents to *gracefully hand off* or involve humans when certain triggers occur is a critical safety feature. Many agent failures reported in industry stem from lack of such provisions – systems that tried to persist in fully autonomous mode even when they were out of their depth.
-
-The levels-of-autonomy concept also aligns with emerging **“AI autonomy certificates”** proposals[^d]. In the future, we may see external certification or labeling of AI agents at a certain autonomy level (analogous to levels of autonomous driving for vehicles). For example, a bank might certify an agent at Level 3 autonomy for handling customer onboarding, meaning it has been evaluated to always seek human approval for any non-standard decision. Regulators and auditors could then understand at a glance how much freedom that AI has. While such certification frameworks are nascent, the takeaway for banks now is to **explicitly decide and document the autonomy level of each AI agent** deployed. It should be a conscious risk decision, not an accidental byproduct of technology.
 
 ## Agency vs. Autonomy as Risk Dimensions
 
