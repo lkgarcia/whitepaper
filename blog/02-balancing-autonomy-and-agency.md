@@ -97,38 +97,23 @@ Regulators and executives are taking notice. In 2024, the U.S. Consumer Financia
 
 This white paper focuses on **banking** use cases and the emerging risks of AI agents. We explore how **agency** and **autonomy** enable powerful capabilities but also introduce new failure modes[^d]. We offer practical guidance—from design choices (e.g. limiting autonomy) to governance practices (e.g. auditability, human oversight)—and present a three-phase roadmap (pilot → scale → govern) to help banks deploy agentic AI responsibly, driving innovation **without** compromising compliance, security, or trust.
 
-## Technical Fundamentals: Definitions of Agency and Autonomy
+## Core Concepts: Agency and Autonomy in AI Agents
 
-Before diving into risks, it is essential to define **agency** and **autonomy** in the context of AI agents, and understand how they relate:
+To assess risk, it's critical to define **agency** and **autonomy** in AI systems and understand their roles in agent behavior.
 
 ### What is Agency?
 
-*Agency* in AI refers to a system’s ability to act purposefully, make decisions, and influence its environment on behalf of users or organizations. Unlike rule-based bots, agentic AIs can interpret goals, take initiative, and adapt strategies—even in novel situations. Researchers describe agency through traits like **goal persistence**, **independent operation**, and **preference rigidity**[^e].
-
-For example, a low-agency customer service AI might just retrieve information, while a high-agency version could analyze financial data, select loan options, and begin processing—without step-by-step instructions. This capability adds value but also risk: if misaligned, the agent might act beyond its remit, such as offering advice or initiating transactions.
-
-Importantly, agency differs from intelligence. A smart model may lack agency if it only acts on command, while a simpler system may act autonomously within its scope. Agency is about **decision-making authority**, and banks must align it with their risk tolerance[^e].
+*Agency* refers to an AI’s capacity to act purposefully, make decisions, and influence its environment on behalf of users. Unlike rule-based bots, agentic systems can interpret goals, take initiative, and adapt strategies—even in novel situations[^e]. For example, a high-agency service agent might analyze financial data and initiate loan processing, while a low-agency one simply retrieves information. Greater agency enables flexibility but increases risk if misaligned with intent or policy.
 
 ### What is Autonomy?
 
-*Autonomy* refers to how independently an AI agent can operate without human input. It reflects **the degree of human oversight designed into its workflow**—from agents that require step-by-step human approval to those that act end-to-end with minimal intervention.
+*Autonomy* measures how independently an agent operates without human input. It reflects the level of oversight built into its workflow—from fully supervised to end-to-end execution. Most bank use cases today adopt low to moderate autonomy to preserve control in high-risk scenarios. For instance, a chatbot may handle basic queries autonomously but escalate fraud concerns to a human.
 
-Autonomy is not binary but a spectrum. Most banking applications today remain at low to moderate levels of autonomy, reflecting the need for oversight in high-risk areas. For example, a trading agent may autonomously handle routine transactions but require human approval for high-risk trades. Similarly, a chatbot might answer common questions independently but escalate fraud or complaints to a human.
-
-Banks should **align an agent’s autonomy with the risk of the task**, ensuring critical decisions always include appropriate checkpoints[^d].
+Agency and autonomy are distinct **governance levers**. An agent may have low agency (e.g., limited tools) but high autonomy (e.g., runs unsupervised), or vice versa. Seeking approval signals limited autonomy; modifying systems reflects greater agency. Disentangling the two helps tailor oversight to the nature and risk of the task.
 
 :::danger Bookmark
 Review ends here.
 :::
-
-### How Agency and Autonomy Relate to AI Agents
-
-*Agency* defines what an AI can decide or do; *autonomy* defines how independently it operates. Both shape risk. High agency and high autonomy enable powerful capabilities—but also raise the chance of unchecked errors. A safer setup might combine high agency (complex decision-making) with low autonomy (human approval required).
-
-For example, a **fraud detection agent** with high agency might decide how to respond to suspicious activity. If given high autonomy, it could freeze accounts without review—stopping fraud quickly but risking false positives or misuse. A safer approach limits autonomy: low-risk cases are automated; high-risk ones escalate to humans. Low-agency systems, by contrast, may only flag issues for manual review—safer, but slower.
-
-Both dimensions are **levers for managing AI risk**. Real-world failures, like chatbots making account changes without escalation[^b], show how excess autonomy can cause harm. Similarly, poorly scoped agency can lead to bias or compliance issues. Banks must align agency and autonomy levels with the risk of each application.
-
 
 ## Levels of Autonomy in AI Agents
 
