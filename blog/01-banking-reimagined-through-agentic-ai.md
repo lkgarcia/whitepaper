@@ -94,7 +94,7 @@ This is where review ended.
 
 ## Visionary Scenario: Agent-to-Agent Customer Service Interaction
 
-![Agentic AI Concept](/img/agentic-ai-concept.drawio.svg)
+![Agentic AI Concept](/img/agentic-ai-concept.svg)
 
 To concretely illustrate agentic AI in action, consider a **future retail banking scenario** where multiple AI agents collaborate to serve a customer’s request. In this scenario, a customer has an AI assistant of their own, and the bank employs AI agents on its side for customer service and compliance checks. Let’s walk through a step-by-step interaction:
 
