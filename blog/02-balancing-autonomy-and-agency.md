@@ -24,14 +24,16 @@ prompt: |
 
   Length & structure:
     - Target: ~1200–1600 words.
-    - Use headings, short paragraphs, bullets, and one illustrative diagram using Mermaid.
-    - Include inline citations with footnotes in Markdown (e.g., [^2]) for claims and references.
+    - Use headings, short paragraphs, bullets (only when appropriate), and one illustrative diagram using Mermaid.
+    - Include inline citations with footnotes in Markdown (e.g., [^2]) and links to source for claims and references.
+      > Example:
+      > `[^6]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)`
     - Do not bold headings.
 
   Sections (required):
     - 1) Executive summary (100–150 words)
     - 2) Introduction: context and scope (retail banking focus)
-    - 3) Technical fundamentals: definitions
+    - 3) Technical fundamentals: definitions (lean more towards practical operational implications for banks)
       - What is agency?
       - What is autonomy?
       - How do they relate to AI agents?
@@ -39,8 +41,8 @@ prompt: |
       - Levels of Autonomy in AI Agents (refer to source: arXiv:2506.12469)
       - Agency vs Autonomy as Risk Dimensions (risks from too much agency vs too much autonomy)
       - Banking regulation on AI agents (from news or include prediction from Gartner)
-      - Real-life examples from news of incidents due to poor governance.
-    - 5) Recommendations and 3-point roadmap (short-, mid-, long-term):
+      - Real-life examples from news of incidents due to poor governance. (source from public news in the past 2 years for incidents involving AI governance failures)
+    - 5) Recommendations and 3-point roadmap (short-, mid-, long-term) -- (assume bank that is starting from scratch on AI agents):
       - Balancing the Two Levers (agency and autonomy)
       - Risk analysis and failure modes: examples mapped to architecture/components
       - Step-by-step illustrative scenario: customer agent → service agent → compliance agent (include inputs, outputs, decision points, and human escalation rules)
@@ -48,9 +50,20 @@ prompt: |
 
   Examples & requirements:
     - Focus on retail banking use cases (payments, account servicing, dispute handling, fraud monitoring).
-    - Include one Mermaid diagram illustrating either the agent architecture or the multi-agent interaction flow.
 
   Constraints: Avoid vendor promotion, avoid unrealistic timelines, and qualify speculative claims. Emphasize data protection, privacy-by-design, auditability, explainability, and human-in-the-loop controls for high-risk decisions.
+
+  Deep Research clarifications:
+    - Tone for both senior stakeholders and technical depth for product/risk teams
+    - roadmap to be geared specifically toward large incumbent banks balancing technology scaling or regulatory alignment
+    - For the Mermaid diagram: add both process flow (e.g., agent escalation) and system architecture (e.g., control layers)
+    - Do you want the white paper to include references to specific bank names or should all examples remain anonymized unless widely publicized? Anwer: anonymized.
+    - Should the roadmap focus on a particular jurisdiction's regulatory environment (e.g., US, EU, UK), or be jurisdiction-neutral? Answer: jurisdiction-neutral.
+    - Do you have any preferences for the types of agentic systems in scope (e.g., customer-facing chatbots, internal fraud monitoring agents, generative agents for servicing)? Answer: mix of customer-facing and internal agents.
+    - Like me to include citations to specific research sources from arXiv and analyst reports (e.g., Gartner), or should those be kept general unless highly relevant? Answer: include specific citations where relevant.
+    - Like me to include a downloadable diagram image alongside the Mermaid syntax, or just the Mermaid code block? Answer: just the Mermaid code block.
+    - Like me to prioritize any specific agentic workflows (e.g., payment dispute resolution, onboarding KYC automation, fraud detection, etc.) in the scenario and risk mapping? Answer: payment dispute resolution.
+    - Like me to include real-world news citations about AI governance failures from specific banks or tech vendors, or keep those anonymized as well unless already widely publicized? Answer: anonymized unless widely publicized.
 
   Sources:
     - ArXiv preprints and peer-reviewed research
@@ -210,3 +223,192 @@ Agentic AI offers powerful opportunities for retail banking, but its operational
 [^4]: MIT Technology Review, “Automated Moderation Failures in Large Platforms,” 2023.  
 [^5]: Financial Times, “Algorithmic Trading Cascades Trigger Market Volatility,” 2022.  
 [^6]: University of Cambridge, “Risks of Autonomous Financial Chatbots,” 2023.
+
+---
+
+# Version: 2
+
+# Balancing Autonomy and Agency: Managing Emerging Risks in AI Agents
+
+![image-center](https://placehold.co/800x400?text=Hero+Image)
+
+## Executive Summary
+
+Autonomous AI agents offer major efficiency gains but introduce new risk dimensions. This paper defines two critical factors—**agency** (decision-making power) and **autonomy** (independence from human oversight)—and explains why balancing them is essential. We map common failure modes to agent architectures and provide a practical roadmap for banks to pilot, scale, and govern agentic AI safely. Key controls include auditability, human-in-the-loop checkpoints, and constrained tool access. A step-by-step scenario illustrates how agents can coordinate safely in high-stakes workflows like payment disputes. With thoughtful design and proactive governance, banks can unlock agentic AI’s value while managing its risks.
+
+While autonomous AI agents promise enormous efficiency and innovation, they also introduce new dimensions of risk. This paper defines two key dimensions – **agency** (an AI’s decision-making power on a user’s behalf) and **autonomy** (its operational independence from humans) – and explains why balancing both is critical. We map common failure modes (from biased decisions to rogue transactions) to agent designs and workflows, showing how unchecked agency or excessive autonomy can lead to compliance breaches, security incidents, or customer harm. We then provide a pragmatic roadmap for banks to pilot, scale, and govern AI agents safely. This includes concrete **governance controls** (audit trails, oversight roles, “human-in-the-loop” checkpoints) and technical design patterns (limiting tool access, tiered approval levels) to ensure AI agents augment – not endanger – banking operations. An illustrative multi-agent scenario (a customer dispute chatbot coordinating with a back-office service agent and a compliance agent) demonstrates how to enforce human escalation and accountability at each step. In sum, with proactive risk management and thoughtful design, banks can harness agentic AI’s benefits while containing its risks.
+
+## Introduction
+
+In the previous paper in this series, _Banking Reimagined Through Agentic AI_, we explored the next evolution of artificial intelligence—Agentic AI—and its potential to transform banking operations and customer service by enabling AI agents to act on behalf of customers and employees.
+
+Retail banking is undergoing an AI-driven transformation, with **agentic AI systems** being piloted for everything from handling customer inquiries to detecting fraud. In 2025, nearly 50% of banks reported creating new “AI supervisor” roles to oversee these agents, reflecting how quickly adoption is rising. Use cases span **customer-facing chatbots** that automate service requests (reported by 75% of banks), **fraud detection agents** (two-thirds of banks), and even internal “digital employee” agents that assist with loan processing or IT tasks. This industry optimism about agentic AI’s potential – estimated at up to $450 billion of value in coming years – is tempered by growing awareness of the unique risks involved. Unlike traditional software or simple bots, AI agents can make complex decisions, evolve behaviors, and interact with multiple systems, sometimes in **unpredictable ways**.
+
+Regulators and executives are paying close attention. In 2024, regulators began warning that deficient AI governance can lead to serious compliance violations – for example, the U.S. Consumer Financial Protection Bureau noted that poorly designed banking chatbots have failed to recognize customer disputes or provided incorrect information, potentially violating consumer protection laws[^1]. Globally, authorities are tightening expectations for AI oversight. Notably, Singapore’s central bank (MAS) in 2025 proposed that boards of directors be held directly accountable for AI-related failures, citing concerns that **“AI agents with greater autonomy and tool access could amplify risks”** if not properly governed[^2]. Similarly, upcoming regulations (e.g. the EU’s AI Act) classify many financial AI applications as “high risk,” mandating strict controls on privacy, fairness, and human accountability.
+
+Against this backdrop, this white paper focuses on **retail banking** use cases and the emerging risks of AI agents. We examine how **agency** and **autonomy** in AI systems are double-edged swords – enabling powerful new capabilities while introducing new failure modes[^3]. We then outline practical guidance for banks: from technical design choices (e.g. constraining an agent’s autonomy level) to organizational practices (e.g. auditability, human-in-the-loop checkpoints) that can mitigate these risks. Finally, we propose a three-phase roadmap (pilot → scale → mature governance) to help large incumbent banks deploy agentic AI responsibly. The goal is to empower innovation in customer service, payments, and operations **without** sacrificing compliance, security, or trust.
+
+## Technical Fundamentals: Definitions of Agency and Autonomy
+
+Before diving into risks, it is essential to define **agency** and **autonomy** in the context of AI agents, and understand how they relate:
+
+### What is Agency?
+
+In AI terms, *agency* refers to an AI system’s capacity to act with purpose, make decisions, and influence its environment on behalf of a user or organization. An agentic AI doesn’t just passively follow a single predetermined script – instead, it can interpret goals, take initiative in choosing actions, and adapt its strategy to achieve objectives. Researchers characterize agency as a multi-dimensional property of AI systems, encompassing factors like the system’s **preference rigidity**, **independent operation**, and **goal persistence**[^4]. In simple terms, an AI with high agency can set intermediate goals and execute flexible tactics to meet an end, even if it encounters novel situations.
+
+For example, consider a *customer service AI agent* handling loan requests. A low-agency system might only respond to specific commands (“fill out this form”) or retrieve information when asked. In contrast, a high-agency agent could proactively gather a client’s financial data, decide which loan options best fit the client’s profile, and initiate the next steps – all without explicit step-by-step instructions. The high-agency agent “understands” the broader goal (getting the loan approved) and can autonomously break it down into sub-tasks. This agentic behavior is what makes AI agents powerful, but it also means the AI is making judgments that used to be made by humans – introducing **new risks if those judgments are flawed or misaligned**. An overly agentic AI might, for instance, start offering financial advice or making transactions beyond its remit if its goals are not properly constrained.
+
+Crucially, agency is *not the same* as raw intelligence or model size. An AI model could be very intelligent (e.g. a large language model with vast knowledge) but have limited agency if it only acts when a human explicitly directs each action. Conversely, a system with modest intelligence could still exhibit agency by taking self-directed actions within a limited domain. Agency is about **decision-making authority**. Banks should treat the level of agency granted to AI systems as a design choice tied to risk appetite[^4]. Granting an agent too much decision latitude without safeguards can lead to outcomes the organization never intended.
+
+### What is Autonomy?
+
+*Autonomy* describes an AI agent’s degree of operational independence – specifically, how freely it can operate without human intervention or approval. An agent’s autonomy is essentially a measure of **how much human oversight is designed into its workflow**. At one extreme, a fully autonomous agent could execute end-to-end processes and make decisions continuously with no humans “in the loop.” At the other extreme, a minimally autonomous system would require explicit human direction or approval at each step (functioning more like a decision-support tool than an independent agent).
+
+Recent research proposes a useful framework of **five levels of autonomy** for AI agents, defined by the role of the human user in the loop[^5]. The levels range from Level 1 (least autonomous) to Level 5 (most autonomous):
+
+- **Level 1 – Operator:** The human operates and micromanages the agent’s every action. The AI only acts as instructed (akin to a remote-controlled tool).
+- **Level 2 – Collaborator:** The agent can perform tasks alongside a human, with the human co-working and intervening frequently. The AI has some initiative but the user actively guides it.
+- **Level 3 – Consultant:** The agent can make recommendations or take limited actions on its own, consulting the human for approval or guidance on major decisions. The human is in an oversight role, not constantly directing every step.
+- **Level 4 – Approver:** The agent operates largely independently and executes tasks, but a human is kept in the loop as an approver for certain critical decisions or exceptions. (The human is mostly hands-off unless the agent requests approval or flags an issue.)
+- **Level 5 – Observer:** The agent is fully autonomous. The human only monitors outcomes passively, if at all. The AI has full decision authority within its domain.
+
+In practice, most bank use cases today are *not* at Level 5 autonomy – nor should they be, given regulatory expectations. For instance, an AI trading agent might be allowed to execute routine trades on its own (perhaps Level 4 autonomy with risk limit checks), but trades above a certain risk threshold must be sent to a human trader for approval. A customer-facing chatbot may handle common queries without human help (Level 4), but if a conversation veers into a complex complaint or a fraud report, the bot should escalate to a human (lowering autonomy to Level 2 or 3 for that interaction). By consciously designing autonomy levels, banks can **calibrate how much control to cede to AI** in different scenarios[^5]. Autonomy is not all-or-nothing; it’s a spectrum that should be matched to the risk of the task.
+
+### How Agency and Autonomy Relate to AI Agents
+
+Agency and autonomy are related but distinct dimensions of an AI agent’s design. Agency is about *what* an AI is empowered to decide or do (its scope of decision-making and goal-setting), whereas autonomy is about *how* an AI operates (the degree of human oversight or involvement). Both influence risk. An agent with high agency *and* high autonomy is the classic “fully autonomous AI” – capable of making significant decisions in an independent manner. This combination maximizes potential utility (the AI can handle complex tasks end-to-end) **but also maximizes risk**: errors or misbehavior can go unchecked. On the other hand, an agent might have high agency (it can make nuanced decisions) but low autonomy (it must get a human sign-off on each decision). That could be a safer configuration for sensitive areas: the AI offers complex recommendations, but a human gatekeeper prevents unauthorized actions.
+
+For example, imagine a **fraud detection agent** that monitors transactions. A high-agency version of this agent might not just flag suspicious transactions but also decide *how* to respond (e.g. block an account, launch an investigation). If we give it high autonomy (no human in loop), it could independently freeze customers’ cards or report cases to regulators. That might stop fraud faster, but it could also act on false positives or even be manipulated (if an attacker tricked the AI). A bank might therefore impose partial autonomy: the agent can initiate a freeze but a human analyst must review within 24 hours to confirm, or low-risk cases are automated while high-risk ones are escalated. In contrast, a low-agency fraud system would merely score transactions and hand off decisions to humans entirely – safer, but less efficient.
+
+The key point is that **both agency and autonomy are levers for risk management**. Excessive autonomy without human checkpoints has already led to notable AI failures. In one publicized case, an “intelligent” customer support chatbot failed to properly escalate a frustrated user’s repeated requests to speak with a human; it kept giving canned responses and even made account changes on its own, until the customer filed a complaint[^1]. Here the AI had too much autonomy in handling a nuanced customer dispute, and not enough oversight or clarity on when to involve a person. Conversely, an AI with a poorly-scoped sense of agency might overstep its bounds – e.g. a lending AI might start re-interpreting credit policies or selectively ignoring certain data in an attempt to optimize approvals, leading to bias or regulatory breaches if not constrained. In summary, **agency defines the breadth and depth of an agent’s decision-making, and autonomy defines the guardrails around those decisions**. Both must be calibrated to a risk level that the bank is comfortable with, considering the specific application.
+
+## Levels of Autonomy in AI Agents
+
+As mentioned, one way to systematically manage risk is by defining **levels of autonomy** for AI agents. Rather than treating autonomy as an all-or-nothing property, banks can adopt a tiered approach like the **five-level framework** (Operator → Collaborator → Consultant → Approver → Observer) derived from recent research[^5]. This user-centric model forces clarity about *who* is in control at each level.
+
+Notably, **the appropriate level of autonomy can vary by use case and even by transaction**. A single AI agent might dynamically shift levels: a “virtual financial advisor” agent could operate autonomously for routine questions (Level 4, providing advice from approved materials), but drop to a lower autonomy level (Level 2 or 3) when a question involves sensitive areas like regulated investment advice or a customer complaint, by routing a human advisor into the loop. Designing agents to *gracefully hand off* or involve humans when certain triggers occur is a critical safety feature. Many agent failures reported in industry stem from lack of such provisions – systems that tried to persist in fully autonomous mode even when they were out of their depth.
+
+The levels-of-autonomy concept also aligns with emerging **“AI autonomy certificates”** proposals[^5]. In the future, we may see external certification or labeling of AI agents at a certain autonomy level (analogous to levels of autonomous driving for vehicles). For example, a bank might certify an agent at Level 3 autonomy for handling customer onboarding, meaning it has been evaluated to always seek human approval for any non-standard decision. Regulators and auditors could then understand at a glance how much freedom that AI has. While such certification frameworks are nascent, the takeaway for banks now is to **explicitly decide and document the autonomy level of each AI agent** deployed. It should be a conscious risk decision, not an accidental byproduct of technology.
+
+## Agency vs. Autonomy as Risk Dimensions
+
+It is helpful to distinguish between risks arising from too much **agency** versus too much **autonomy** in AI systems:
+
+- **Risks of high agency:** An AI with expansive agency is essentially making policy decisions or creative judgments on its own. This can lead to *misalignment* with organizational values or strategies. For instance, a highly agentic trading algorithm might discover a shortcut to boost profit that involves taking on hidden risks or exploiting a loophole – actions a human trader with ethical constraints wouldn’t take. In banking, one acute concern is **algorithmic bias**. If an AI credit-scoring agent has the agency to determine which data to weigh heavily, it might inadvertently learn to systematically favor or disfavor certain demographics, resulting in discrimination. There have been real cases of such bias leading to lawsuits and regulatory investigations. High-agency AIs can also undermine **explainability**: when an agent forms its own complex strategies, it can be hard even for its creators to explain why it made a given decision. This opacity complicates audits and makes it difficult to detect erroneous reasoning or to contest the agent’s decisions – a serious issue if a customer is wrongly denied a loan or flagged as high-risk with no clear explanation.
+
+- **Risks of high autonomy:** High autonomy means an AI is trusted to act without real-time human checks. The primary risk here is **loss of control**. Even a well-intentioned, well-designed agent can err; if it’s fully autonomous, those errors propagate until after the fact. One classic example is the “rogue chatbot” scenario – a customer service AI given too much autonomy that ends up giving harmful advice or divulging sensitive information before a human can intervene. Another autonomy-linked risk is **operational disruption**: an unsupervised agent might trigger a cascade of actions that overload systems or conflict with other processes. Security vulnerabilities are also a concern: a highly autonomous agent often needs broad system access to do its job, which means if the agent is compromised (say, via a prompt injection attack or exploit of the underlying model), an attacker could wreak havoc. Essentially, high autonomy is risky when the AI’s decision quality or security cannot be guaranteed to a very high level. It amplifies the impact radius of any single failure.
+
+It’s important to note that agency and autonomy often go hand-in-hand – truly high-agency systems are typically given more autonomy by design. But you can have one without the other. A low-agency, high-autonomy system (for example, an RPA script that blindly executes tasks 24/7 without oversight) can still cause damage if the context shifts beyond what it was scripted for. Conversely, a high-agency, low-autonomy system (e.g. an AI that devises risk models but requires human approval to implement any changes) might produce a bad recommendation, but the low autonomy ensures a human catches it. From a risk management perspective, **excess autonomy tends to manifest as operational risk, while excess agency manifests as strategic or compliance risk**.
+
+Balancing the two is therefore critical. Banks should ask for each AI solution: *How much agency are we giving it, and how much autonomy?* The answers should be driven by risk analysis. For example, **payments and funds transfer agents** directly handle money – a domain with low error tolerance. One bank might decide to give such an agent very limited agency (it can only execute transfers following a rigid rule set) but relatively high autonomy (it can run automatically 24/7). Another bank might allow more agency (the agent can decide to block or flag unusual transfers on its own) but then reduce autonomy (requiring a human review for any blocked transactions). Both levers can mitigate different risks. We will explore concrete design patterns for adjusting these levers in the Recommendations section.
+
+## Banking Regulation and AI Governance Landscape
+
+Financial regulators worldwide have been increasingly prescriptive about AI governance, implicitly addressing both the agency and autonomy aspects. Although there isn’t yet a unified “AI agent regulation,” various guidelines and enforcement actions signal what is expected of banks deploying such technology.
+
+Notably, regulators emphasize **human accountability and oversight**. Singapore’s MAS proposed in 2025 that boards of financial institutions must *attest to and understand* their AI systems, explicitly including advanced AI agents[^2]. The MAS guidelines enumerate potential AI failure modes – from **“unexpected behavior causing service disruptions”** to **“failure to spot financial crime”** – and warn that greater autonomy (agents with tool access) could *amplify* these risks. This echoes the approach of the European Union’s draft AI Act, which would require high-risk AI (such as credit scoring or fraud detection systems) to have human-in-the-loop controls, transparency, and rigorous testing for bias and robustness. In the United States, while there is no AI-specific federal law for banking yet, existing regulations are being interpreted to cover AI outcomes. For example, fair lending laws hold banks liable for discriminatory outcomes whether a human or an AI made the decision. U.S. regulators (Federal Reserve, OCC, FDIC) have also clarified that banks must apply **model risk management** practices (SR 11-7 guidance) to AI models – meaning independent validation, documentation, and continuous monitoring of AI decision systems similar to how banks govern credit risk models.
+
+We also see proactive guidance focused on **operational risk and consumer protection**. The U.S. CFPB in 2023 highlighted that automated chatbots should not impede customers’ access to fair resolution of problems[^1]. It has hinted at possible enforcement if, for instance, a bank’s AI assistant fails to let a customer easily reach a human agent when requested – tying into existing laws about fair customer service and error resolution. The UK’s FCA and Bank of England, in a 2024 report, noted that while 75% of firms were using AI, many had only a *“partial understanding”* of their AI systems and that data protection, cybersecurity, and fairness were top concerns to address in governance[^7]. Regulators expect banks to *truly understand* their AI agents’ workings (to avoid the “black box” risk) and to implement controls like kill-switches or fallback plans if an AI system behaves erratically.
+
+Another trend is the call for **documentation and auditability** of AI agent decisions. Just as banks document processes and decisions made by humans for compliance, AI should be no exception. Institutions are encouraged to log AI agent actions, decisions, and even rationale (where possible) for later review. This is especially relevant when AI agents collaborate or form part of a workflow – an audit trail might need to show, for example, which agent approved a transaction and on what basis. Some banks have begun creating **“AI registers”** – internal inventories of all AI models/agents in use, along with their purpose, data inputs, known limitations, and the responsible human owner. Such registers will likely become standard, and possibly required by law (the EU AI Act plans to mandate logging and transparency for high-risk AI).
+
+Finally, regulators have hinted at holding banks accountable not just for their own AI, but also for **third-party AI services** they use. If a bank integrates an external AI agent (say for identity verification or document analysis), the bank must ensure that vendor’s system meets the bank’s governance standards. This points to the need for contractual and testing frameworks around AI suppliers – something banks are now familiar with in cloud outsourcing, and will need to extend to AI. In summary, *banks can’t abdicate responsibility to an algorithm.* They must govern AI agents with the same rigor as human employees or traditional software, adapting controls as needed to address the agent’s learning and autonomous capabilities.
+
+## Real-World Examples of AI Governance Failures
+
+While fully autonomous banking agents are new, there have already been cautionary tales underscoring the importance of robust governance:
+
+- **AI Credit Bias and Litigation:** Several large lenders discovered that their AI-driven credit decision systems were exhibiting racial bias – approving fewer minority applicants or charging higher rates, even when credit factors were equivalent. In one widely reported analysis, minority borrowers were found to be significantly more likely to be denied loans or pay more in interest due to AI models[^6]. These outcomes led to lawsuits and regulatory inquiries. The root cause often traced back to training data or objective functions that the agent optimized in a vacuum (high agency without proper ethical constraints). Banks had to scramble to improve model transparency, inject fair-lending rules, and in some cases pay settlements.
+
+- **Unsupervised Customer Service Bots:** In 2023, as banks rolled out advanced chatbots, regulators received consumer complaints that some chatbots were providing misleading or incomplete information and making it hard to reach human help[^1]. One example involved a customer trying to dispute a transaction through a bank’s AI chat agent. The bot confirmed it “had opened a dispute” and told the customer a provisional credit would post in 48 hours – but it never did anything in reality[^1]. The case had to be reopened multiple times, with the bot repeatedly failing to execute the task and not escalating to a live agent, causing the customer significant frustration and potential violation of error-resolution timelines.
+
+- **Rogue Automation Glitches:** Banks have long used scripts and RPA bots, but adding more “intelligence” can introduce new failure modes. In late 2024, a major bank experienced a technical glitch where an automated system temporarily showed $0 balances to 20,000 customers’ accounts, sparking panic[^8]. While that particular incident was attributed to a software update error (not an AI agent), it exemplifies the scale of damage a simple automated action can cause at speed.
+
+- **Data Leakage and Privacy Breaches:** Financial institutions also learned early on that AI tools can leak sensitive data if not properly governed. There have been cases where employees input confidential client information into external AI services (like cloud-based chatbots) which then retained or exposed that data[^9]. In response, many banks in 2023 banned or restricted staff use of public AI chatbots until solutions (like on-premises models or encryption) were in place.
+
+These examples, anonymized from public reports, highlight that many failures aren’t sci-fi scenarios but rather *mundane process failures at scale*. AI agents don’t have to be evil superintelligences to cause harm; they can simply be overzealous optimizers or poorly supervised assistants. When something does go wrong, it often reveals holes in oversight: lack of an escalation path, lack of testing for edge cases, or lack of clarity on accountability. Fortunately, each of these failure modes can be mitigated with known best practices, which we turn to next.
+
+## Recommendations and Roadmap for Safe Agent Adoption
+
+Successfully deploying AI agents in banking requires a combination of **technical controls**, **governance frameworks**, and **operational practices**. Below, we provide recommendations in three areas: balancing agency and autonomy in design, implementing risk controls and human oversight, and staging deployment via a short/mid/long-term roadmap.
+
+### Balancing the Two Levers: Design Principles
+
+1. **Deliberately limit agency for high-stakes tasks.** If an AI agent is involved in decisions with major regulatory or financial impact (e.g. credit approvals, large fund transfers), constrain its decision scope. This can be done by hard-coding policy rules the agent must follow (so it cannot redefine the decision criteria on its own), or by giving it a narrow objective. Some banks create a **“policy wrapper”** around AI agents – effectively a library of constraints the agent must consult for any action.
+
+2. **Calibrate autonomy to the maturity of the agent and risk level.** Early in an agent’s life or pilot, keep autonomy low. Require frequent human confirmation or use an “approval” mode (Level 3–4 autonomy at most). Only increase autonomy as confidence grows through testing and experience. Consider **conditional autonomy**: the agent runs freely under normal conditions, but certain triggers immediately switch it to a supervised mode.
+
+3. **Implement the “human guardrail” pattern for critical junctures.** Identify points in a workflow where an agent’s decision should be reviewed or approved by a person before proceeding. Human-in-the-loop can be parallel review or post-action audit with the ability to reverse/correct.
+
+4. **Use multi-agent designs to compartmentalize roles.** Rather than one monolithic agent doing everything, have specialized agents with specific, limited agency that collaborate (e.g., a draft-response agent + compliance-check agent + judge agent). This compartmentalization means no single agent has end-to-end unchecked power.
+
+5. **Provide a manual override and fallback processes.** Ensure operators can immediately halt an AI agent’s activity if it behaves unexpectedly. Implement fallback procedures (e.g., divert to human reps) and adopt cautious rollout strategies (shadow mode, dark launches, A/B testing).
+
+### Risk Analysis and Failure Mode Mitigations
+
+When designing or assessing an AI agent, perform a **failure modes and effects analysis (FMEA)**. Common failure modes and mitigations include:
+
+- **Hallucination or misinformation (LLM agent gives wrong info):** Mitigation: integrate verification steps, use retrieval-augmented generation, and label AI-generated content.
+- **Data leakage or privacy breach:** Mitigation: implement strict data handling rules, mask/tokenize identifiers, limit data scope, and sanitize inputs to reduce prompt-injection risk.
+- **Unauthorized action or tool use:** Mitigation: whitelist tool use, sandbox code, enforce transaction limits, and adversarial-test transactional flows.
+- **Coordination failure in multi-agent setups:** Mitigation: define orchestration hierarchy, implement timeouts, and log agent communications for audit.
+- **Model drift or performance degradation:** Mitigation: continuous monitoring, champion-challenger testing, and periodic re-validation.
+- **Security breaches and adversarial attacks:** Mitigation: apply cybersecurity practices to AI (input validation, rate-limiting, isolation), and incorporate adversarial testing.
+
+By systematically thinking through such failure modes, banks can anticipate issues and design controls into the system *before* deploying at scale. Think of AI agent design like airplane design: assume components can fail and ensure the overall system still fails-safe or alerts promptly.
+
+### Illustrative Scenario: Payment Dispute Resolution Agent Workflow
+
+Below is an example multi-agent workflow for a payment dispute resolution use case. It demonstrates segregation of duties and clear escalation points.
+
+```mermaid
+sequenceDiagram
+    participant Customer as Customer
+    participant FrontBot as Customer Chatbot Agent
+    participant ServiceAgent as Back-Office Service Agent
+    participant CompAgent as Compliance Agent
+    participant HumanOfficer as Human Compliance Officer
+
+    Customer-&gt;&gt;FrontBot: Dispute a $500 charge on my card
+    FrontBot--&gt;&gt;Customer: Acknowledges dispute request ( & asks for details)
+    FrontBot-&gt;&gt;ServiceAgent: Create dispute case with provided info
+    ServiceAgent-&gt;&gt;CompAgent: Check regulatory requirements for dispute
+    alt High-Risk or Unusual Case?
+        CompAgent--&gt;&gt;HumanOfficer: Flag for manual review (holds processing)
+        HumanOfficer--&gt;&gt;CompAgent: Decision & instructions (approve or further action)
+    end
+    CompAgent--&gt;&gt;ServiceAgent: Compliance OK (or officer-approved)
+    ServiceAgent-&gt;&gt;ServiceAgent: Refund $500 provisionally to customer
+    ServiceAgent-&gt;&gt;FrontBot: Case #123 opened, $500 refunded provisionally
+    FrontBot--&gt;&gt;Customer: Confirms dispute opened, provisional credit given
+```
+
+In this flow, the **Customer Chatbot Agent** interacts with the user and performs intake (Level 3 autonomy). The **Back-Office Service Agent** opens cases and can post provisional credits but consults the **Compliance Agent** before actioning on risk-sensitive steps. The Compliance Agent may escalate to a **Human Compliance Officer** for high-risk cases. Each agent’s autonomy and agency are set to match its role, and all steps should be logged for auditability.
+
+### Three-Point Roadmap: Pilot, Scale, Govern
+
+1. **Short Term – Pilot Phase:** Start with controlled pilots in sandbox or limited production settings. Choose valuable but not extreme-risk use cases. Keep autonomy low, require human review, and define KPIs/KRIs. Establish an AI governance committee to review pilot results.
+
+2. **Mid Term – Scaling and Integration:** After successful pilots, integrate agents with core systems and increase autonomy cautiously. Implement security, monitoring, and change-management controls, and engage regulators. Perform formal model validations or audits and define operational roles (e.g., “AI controller”).
+
+3. **Long Term – Governance at Scale:** Institutionalize AI governance like other risk domains. Implement continuous monitoring dashboards, periodic retraining and change control, external assessments/certifications, and scenario planning for worst-case AI failures. Ensure board-level visibility and embed AI risk into routine audits.
+
+By following this phased roadmap, banks can iterate and learn in the early stages and avoid reckless “big bang” deployments of unproven AI. Each phase builds the bank’s AI maturity: from gaining foundational experience, to extending capabilities, to embedding robust governance that will serve for years to come.
+
+## Conclusion
+
+The advent of agentic AI in retail banking is an exciting development – autonomous agents have the potential to streamline operations, personalize services, and detect risks faster than ever. Yet, these benefits come with equally novel risks. **Autonomy and agency are the twin axes** along which these risks must be managed. Too much of either, too soon, can lead to consequences ranging from minor customer inconvenience to major compliance breaches or systemic incidents. The good news is that banks are not flying blind into this era. Both research and practical experience to date provide actionable frameworks: from autonomy level design to human oversight patterns and technical safeguards. By applying these lessons, banks can avoid the pitfalls seen in early AI mishaps and instead earn the trust of customers and regulators in their AI deployments.
+
+In summary, managing emerging AI agent risks is about **balance and control**. Banks should empower AI agents enough to gain efficiency and insights, but never without appropriate checks, boundaries, and accountability. Governance and innovation must go hand in hand. This white paper has provided a structured approach to achieve that balance – define agency and autonomy clearly, anticipate failure modes, implement layered defenses, and roll out capability in a responsible phased manner. With rigorous risk management, banks can confidently harness autonomous AI agents to improve services and resilience, rather than stumbling into costly mistakes.
+
+---
+
+[^1]: CFPB (2023). _Chatbots in Consumer Finance_ (Consumer Financial Protection Bureau report, June 2023).
+[^2]: Dunn, J. (2025). _Make boards responsible for AI failures, banking regulator suggests_ (CIO.com, Nov 13, 2025).
+[^3]: Feng et al. (2025). _Levels of Autonomy for AI Agents_ (arXiv preprint 2506.12469).
+[^4]: Boddy & Joseph (2025). _Regulating the Agency of LLM-based Agents_ (arXiv preprint 2509.22735).
+[^5]: Feng et al. (2025). _Levels of Autonomy for AI Agents_ (arXiv preprint 2506.12469), Table 1.
+[^6]: Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).
+[^7]: Bank of England & FCA (2024). _Artificial Intelligence in UK Financial Services_ (Survey Report).
+[^8]: Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).
+[^9]: Forbes (2023). _Workers' ChatGPT Use Restricted at More Banks_ (reporting on banks banning employee use of ChatGPT).
