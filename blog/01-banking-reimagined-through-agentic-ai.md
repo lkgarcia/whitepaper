@@ -80,6 +80,7 @@ Now, a new evolution is underway toward **“agentic AI,”** where AI systems d
 - **Sensors/Perception:** In software terms, this means the agent’s ability to receive data from its environment – such as user input, transaction data, or alerts. It “perceives” the state of relevant systems before deciding actions.
 
 ![image-center](https://placehold.co/600x400?text=Anatomy+of+an+AI+agent)
+<!-- Refer to LinkedIn post by Rakesh Gohel (Manus AI) -->
 
 Together, these components enable a cycle of *perceive → decide → act*. The agent perceives inputs or changes, reasons about what to do, then takes actions, possibly generating new inputs in a loop. Crucially, agentic AI systems are designed to operate with **minimal human supervision** once deployed, within the bounds of their defined goals and permissions[^2]. This sets them apart from earlier AI assistants or analytic models that required a human to initiate every action.
 
