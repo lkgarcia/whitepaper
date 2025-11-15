@@ -27,7 +27,7 @@ prompt: |
     - Use headings, short paragraphs, bullets (only when appropriate), and one illustrative diagram using Mermaid.
     - Include inline citations with footnotes in Markdown (e.g., [^2]) and links to source for claims and references.
       > Example:
-      > `[^6]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)`
+      > `[^f]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)`
     - Do not bold headings.
 
   Sections (required):
@@ -189,7 +189,7 @@ While no unified regulation governs AI agents, global regulators are increasingl
 
 **Human accountability** is a central theme. In 2025, Singapore’s MAS proposed that boards attest to their understanding of deployed AI, warning that greater autonomy could amplify risks like service failures or missed financial crimes[^c]. The EU’s draft AI Act classifies credit scoring and fraud detection as “high risk,” requiring human-in-the-loop controls, transparency, and bias testing. In the U.S., existing rules—such as fair lending laws and model risk guidance (SR 11-7)—are being applied to AI, requiring validation, documentation, and monitoring.
 
-**Operational risk and consumer protection** are also key. The U.S. CFPB cautioned in 2023 that chatbots must not obstruct customer access to resolution pathways[^b]. In the UK, the FCA and Bank of England noted that while most firms use AI, many lack a full understanding of their systems, raising concerns about fairness, security, and explainability[^7].
+**Operational risk and consumer protection** are also key. The U.S. CFPB cautioned in 2023 that chatbots must not obstruct customer access to resolution pathways[^b]. In the UK, the FCA and Bank of England noted that while most firms use AI, many lack a full understanding of their systems, raising concerns about fairness, security, and explainability[^g].
 
 **Documentation and auditability** are emerging priorities. Regulators expect AI agents’ actions and decisions to be logged—particularly in multi-agent workflows. Some banks have begun developing internal **AI registers** to track models, usage, data inputs, and responsible owners. These may soon become mandatory under laws like the EU AI Act.
 
@@ -199,13 +199,13 @@ Lastly, regulators are signaling that **third-party AI services** fall under the
 
 Though fully autonomous agents in banking are still emerging, early incidents already highlight governance gaps:
 
-* **Credit Bias and Litigation:** Some banks faced lawsuits after AI credit models disproportionately denied or overcharged minority applicants[^6]. The issue often stemmed from biased training data and unchecked optimization goals—high agency without ethical constraints.
+* **Credit Bias and Litigation:** Some banks faced lawsuits after AI credit models disproportionately denied or overcharged minority applicants[^f]. The issue often stemmed from biased training data and unchecked optimization goals—high agency without ethical constraints.
 
 * **Chatbot Escalation Failures:** In 2023, regulators received complaints about chatbots mishandling disputes and failing to escalate to humans[^b]. One bot confirmed a dispute and promised a refund—but never triggered any backend process, violating resolution timelines.
 
-* **Automation Glitches:** In 2024, a bank’s automated system mistakenly showed $0 balances to 20,000 customers, causing panic[^8]. While not AI-driven, the incident illustrates how unmonitored automation can scale errors instantly.
+* **Automation Glitches:** In 2024, a bank’s automated system mistakenly showed $0 balances to 20,000 customers, causing panic[^h]. While not AI-driven, the incident illustrates how unmonitored automation can scale errors instantly.
 
-* **Data Leakage Risks:** Employees using external AI tools exposed confidential client data[^9], prompting many banks to restrict public chatbot use until secure alternatives were deployed.
+* **Data Leakage Risks:** Employees using external AI tools exposed confidential client data[^i], prompting many banks to restrict public chatbot use until secure alternatives were deployed.
 
 These failures weren’t caused by rogue AI—they stemmed from **routine breakdowns in oversight, escalation, and testing**. Each scenario underscores the need for guardrails, auditability, and clear accountability—issues addressed in the next section.
 
@@ -270,13 +270,9 @@ Performing a **Failure Modes and Effects Analysis (FMEA)** helps proactively ide
 
 Thoughtful FMEA during agent design enables banks to embed safeguards upfront—so systems fail safely, not silently.
 
-:::danger Bookmark
-Review ends here.
-:::
+### Illustrative Scenario: Payment Dispute Resolution Workflow
 
-### Illustrative Scenario: Payment Dispute Resolution Agent Workflow
-
-Below is an example multi-agent workflow for a payment dispute resolution use case. It demonstrates segregation of duties and clear escalation points.
+This multi-agent sequence highlights role separation and escalation controls:
 
 ```mermaid
 sequenceDiagram
@@ -286,21 +282,21 @@ sequenceDiagram
     participant CompAgent as Compliance Agent
     participant HumanOfficer as Human Compliance Officer
 
-    Customer-&gt;&gt;FrontBot: Dispute a $500 charge on my card
-    FrontBot--&gt;&gt;Customer: Acknowledges dispute request ( & asks for details)
-    FrontBot-&gt;&gt;ServiceAgent: Create dispute case with provided info
-    ServiceAgent-&gt;&gt;CompAgent: Check regulatory requirements for dispute
-    alt High-Risk or Unusual Case?
-        CompAgent--&gt;&gt;HumanOfficer: Flag for manual review (holds processing)
-        HumanOfficer--&gt;&gt;CompAgent: Decision & instructions (approve or further action)
+    Customer->>FrontBot: Dispute $500 charge
+    FrontBot-->>Customer: Acknowledges & requests details
+    FrontBot->>ServiceAgent: Open dispute case
+    ServiceAgent->>CompAgent: Check compliance
+    alt High-risk?
+        CompAgent-->>HumanOfficer: Escalate for review
+        HumanOfficer-->>CompAgent: Approve or act
     end
-    CompAgent--&gt;&gt;ServiceAgent: Compliance OK (or officer-approved)
-    ServiceAgent-&gt;&gt;ServiceAgent: Refund $500 provisionally to customer
-    ServiceAgent-&gt;&gt;FrontBot: Case #123 opened, $500 refunded provisionally
-    FrontBot--&gt;&gt;Customer: Confirms dispute opened, provisional credit given
+    CompAgent-->>ServiceAgent: Compliance cleared
+    ServiceAgent->>ServiceAgent: Refund $500 provisionally
+    ServiceAgent-->>FrontBot: Case opened, credit posted
+    FrontBot-->>Customer: Confirms dispute & refund
 ```
 
-In this flow, the **Customer Chatbot Agent** interacts with the user and performs intake (Level 3 autonomy). The **Back-Office Service Agent** opens cases and can post provisional credits but consults the **Compliance Agent** before actioning on risk-sensitive steps. The Compliance Agent may escalate to a **Human Compliance Officer** for high-risk cases. Each agent’s autonomy and agency are set to match its role, and all steps should be logged for auditability.
+Each agent operates with scoped autonomy and clear escalation paths. All actions are auditable.
 
 ### Three-Point Roadmap: Pilot, Scale, Govern
 
@@ -312,38 +308,22 @@ In this flow, the **Customer Chatbot Agent** interacts with the user and perform
 
 By following this phased roadmap, banks can iterate and learn in the early stages and avoid reckless “big bang” deployments of unproven AI. Each phase builds the bank’s AI maturity: from gaining foundational experience, to extending capabilities, to embedding robust governance that will serve for years to come.
 
-<!-- 
-### 3‑point roadmap (short, mid, long term)
-
-**Short term (0–6 months): Pilot safely**
-- Restrict all agents to low autonomy; require human confirmations.  
-- Implement tool-level permissions and audit logs.  
-- Establish model governance extensions for agent behavior.
-
-**Mid term (6–18 months): Scale with guardrails**
-- Introduce semi-autonomous operations with plan validation.  
-- Deploy human-in-the-loop platforms for targeted oversight.  
-- Implement cross-agent monitoring and risk scoring.
-
-**Long term (18–36 months): Govern continuously**
-- Adaptive autonomy controlled by risk signals and organizational policy.  
-- Real-time agent observability dashboards.  
-- Integration with enterprise-wide AI governance and audit systems.
--->
-
 ## Conclusion
 
-The advent of agentic AI in retail banking is an exciting development – autonomous agents have the potential to streamline operations, personalize services, and detect risks faster than ever. Yet, these benefits come with equally novel risks. **Autonomy and agency are the twin axes** along which these risks must be managed. Too much of either, too soon, can lead to consequences ranging from minor customer inconvenience to major compliance breaches or systemic incidents. The good news is that banks are not flying blind into this era. Both research and practical experience to date provide actionable frameworks: from autonomy level design to human oversight patterns and technical safeguards. By applying these lessons, banks can avoid the pitfalls seen in early AI mishaps and instead earn the trust of customers and regulators in their AI deployments.
+Agentic AI offers retail banks powerful tools to streamline operations, personalize service, and enhance risk detection. But these benefits come with new risks. **Autonomy and agency must be carefully balanced**—excess in either can lead to compliance failures, customer harm, or systemic disruption.
 
-In summary, managing emerging AI agent risks is about **balance and control**. Banks should empower AI agents enough to gain efficiency and insights, but never without appropriate checks, boundaries, and accountability. Governance and innovation must go hand in hand. This white paper has provided a structured approach to achieve that balance – define agency and autonomy clearly, anticipate failure modes, implement layered defenses, and roll out capability in a responsible phased manner. With rigorous risk management, banks can confidently harness autonomous AI agents to improve services and resilience, rather than stumbling into costly mistakes.
+Fortunately, banks aren’t starting from scratch. Research and early industry lessons offer clear strategies: define autonomy levels, apply human oversight, and build in technical safeguards. This white paper outlined a practical path forward—clarify agent roles, anticipate failures, and govern through layered controls and phased deployment.
+
+In short, safe AI adoption requires control, accountability, and thoughtful design. With the right guardrails, banks can unlock the full value of AI agents—while earning the trust of regulators and customers alike.
 
 ---
+
 [^a]: [CIODIVE (2025). _Banks turn to AI supervisors as agent use surges_ (Nov. 12, 2025).](https://www.ciodive.com/news/ai-supervisor-role-growing-among-banks/805191/)
 [^b]: [CFPB (2023). _Chatbots in Consumer Finance_ (Consumer Financial Protection Bureau report, June 2023).](https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/)
 [^c]: [Dunn, J. (2025). _Make boards responsible for AI failures, banking regulator suggests_ (CIO.com, Nov 13, 2025).](https://www.cio.com/article/4089480/make-boards-responsible-for-ai-failures-banking-regulator-suggests.html)
 [^d]: [Feng et al. (2025). _Levels of Autonomy for AI Agents_ (arXiv preprint 2506.12469).](https://arxiv.org/abs/2506.12469)
 [^e]: [Boddy & Joseph (2025). _Regulating the Agency of LLM-based Agents_ (arXiv preprint 2509.22735).](https://arxiv.org/abs/2509.22735)
-[^6]: Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).
-[^7]: Bank of England & FCA (2024). _Artificial Intelligence in UK Financial Services_ (Survey Report).
-[^8]: Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).
-[^9]: Forbes (2023). _Workers' ChatGPT Use Restricted at More Banks_ (reporting on banks banning employee use of ChatGPT).
+[^f]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)
+[^g]: [Bank of England & FCA (2024). _Artificial Intelligence in UK Financial Services_ (Survey Report).](https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024)
+[^h]: [Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)
+[^i]: [Forbes (2023). _Workers' ChatGPT Use Restricted at More Banks_ (reporting on banks banning employee use of ChatGPT).](https://www.forbes.com/sites/brianbushard/2023/02/24/workers-chatgpt-use-restricted-at-more-banks-including-goldman-citigroup/)

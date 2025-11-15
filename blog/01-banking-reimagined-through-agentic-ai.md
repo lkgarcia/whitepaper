@@ -116,7 +116,7 @@ As of 2025, agentic AI adoption in banking is **early but accelerating**. Forwar
 * **Customer Service:** Chatbots are evolving into autonomous assistants that can resolve issues end-to-end. Gartner forecasts that by 2029, 80% of routine service tasks may be handled by agents, including those initiated by **machine customers** (AI acting on behalf of users)[^5].
 * **Automation Integration:** Agents are increasingly embedded in RPA and API workflows. Cloud platforms now offer tools for multi-agent orchestration, accelerating development[^2].
 
-Despite growing interest, most deployments remain **cautious and experimental**. “Agent washing” is common—many solutions lack true autonomy[^4]. Gartner found only ~130 vendors with credible agentic capabilities, and over 40% of agentic initiatives may be canceled by 2027 due to low ROI[^4].
+Despite growing interest, most deployments remain **cautious and experimental**. “Agent washing” is common—many solutions lack true autonomy[^4]. Gartner found only ~130 vendors with credible agentic capabilities, and over 40% of agentic initiatives may be canceled by 2027 due to low ROI[^7].
 
 Still, the trajectory is clear. By 2028, AI agents could drive 15% of work decisions, and 30% of enterprise software may include agentic components[^4]. Banks are preparing by hiring for roles like “AI agent trainer” and building internal capability.
 
@@ -133,13 +133,9 @@ Leaders who act now—via targeted pilots and clear safeguards—will be well-po
 ---
 
 [^1]: [Gartner Press Release (2025). _Top Predictions for IT Organizations and Users in 2026 and Beyond._](https://www.gartner.com/en/newsroom/press-releases/2025-10-21-gartner-unveils-top-predictions-for-it-organizations-and-users-in-2026-and-beyond)
-
 [^2]: [Deloitte Insights (2025). _How banks can supercharge intelligent automation with agentic AI_.](https://www.deloitte.com/us/en/insights/industry/financial-services/agentic-ai-banking.html)
-
 [^3]: [Posh AI Blog (2025). _Generative AI vs Agentic AI in Banking: What Sets Them Apart_.](https://www.posh.ai/blog/generative-ai-vs-agentic-ai-in-banking-what-sets-them-apart)
-
 [^4]: [Reuters (2025). _Over 40% of agentic AI projects will be scrapped by 2027_.](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25/)
-
 [^5]: [Gartner Press Release (2025) – via CMSWire. _Agentic AI Set to Transform Customer Service & Support_.](https://www.cmswire.com/the-wire/gartner-predicts-agentic-ai-will-autonomously-resolve-80-of-common-customer-service-issues-without-human-intervention-by-2029/)
-
 [^6]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)
+[^7]: [Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)
