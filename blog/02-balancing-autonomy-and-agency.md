@@ -127,6 +127,62 @@ In real-world deployments, an agent's autonomy may vary by task or context. For 
 
 This tiered approach also aligns with emerging concepts like **AI autonomy certification**, which may eventually help institutions communicate an agent's oversight level more transparently[^d]. While formal standards are still evolving, defining and documenting each agent’s autonomy level can support clearer governance, risk assessment, and stakeholder alignment.
 
+## Differentiating Risk: Agency vs. Autonomy
+
+**Agency** and **autonomy** introduce distinct risk types in AI systems.
+
+### High Agency
+
+When an agent has *too much capability or access*, risks are primarily **impact-based** — i.e., what damage it could cause *if it acts incorrectly*. Agentic systems may make policy-like decisions that introduce bias, misalign with goals, or reduce explainability, complicating audits and customer resolution.
+
+:::tip Example Scenarios
+
+* Agent can execute API calls across financial systems.
+* Agent modifies data, triggers transactions, or reconfigures settings.
+* Agent sends external communications (emails, posts, messages).
+  :::
+
+#### Risk Categories
+
+| **Risk Type**         | **Description**                                                            | **Example**                                        |
+| --------------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Operational Risk**  | Excessive or incorrect actions cause service disruption or financial loss. | Agent approves invalid transactions.               |
+| **Security Risk**     | Unauthorized tool use or privileged access abuse.                          | Agent calls admin APIs beyond scope.               |
+| **Reputational Risk** | Public-facing actions without validation.                                  | Agent posts unverified or inappropriate content.   |
+| **Compliance Risk**   | Violates policy or legal requirements.                                     | Agent mishandles personal data.                    |
+| **Cascade Risk**      | Tool chaining triggers unintended downstream effects.                      | Agent runs a script that impacts multiple systems. |
+
+:::info Analogy
+Like giving an intern unrestricted access — well-intentioned, but risky at scale.
+:::
+
+### High Autonomy
+
+When an agent operates *too independently* (without oversight or feedback), risks are primarily **process-based** — i.e., when, how, and under what conditions it acts. Unchecked behavior can result in **disruptions**, **security breaches**, or customer harm — such as chatbots giving false information or exposing sensitive data.
+
+:::tip Example Scenarios
+
+* Agent runs continuously without checkpoints.
+* Agent self-initiates actions or escalations.
+* Agent adapts policies without validation.
+  :::
+
+#### Risk Categories
+
+| **Risk Type**           | **Description**                                 | **Example**                                  |
+| ----------------------- | ----------------------------------------------- | -------------------------------------------- |
+| **Control Risk**        | Lack of human oversight or auditability.        | Agent acts with no approval history.         |
+| **Drift Risk**          | Behavioral deviation over time.                 | Agent “learns” undesirable patterns or bias. |
+| **Ethical Risk**        | Misaligned decisions or fairness violations.    | Agent denies service using biased logic.     |
+| **Accountability Risk** | Unclear responsibility for outcomes.            | Who is liable if the agent fails silently?   |
+| **Runaway Risk**        | Recurring loops or actions without termination. | Agent retries endlessly or spams actions.    |
+
+:::info Analogy
+Like a self-driving car told to “keep going” — even when conditions change.
+:::
+
+Agency and autonomy often interact, but their risks are distinct: **excess autonomy** drives operational failures, while **excess agency** introduces compliance and strategic exposure. Even low-agency systems can cause harm if left unsupervised, while high-agency systems must be closely governed. Effective AI design requires balancing both based on task sensitivity and organizational risk appetite.
+
 ## Banking Regulation and AI Governance Landscape
 
 While no unified regulation governs AI agents, global regulators are increasingly setting expectations that address both **agency** and **autonomy** in AI systems.
@@ -156,18 +212,6 @@ These failures weren’t caused by rogue AI—they stemmed from **routine breakd
 :::danger Bookmark
 Review ends here.
 :::
-
-## Agency vs. Autonomy as Risk Dimensions
-
-It is helpful to distinguish between risks arising from too much **agency** versus too much **autonomy** in AI systems:
-
-- **Risks of high agency:** An AI with expansive agency is essentially making policy decisions or creative judgments on its own. This can lead to *misalignment* with organizational values or strategies. For instance, a highly agentic trading algorithm might discover a shortcut to boost profit that involves taking on hidden risks or exploiting a loophole – actions a human trader with ethical constraints wouldn’t take. In banking, one acute concern is **algorithmic bias**. If an AI credit-scoring agent has the agency to determine which data to weigh heavily, it might inadvertently learn to systematically favor or disfavor certain demographics, resulting in discrimination. There have been real cases of such bias leading to lawsuits and regulatory investigations. High-agency AIs can also undermine **explainability**: when an agent forms its own complex strategies, it can be hard even for its creators to explain why it made a given decision. This opacity complicates audits and makes it difficult to detect erroneous reasoning or to contest the agent’s decisions – a serious issue if a customer is wrongly denied a loan or flagged as high-risk with no clear explanation.
-
-- **Risks of high autonomy:** High autonomy means an AI is trusted to act without real-time human checks. The primary risk here is **loss of control**. Even a well-intentioned, well-designed agent can err; if it’s fully autonomous, those errors propagate until after the fact. One classic example is the “rogue chatbot” scenario – a customer service AI given too much autonomy that ends up giving harmful advice or divulging sensitive information before a human can intervene. Another autonomy-linked risk is **operational disruption**: an unsupervised agent might trigger a cascade of actions that overload systems or conflict with other processes. Security vulnerabilities are also a concern: a highly autonomous agent often needs broad system access to do its job, which means if the agent is compromised (say, via a prompt injection attack or exploit of the underlying model), an attacker could wreak havoc. Essentially, high autonomy is risky when the AI’s decision quality or security cannot be guaranteed to a very high level. It amplifies the impact radius of any single failure.
-
-It’s important to note that agency and autonomy often go hand-in-hand – truly high-agency systems are typically given more autonomy by design. But you can have one without the other. A low-agency, high-autonomy system (for example, an RPA script that blindly executes tasks 24/7 without oversight) can still cause damage if the context shifts beyond what it was scripted for. Conversely, a high-agency, low-autonomy system (e.g. an AI that devises risk models but requires human approval to implement any changes) might produce a bad recommendation, but the low autonomy ensures a human catches it. From a risk management perspective, **excess autonomy tends to manifest as operational risk, while excess agency manifests as strategic or compliance risk**.
-
-Balancing the two is therefore critical. Banks should ask for each AI solution: *How much agency are we giving it, and how much autonomy?* The answers should be driven by risk analysis. For example, **payments and funds transfer agents** directly handle money – a domain with low error tolerance. One bank might decide to give such an agent very limited agency (it can only execute transfers following a rigid rule set) but relatively high autonomy (it can run automatically 24/7). Another bank might allow more agency (the agent can decide to block or flag unusual transfers on its own) but then reduce autonomy (requiring a human review for any blocked transactions). Both levers can mitigate different risks. We will explore concrete design patterns for adjusting these levers in the Recommendations section.
 
 ## Recommendations and Roadmap for Safe Agent Adoption
 
