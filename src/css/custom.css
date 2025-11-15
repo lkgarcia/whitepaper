@@ -27,4 +27,13 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #18141D;
+  --ifm-navbar-background-color: #7d17f2;
+}
+
+/* Center image */
+img[alt="image-center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
