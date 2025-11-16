@@ -84,15 +84,6 @@ Many AI projects in banking underdeliver due to hype and poor alignment with bus
 ## Introduction
 <!-- Context and the Problem of Prioritizing AI Investments -->
 
-xxx
-Here’s the revised introduction with a clean segue from the first paper added to the top:
-
----
-
-## Introduction
-
-<!-- Context and the Problem of Prioritizing AI Investments -->
-
 In the previous paper in this series, *Banking Reimagined Through Agentic AI*, we explored the next evolution of artificial intelligence—agentic AI—and its potential to transform banking operations and customer service by enabling AI agents to act on behalf of customers and employees. That paper highlighted how autonomous agents could fundamentally reshape workflows, unlock new efficiencies, and deliver 24/7 personalized service.
 
 However, as banks deepen their AI ambitions, a critical challenge emerges: **most AI initiatives in banking fail to deliver ROI due to weak business alignment**[^3] [^4]. Studies show **95% of AI pilots fall short**, and **over 40% of agentic AI projects will be canceled by 2027** due to unclear value and high cost[^5] [^6]. Poorly scoped AI can cause compliance issues, customer dissatisfaction, and wasted resources.
