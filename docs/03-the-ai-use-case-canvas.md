@@ -81,16 +81,29 @@ prompt: |
 
 Many AI projects in banking underdeliver due to hype and poor alignment with business goals[^1] [^2]. The **AI Use Case Canvas** offers a structured way to evaluate initiatives across three dimensions: **Why** (problem, value, KPIs), **How** (data, solution, implementation), and **At What Cost** (complexity, risks, ROI). It helps banks prioritize high-impact, feasible use cases and choose **agentic AI** only when it clearly outperforms simpler alternatives. This white paper explains the framework, applies it to banking scenarios, and offers a roadmap to support value-driven AI adoption as part of digital transformation.
 
+## Introduction
+<!-- Context and the Problem of Prioritizing AI Investments -->
+
+xxx
+Here’s the revised introduction with a clean segue from the first paper added to the top:
+
+---
+
+## Introduction
+
+<!-- Context and the Problem of Prioritizing AI Investments -->
+
+In the previous paper in this series, *Banking Reimagined Through Agentic AI*, we explored the next evolution of artificial intelligence—agentic AI—and its potential to transform banking operations and customer service by enabling AI agents to act on behalf of customers and employees. That paper highlighted how autonomous agents could fundamentally reshape workflows, unlock new efficiencies, and deliver 24/7 personalized service.
+
+However, as banks deepen their AI ambitions, a critical challenge emerges: **most AI initiatives in banking fail to deliver ROI due to weak business alignment**[^3] [^4]. Studies show **95% of AI pilots fall short**, and **over 40% of agentic AI projects will be canceled by 2027** due to unclear value and high cost[^5] [^6]. Poorly scoped AI can cause compliance issues, customer dissatisfaction, and wasted resources.
+
+> _"It is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail."_  
+> — Abraham Maslow (The Psychology of Science, 1966)
+
+The issue isn’t the technology—it’s the lack of a strong business case. As experts note, *AI accelerates existing flaws if the process isn’t sound*[^7]. To avoid this, banks need a structured way to evaluate AI proposals. The **AI Use Case Canvas** helps shift from an "AI-first" to a **problem-first** mindset—prioritizing projects based on real business value, feasibility, and risk. The following sections explain how to apply this framework to make informed, value-driven AI decisions.
+
 :::danger Bookmark
 :::
-
-## Introduction: Context and the Problem of Prioritizing AI Investments
-
-The banking industry is no stranger to **AI hype**. In recent years, headlines have touted AI's potential, leading many banks to rush into projects without a clear business strategy. The result has often been *"solutions looking for problems"* – impressive tech demos that don't translate into tangible business value[^3]. Studies by MIT and others reveal that roughly **95% of enterprise AI pilot programs deliver little to no ROI**[^4], largely because they are not grounded in real business needs. Gartner similarly warns that over **40% of "agentic" AI projects (autonomous AI agents) will be canceled by 2027 due to unclear value and escalating costs**[^5]. In Gartner's words, *"most agentic AI projects... are early stage experiments... driven by hype and often misapplied"*[^6].
-
-For banks, this is more than wasted investment – poorly conceived AI projects can create operational disruptions, compliance risks, and reputational damage. A failed AI-based credit scoring or a glitchy customer service chatbot can erode customer trust and invite regulatory scrutiny. The core issue isn't that the AI technology doesn't work; it's that **the business case doesn't work**. As one banking tech report put it, *AI is an accelerator, not a silver bullet – if your core process isn't solid, AI will only expose the cracks*[^7]. In this context, bank leaders face a critical question: **How do we identify which AI initiatives are truly worth pursuing?**
-
-This is where a structured evaluation framework becomes essential. Just as disciplined project management and ROI analysis guide traditional IT investments, **the AI Use Case Canvas provides a structured, pragmatic approach to prioritize AI initiatives based on business value, feasibility, and risk**. It forces a shift from an "AI-first" mindset ("We have a hammer, what nails can we find?") to a **problem-first mindset** ("What business problem are we trying to solve, and is AI the best tool for it?"). In the next sections, we introduce the canvas framework and explain how it helps banking organizations cut through hype, compare AI with non-AI solutions, and invest in projects that truly support their strategic goals.
 
 ## Fundamentals: Business Use Case Canvas Origins and Its Application to AI
 
