@@ -72,6 +72,8 @@ prompt: |
     3. Should the roadmap tie into any specific banking initiatives or industry trends (e.g., ESG, digital transformation, regulatory compliance)? digital transformation
 
 ---
+:::warning WORK IN PROGRESS
+:::
 
 # The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives
 
