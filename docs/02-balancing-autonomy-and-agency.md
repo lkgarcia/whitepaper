@@ -92,8 +92,7 @@ By 2025, nearly half of banks had created “AI supervisor” roles, reflecting 
 Regulators and executives are taking notice. In 2024, the U.S. Consumer Financial Protection Bureau warned that poorly governed banking chatbots risk compliance violations by mishandling disputes or giving incorrect information[^b]. Globally, oversight expectations are rising. Similarly, the EU’s upcoming AI Act classifies many financial AI systems as “high risk,” requiring strict controls on privacy, fairness, and human accountability.
 
 > _Singapore’s central bank (MAS) proposed holding boards directly accountable for AI failures, warning that **“AI agents with greater autonomy and tool access could amplify risks”** if not properly governed._  
-> 
-> _- CIO.com (2025)[^c]_
+> — CIO.com (2025)[^c]
 
 This white paper focuses on **banking** use cases and the emerging risks of AI agents. We explore how **agency** and **autonomy** enable powerful capabilities but also introduce new failure modes[^d]. We offer practical guidance—from design choices (e.g. limiting autonomy) to governance practices (e.g. auditability, human oversight)—and present a three-phase roadmap (pilot → scale → govern) to help banks deploy agentic AI responsibly, driving innovation **without** compromising compliance, security, or trust.
 

@@ -62,8 +62,7 @@ The banking sector is experiencing rapid innovation in artificial intelligence. 
 ![image-center](https://placehold.co/600x400?text=Evolution+of+AI)
 
 > _"By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate."_  
->
-> _- Gartner, 2025[^1]_
+> — Gartner, 2025[^1]
 
 Now, a new evolution is underway toward **“agentic AI,”** where AI systems don’t just inform humans but can **take action** on their own. In banking, this means moving beyond static chatbots or decision support tools to AI-driven agents that can autonomously perform tasks – from executing transactions to answering complex customer requests – all while navigating the bank’s systems and rules. This paradigm shift carries significant implications for retail banking: it offers the potential for unprecedented efficiency and 24/7 personalized service, but also demands careful design to ensure compliance, security, and trust. In this paper, we explore what agentic AI is, how it can be applied in banking, a forward-looking scenario of agents in action, current industry developments, and recommendations for banks to adopt these technologies strategically.
 
