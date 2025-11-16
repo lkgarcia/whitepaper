@@ -110,7 +110,7 @@ flowchart LR
 subgraph WHY [Why? – Business Case]
     P[Business Problem]
     V[Business Value]
-    K[Success Metrics (KPIs)]
+    K["Success Metrics (KPIs)"]
 end
 subgraph HOW [How? – Implementation Strategy]
     D[Data Requirements]
