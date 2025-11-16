@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" scale="1" border="0" version="28.2.8">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" scale="1" border="0" version="28.2.8" pages="2">
   <diagram name="concept" id="kr41DjQ7R3KE2HwQKdK7">
     <mxGraphModel dx="478" dy="1439" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="#18141D" math="0" shadow="0">
       <root>
@@ -163,6 +163,68 @@
         <mxCell id="2AvDtUxM04d7zFE3xoCi-55" value="title" style="locked=1;" parent="2AvDtUxM04d7zFE3xoCi-0" visible="0" />
         <mxCell id="2AvDtUxM04d7zFE3xoCi-56" value="&lt;span style=&quot;font-size:28.0pt;font-family:&amp;quot;SC Prosper Sans Light&amp;quot;;&lt;br/&gt;mso-ascii-font-family:&amp;quot;SC Prosper Sans Light&amp;quot;;mso-fareast-font-family:+mj-ea;&lt;br/&gt;mso-bidi-font-family:+mj-cs;mso-ascii-theme-font:major-latin;mso-fareast-theme-font:&lt;br/&gt;major-fareast;mso-bidi-theme-font:major-bidi;color:white;mso-color-index:1;&lt;br/&gt;mso-font-kerning:12.0pt;language:en-GB;mso-style-textfill-type:solid;&lt;br/&gt;mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-color:white;&lt;br/&gt;mso-style-textfill-fill-alpha:100.0%&quot;&gt;Customer Service Reinvented with Agentic AI&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2AvDtUxM04d7zFE3xoCi-55" vertex="1">
           <mxGeometry x="600" y="-100" width="1670" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="50dwjhY8MMOP8HSD7Z8z" name="anatomy">
+    <mxGraphModel dx="1106" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1536" pageHeight="864" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-1" value="Channels" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#1B1B1D;verticalAlign=top;labelBackgroundColor=#1B1B1D;spacingTop=-14;fontFamily=Avenir Next;fontStyle=0;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="290" width="410" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-2" value="Conversation" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=none;verticalAlign=top;labelBackgroundColor=none;spacingTop=0;fontFamily=Avenir Next;fontStyle=0;dashed=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-1">
+          <mxGeometry x="40" y="30" width="160" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-3" value="Web Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-2">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-4" value="Messaging Platforms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-2">
+          <mxGeometry x="20" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-5" value="Voice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-2">
+          <mxGeometry x="20" y="160" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-6" value="Email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-2">
+          <mxGeometry x="20" y="220" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-7" value="Embedded" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=none;verticalAlign=top;labelBackgroundColor=none;spacingTop=0;fontFamily=Avenir Next;fontStyle=0;dashed=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-1">
+          <mxGeometry x="210" y="30" width="160" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-8" value="Development Environment (IDEs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;fontSize=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-7">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-9" value="Business Process Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-7">
+          <mxGeometry x="20" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-10" value="AI Agent" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#1B1B1D;verticalAlign=top;labelBackgroundColor=#1B1B1D;spacingTop=-14;fontFamily=Avenir Next;fontStyle=0;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="290" width="410" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-11" value="Conversation" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=none;verticalAlign=top;labelBackgroundColor=none;spacingTop=0;fontFamily=Avenir Next;fontStyle=0;dashed=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-10">
+          <mxGeometry x="40" y="30" width="160" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-12" value="Web Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-11">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-13" value="Messaging Platforms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-11">
+          <mxGeometry x="20" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-14" value="Voice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-11">
+          <mxGeometry x="20" y="160" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-15" value="Email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-11">
+          <mxGeometry x="20" y="220" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-16" value="Embedded" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=none;verticalAlign=top;labelBackgroundColor=none;spacingTop=0;fontFamily=Avenir Next;fontStyle=0;dashed=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-10">
+          <mxGeometry x="210" y="30" width="160" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-17" value="Development Environment (IDEs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;fontSize=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-16">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XJIMpe2lG4I_OHqzNsUM-18" value="Business Process Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#404044;strokeColor=none;spacingLeft=10;spacingRight=10;" vertex="1" parent="XJIMpe2lG4I_OHqzNsUM-16">
+          <mxGeometry x="20" y="100" width="120" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
