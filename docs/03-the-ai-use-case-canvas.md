@@ -75,9 +75,14 @@ prompt: |
 
 # The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives
 
+![image-center](https://placehold.co/800x400?text=Hero+Image)
+
 ## Executive Summary
 
-Banks today face intense pressure to innovate with AI, but many AI projects fail to deliver real value due to misaligned goals and unchecked hype[^1][^2]. The **AI Use Case Canvas** is a practical framework that helps financial institutions avoid this trap by evaluating potential AI initiatives through three lenses: the **Why** (business problem, value, KPIs), **How** (data, approach, implementation), and **At What Cost** (complexity, risks, ROI). By systematically assessing an AI use case on these dimensions, banks can focus on high-impact, value-driven applications and choose **agentic AI** solutions only when they clearly outperform simpler alternatives. This white paper introduces the AI Use Case Canvas, details each of its components with banking examples, demonstrates how to compare an autonomous "AI agent" approach versus a simpler solution, and provides a step-by-step guide and roadmap for adopting the canvas. The goal is to empower bank executives and product teams to make clear-eyed, value-focused decisions about AI investments as part of their digital transformation journey.
+Many AI projects in banking underdeliver due to hype and poor alignment with business goals[^1] [^2]. The **AI Use Case Canvas** offers a structured way to evaluate initiatives across three dimensions: **Why** (problem, value, KPIs), **How** (data, solution, implementation), and **At What Cost** (complexity, risks, ROI). It helps banks prioritize high-impact, feasible use cases and choose **agentic AI** only when it clearly outperforms simpler alternatives. This white paper explains the framework, applies it to banking scenarios, and offers a roadmap to support value-driven AI adoption as part of digital transformation.
+
+:::danger Bookmark
+:::
 
 ## Introduction: Context and the Problem of Prioritizing AI Investments
 
