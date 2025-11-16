@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
@@ -36,30 +36,45 @@ function useSyntheticTitle() {
 
 // Component to inject metadata after the first H1
 function MetadataInjector() {
-  const containerRef = useRef(null);
-  const [h1Element, setH1Element] = React.useState(null);
+  const [container, setContainer] = React.useState(null);
   
   useEffect(() => {
+    // Check if we're in a browser environment (SSR/SSG compatibility)
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     // Find the first H1 in the markdown content
     const markdownDiv = document.querySelector('.markdown');
-    if (markdownDiv) {
-      const firstH1 = markdownDiv.querySelector('h1');
-      if (firstH1) {
-        setH1Element(firstH1);
-      }
+    if (!markdownDiv) {
+      setContainer(null);
+      return;
     }
+    const firstH1 = markdownDiv.querySelector('h1');
+    if (!firstH1) {
+      setContainer(null);
+      return;
+    }
+    
+    // Check if a container already exists after the H1
+    let metadataContainer = firstH1.nextElementSibling;
+    if (!metadataContainer || !metadataContainer.classList.contains('doc-metadata-container')) {
+      metadataContainer = document.createElement('div');
+      metadataContainer.classList.add('doc-metadata-container');
+      firstH1.parentNode.insertBefore(metadataContainer, firstH1.nextSibling);
+    }
+    setContainer(metadataContainer);
+
+    // Cleanup: remove the container on unmount
+    return () => {
+      if (metadataContainer && metadataContainer.parentNode) {
+        metadataContainer.parentNode.removeChild(metadataContainer);
+      }
+    };
   }, []);
   
-  if (!h1Element) {
+  if (!container) {
     return null;
-  }
-  
-  // Create a container div after the H1 if it doesn't exist
-  let metadataContainer = h1Element.nextElementSibling;
-  if (!metadataContainer || !metadataContainer.classList.contains('doc-metadata-container')) {
-    metadataContainer = document.createElement('div');
-    metadataContainer.classList.add('doc-metadata-container');
-    h1Element.parentNode.insertBefore(metadataContainer, h1Element.nextSibling);
   }
   
   return createPortal(
@@ -67,7 +82,7 @@ function MetadataInjector() {
       <DocItemInfo />
       <DocItemAuthors />
     </>,
-    metadataContainer
+    container
   );
 }
 

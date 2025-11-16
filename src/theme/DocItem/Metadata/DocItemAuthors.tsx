@@ -7,13 +7,18 @@ import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import BlogAuthor from '@theme/Blog/Components/Author';
 import styles from './DocItemAuthors.module.css';
 
-// Load authors data from JSON
-import authorsData from '@site/src/data/authors.json';
+// Load authors data from docs/authors.ts
+import authorsData from '@site/docs/authors';
+
+// Define the expected shape of frontMatter
+interface DocFrontMatter {
+  authors?: string[];
+}
 
 // Component responsible for the authors layout
 export default function DocItemAuthors({className}) {
   const {frontMatter} = useDoc();
-  const authorKeys = (frontMatter as any).authors;
+  const {authors: authorKeys} = frontMatter as DocFrontMatter;
   
   if (!authorKeys || authorKeys.length === 0) {
     return null;
@@ -34,11 +39,6 @@ export default function DocItemAuthors({className}) {
     };
   });
 
-  const authorsCount = authors.length;
-  if (authorsCount === 0) {
-    return null;
-  }
-
   const imageOnly = authors.every(({name}) => !name);
   const singleAuthor = authors.length === 1;
 
@@ -55,7 +55,7 @@ export default function DocItemAuthors({className}) {
             !imageOnly && (singleAuthor ? 'col col--12' : 'col col--6'),
             imageOnly ? styles.imageOnlyAuthorCol : styles.authorCol,
           )}
-          key={idx}>
+          key={authorKeys[idx]}>
           <BlogAuthor author={author} />
         </div>
       ))}

@@ -7,13 +7,17 @@ import {useDateTimeFormat} from '@docusaurus/theme-common/internal';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import styles from './DocItemInfo.module.css';
 
+interface DocFrontMatter {
+  date?: string;
+}
+
 function DateTime({date, formattedDate}) {
   return <time dateTime={date}>{formattedDate}</time>;
 }
 
 export default function DocItemInfo({className}) {
   const {frontMatter} = useDoc();
-  const date = (frontMatter as any).date;
+  const {date} = frontMatter as DocFrontMatter;
   
   const dateTimeFormat = useDateTimeFormat({
     day: 'numeric',
