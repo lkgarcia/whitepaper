@@ -8,6 +8,11 @@
 .docusaurus
 .cache-loader
 
+# TypeScript compiled files
+*.js
+!docusaurus.config.js
+!sidebars.js
+
 # Misc
 .DS_Store
 .env.local

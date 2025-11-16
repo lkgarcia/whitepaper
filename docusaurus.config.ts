@@ -42,6 +42,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
           // Please change this to your repo.
         },
         blog: {
@@ -66,6 +67,10 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+  ],
+
+  plugins: [
+    './plugins/docusaurus-plugin-docs-authors',
   ],
 
   themeConfig: {
@@ -107,8 +112,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Home',
+              to: '/',
             },
           ],
         },
