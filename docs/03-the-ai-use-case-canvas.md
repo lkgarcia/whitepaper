@@ -3,36 +3,51 @@ title: "The AI Use Case Canvas"
 date: 2025-11-13T20:00:00
 slug: "the-ai-use-case-canvas"
 authors: [lkgarcia]
-tags: [ai, agentic-ai, banking]
+tags: [ai, agentic-ai, banking, strategy]
 prompt: |
-  Title: [The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives]
+  Title: The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives
   
-  Message: [TBD: What is the main message of the white paper?]
+  Message: Do not get into the hype of shiny new "toys" in AI. Focus on practical application in banking. Only use agentic AI solutions when they clearly add value over simpler AI/ML or non-AI/ML approaches.
 
-  Purpose: Produce a clear, structured, and engaging white paper that explains [TBD:What?].
+  Purpose: Produce a clear, structured, and engaging white paper that explains the use of AI Use Case Canvas as a framework for evaluating and prioritizing AI initiatives in banking.
 
   Goals:
-    - [TBD]
+    - Explain the concept and components of the AI Use Case Canvas.
+    - Illustrate how it can be applied specifically in the banking sector (give examples relevant to retail banking).
+    - Provide practical recommendations for banks to implement the framework effectively.
 
   Audience: Technical product managers, architects, and senior banking executives (mix of technical and non-technical readers).
 
   Tone: Clear, authoritative, moderately technical, accessible to non-technical stakeholders.
 
   Length & structure:
-    - Target: ~1200–1600 words.
-    - Use headings, short paragraphs, bullets, and one illustrative diagrams using Mermaid.
-    - Citations must be included as inline references with footnotes in Markdown (e.g., [^2])
+    - Target: ~1000–1500 words.
+    - Use Mermaid for illustrative diagrams.
+    - Citations must be included as inline references with footnotes in Markdown (e.g., [^2]).
+    - Citations should include links.
     - Do not bold headings.
 
   Sections:
     - 1) executive summary (100–150 words)
     - 2) introduction
-    - 3) technical fundamentals:
-      - [TBD: What 2-3 technical fundamentals need to be explained?]
+    - 3) fundamentals:
+      - Explain the fundamentals of a "Business Use Case Canvas" (basis of the AI Use Case Canvas).
     - 4) Topics:
-      - [TBD: What main topics need to be covered?]
+      - Explain each component of the AI Use Case Canvas in detail:
+        - The Why Dimension: Building the Business Case
+          - Business Problem
+          - Business Value
+          - KPIs
+        - The How Dimension: Implementation Strategy
+          - Data Requirements
+          - AI Approach
+          - Implementation Approach
+        - The Cost Dimension: Understanding the Full Picture
+          - Complexity
+          - Risks
+      - Provide banking-specific examples for each component (focus on retail banking).
     - 5) Recommendations and roadmap:
-      - [TBD: What recommendations and roadmap points need to be made?]
+      - Use the AI Use Case Canvas to drive AI decision-making in banks.
     - 6) short conclusion
 
   Examples & requirements:
@@ -43,6 +58,7 @@ prompt: |
   Constraints: Avoid vendor promotion, unrealistic timelines, or speculative claims without caveats.
 
   Sources:
+    - [Michael Porath's AI Use Case Canvas](https://porath.consulting/articles/ai-use-case-canvas/)
     - ArXiv
     - Gartner
     - Renowned univerities and researchers
