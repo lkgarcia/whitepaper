@@ -310,7 +310,7 @@ By following this phased roadmap, banks can iterate and learn in the early stage
 
 ## Conclusion
 
-Agentic AI offers retail banks powerful tools to streamline operations, personalize service, and enhance risk detection. But these benefits come with new risks. **Autonomy and agency must be carefully balanced**—excess in either can lead to compliance failures, customer harm, or systemic disruption.
+Agentic AI offers banks powerful tools to streamline operations, personalize service, and enhance risk detection. But these benefits come with new risks. **Autonomy and agency must be carefully balanced**—excess in either can lead to compliance failures, customer harm, or systemic disruption.
 
 Fortunately, banks aren’t starting from scratch. Research and early industry lessons offer clear strategies: define autonomy levels, apply human oversight, and build in technical safeguards. This white paper outlined a practical path forward—clarify agent roles, anticipate failures, and govern through layered controls and phased deployment.
 
