@@ -102,22 +102,22 @@ However, as banks deepen their AI ambitions, a critical challenge emerges: **mos
 
 The issue isn’t the technology—it’s the lack of a strong business case. As experts note, *AI accelerates existing flaws if the process isn’t sound*[^7]. To avoid this, banks need a structured way to evaluate AI proposals. The **AI Use Case Canvas** helps shift from an "AI-first" to a **problem-first** mindset—prioritizing projects based on real business value, feasibility, and risk. The following sections explain how to apply this framework to make informed, value-driven AI decisions.
 
-:::danger Bookmark
-:::
-
 ## Fundamentals: Business Use Case Canvas Origins and Its Application to AI
 
-The concept of a "**canvas**" for business planning originates from tools like the **Business Model Canvas**, a one-page visual template for mapping out the key elements of a business model. The Business Model Canvas became popular in the 2010s as a lean startup tool, because it concisely captures a plan's value proposition, resources, customers, and finances on a single page[^8]. Its power lies in forcing clarity and holistic thinking – seeing the whole business picture at once.
+The idea of a **“canvas”** comes from tools like the **Business Model Canvas**, a one-page template that became popular for its ability to map a business model clearly and holistically[^8]. But AI initiatives introduce factors—data quality, model choice, and new risk dimensions—that traditional canvases don’t address.
 
-However, AI initiatives introduce unique considerations that a generic business model canvas doesn't explicitly cover. AI projects hinge on data quality, algorithm choice, and new risk dimensions (like model errors or regulatory compliance) that aren't addressed in traditional project templates. Recognizing this, practitioners and researchers have developed specialized canvases for AI. For example, Ajay Agrawal's **"AI Canvas"** focuses on defining the prediction task, judgment criteria, and actions in an AI-driven decision[^9]. Likewise, Michael Porath's **AI Use Case Canvas** adapts the canvas approach specifically to AI projects, incorporating both business and technical checkpoints. *Think of it as a business model canvas, but designed for AI decision-making,* Porath says, describing his framework[^10].
+To fill this gap, researchers created AI-specific canvases. Ajay Agrawal’s **AI Canvas** centers on prediction, judgment, and action[^9], while Michael Porath’s **AI Use Case Canvas** extends the canvas approach to cover both business and technical considerations. As Porath notes, it’s essentially *a business model canvas designed for AI decision-making*[^10].
 
-**The AI Use Case Canvas** is structured around **eight essential components** spanning three overarching dimensions (often framed as **Why**, **How**, and **At What Cost**)[^10]. In other words, it prompts you to articulate:
+The **AI Use Case Canvas** organizes **eight components** across three dimensions:
 
-- **WHY?** – What is the business problem and value proposition, and how will success be measured?
-- **HOW?** – What data and solution approach will be used, and how will it be implemented operationally?
-- **AT WHAT COST?** – What are the complexity and risks, and do the potential returns justify these costs?
+* **Why** — business problem, value, and success metrics
+* **How** — data needs, solution approach, and implementation plan
+* **At What Cost** — complexity, risks, and expected ROI
 
-This canvas forces a disciplined evaluation before any coding or model training begins. It ensures alignment with business goals (the **Why**), a feasible execution plan (the **How**), and awareness of trade-offs and risks (the **Cost**). By laying out these factors side by side on one page, stakeholders can see the full picture and make an informed go/no-go decision. The canvas approach helps compare multiple ideas on a like-for-like basis as well – a crucial need when a bank's innovation team has a dozen AI proposals but limited budget and resources. The next section breaks down each part of the canvas in detail, illustrating how it applies to banking use cases.
+By forcing these questions upfront, the canvas ensures alignment with business goals, feasibility, and risk awareness before any development begins. It also enables consistent comparison across multiple AI proposals—critical when banks must prioritize limited resources. The next section breaks down each component in detail.
+
+:::danger Bookmark
+:::
 
 ## The AI Use Case Canvas in Detail
 
