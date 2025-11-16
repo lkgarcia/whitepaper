@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkai_whitepaper=globalThis.webpackChunkai_whitepaper||[]).push([[1903],{1912:a=>{a.exports=JSON.parse('{"blogBasePath":"/whitepaper/blog","blogTitle":"Blog","authorsListPath":"/whitepaper/blog/authors"}')}}]);

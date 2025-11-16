@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkai_whitepaper=globalThis.webpackChunkai_whitepaper||[]).push([[8356],{1964:a=>{a.exports=JSON.parse('{"metadata":{"permalink":"/whitepaper/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":8,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
