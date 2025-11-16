@@ -4,11 +4,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
+import {usePluginData} from '@docusaurus/useGlobalData';
 import BlogAuthor from '@theme/Blog/Components/Author';
 import styles from './DocItemAuthors.module.css';
-
-// Load authors data from docs/authors.ts
-import authorsData from '@site/docs/authors';
 
 // Define the expected shape of frontMatter
 interface DocFrontMatter {
@@ -20,13 +18,16 @@ export default function DocItemAuthors({className}) {
   const {frontMatter} = useDoc();
   const {authors: authorKeys} = frontMatter as DocFrontMatter;
   
+  // Get authors data from plugin
+  const {authors: authorsData} = usePluginData('docusaurus-plugin-docs-authors') as {authors: any};
+  
   if (!authorKeys || authorKeys.length === 0) {
     return null;
   }
 
   // Map author keys to author data
   const authors = authorKeys.map((key) => {
-    const authorData = authorsData[key];
+    const authorData = authorsData?.[key];
     if (!authorData) {
       return {name: key};
     }
