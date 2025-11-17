@@ -47,6 +47,6 @@ background: #18141D
 primary: #7D17F2
 primary (50% darker): #3F0C79 
 secondary: #25c2a0
-secondary (50% darker): 0a6054
+secondary (50% darker): #0a6054
 boarder: #1a2869
 ```

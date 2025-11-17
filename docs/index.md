@@ -11,7 +11,7 @@ tags: [ai, agentic-ai, banking]
 
 The *Agentic AI in Banking* white paper series aims to **define the strategic and technical foundation** for adopting AI agents within the enterprise. It seeks to **influence the bank’s AI strategy**, **accelerate technical readiness**, and **establish internal standards** for the secure and effective design, deployment, and governance of enterprise-grade agentic systems.
 
-The series progressively builds understanding from foundational concepts to implementation blueprints. Each paper integrates synthesized research, academic frameworks, and practical banking applications to equip executes, architects and engineers with the knowledge, tools, and governance patterns required to realize the full potential of agentic AI under regulated conditions.
+The series progressively builds understanding from foundational concepts to implementation blueprints. Each paper integrates synthesized research, academic frameworks, and practical banking applications to equip executives, architects and engineers with the knowledge, tools, and governance patterns required to realize the full potential of agentic AI under regulated conditions.
 
 Ultimately, the series will culminate in a **Banking AI Agent Reference Architecture and Adoption Framework**, enabling cohesive alignment across strategy, technology, and risk governance while positioning the bank as a frontrunner in responsible, enterprise-grade AI innovation.
 
