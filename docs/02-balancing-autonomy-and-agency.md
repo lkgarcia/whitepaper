@@ -77,7 +77,7 @@ prompt: |
 
 # Balancing Autonomy and Agency: Managing Emerging Risks in AI Agents
 
-![image-center](https://placehold.co/800x400?text=Hero+Image)
+![image-center](/img/balance.png)
 
 ## Executive Summary
 
