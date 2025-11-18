@@ -168,7 +168,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="50dwjhY8MMOP8HSD7Z8z" name="anatomy">
-    <mxGraphModel dx="1375" dy="2175" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1536" pageHeight="864" background="#18141D" math="0" shadow="0">
+    <mxGraphModel dx="619" dy="1431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1536" pageHeight="864" background="#18141D" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -269,8 +269,8 @@
             <mxPoint x="862" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="kPlz6yny6eeoXv2hLpk7-64" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Avenir Next;fontSize=14;fontColor=light-dark(#FFFFFF,#FFFFFF);labelBackgroundColor=light-dark(#18141D,#18141D);endArrow=open;endFill=0;flowAnimation=1;horizontal=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=elbowEdgeStyle;" edge="1" parent="3INQvgCT8pj0TS5XblIY-1" source="kPlz6yny6eeoXv2hLpk7-5" target="kPlz6yny6eeoXv2hLpk7-40">
-          <mxGeometry x="0.0135" relative="1" as="geometry">
+        <mxCell id="kPlz6yny6eeoXv2hLpk7-64" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(255, 255, 255); font-family: &amp;quot;Avenir Next&amp;quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(24, 20, 29); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;«Model Context Protocol»&lt;/span&gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Avenir Next;fontSize=14;fontColor=light-dark(#FFFFFF,#FFFFFF);labelBackgroundColor=light-dark(#18141D,#18141D);endArrow=open;endFill=0;flowAnimation=1;horizontal=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=elbowEdgeStyle;" edge="1" parent="3INQvgCT8pj0TS5XblIY-1" source="kPlz6yny6eeoXv2hLpk7-5" target="kPlz6yny6eeoXv2hLpk7-40">
+          <mxGeometry x="-0.2045" relative="1" as="geometry">
             <mxPoint as="offset" />
             <mxPoint x="825" y="300" as="sourcePoint" />
             <mxPoint x="905" y="319" as="targetPoint" />
@@ -426,8 +426,8 @@
             <mxPoint x="1300" y="-200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="kPlz6yny6eeoXv2hLpk7-123" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Avenir Next;fontSize=14;fontColor=light-dark(#FFFFFF,#FFFFFF);labelBackgroundColor=light-dark(#18141D,#18141D);endArrow=open;endFill=0;flowAnimation=1;horizontal=1;elbow=vertical;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPlz6yny6eeoXv2hLpk7-40" target="kPlz6yny6eeoXv2hLpk7-108">
-          <mxGeometry x="0.0173" relative="1" as="geometry">
+        <mxCell id="kPlz6yny6eeoXv2hLpk7-123" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(255, 255, 255); font-family: &amp;quot;Avenir Next&amp;quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(24, 20, 29); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;«API»&lt;/span&gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Avenir Next;fontSize=14;fontColor=light-dark(#FFFFFF,#FFFFFF);labelBackgroundColor=light-dark(#18141D,#18141D);endArrow=open;endFill=0;flowAnimation=1;horizontal=1;elbow=vertical;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPlz6yny6eeoXv2hLpk7-40" target="kPlz6yny6eeoXv2hLpk7-108">
+          <mxGeometry x="-0.4286" relative="1" as="geometry">
             <mxPoint as="offset" />
             <mxPoint x="1980" y="-550" as="sourcePoint" />
             <mxPoint x="1150" y="70" as="targetPoint" />
