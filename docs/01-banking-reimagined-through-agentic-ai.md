@@ -60,6 +60,7 @@ Agentic AI – AI systems endowed with autonomous decision-making – promises t
 The banking sector is experiencing rapid innovation in artificial intelligence. Recent advances in **generative AI** (e.g. large language models capable of producing human-like text) have already begun to augment customer service, fraud detection, and more.
 
 ![image-center](/img/gartner-hype-cycle-for-ai-intelligence-2025.png)
+<p class="center">_Figure 1: 2025 Hype Cycle for Artificial Intelligence [^8]_</p>
 
 > _"By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate."_  
 > — Gartner, 2025[^1]
@@ -79,7 +80,7 @@ Now, a new evolution is underway toward **“agentic AI,”** where AI systems d
 - **Sensors/Perception:** In software terms, this means the agent’s ability to receive data from its environment – such as user input, transaction data, or alerts. It “perceives” the state of relevant systems before deciding actions.
 
 ![image-center](/img/agentic-ai-anatomy.svg)
-<!-- Refer to LinkedIn post by Rakesh Gohel (Manus AI) -->
+<p class="center"> _Figure 2: Anatomy of an AI Agent_ </p>  
 
 Together, these components enable a cycle of *perceive → decide → act*. The agent perceives inputs or changes, reasons about what to do, then takes actions, possibly generating new inputs in a loop. Crucially, agentic AI systems are designed to operate with **minimal human supervision** once deployed, within the bounds of their defined goals and permissions[^2]. This sets them apart from earlier AI assistants or analytic models that required a human to initiate every action.
 
@@ -90,6 +91,7 @@ While advancing quickly, fully autonomous banking agents remain in early stages.
 ## Future in Action: Agent-to-Agent Customer Service Interaction
 
 ![Agentic AI Concept](/img/agentic-ai-concept.svg)
+<p class="center"> _Figure 3: Agentic AI Concept_ </p>  
 
 This scenario illustrates how AI agents in retail banking can autonomously collaborate to fulfill a high-value customer request—such as transferring $50,000 internationally—while embedding compliance and oversight.
 
@@ -138,3 +140,4 @@ Leaders who act now—via targeted pilots and clear safeguards—will be well-po
 [^5]: [Gartner Press Release (2025) – via CMSWire. _Agentic AI Set to Transform Customer Service & Support_.](https://www.cmswire.com/the-wire/gartner-predicts-agentic-ai-will-autonomously-resolve-80-of-common-customer-service-issues-without-human-intervention-by-2029/)
 [^6]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)
 [^7]: [Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)
+[^8]: [Gartner Article (2025). _The 2025 Hype Cycle for Artificial Intelligence Goes Beyond GenAI_.](https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence)

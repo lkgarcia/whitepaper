@@ -122,6 +122,8 @@ Autonomy in AI agents exists on a spectrum, not as an all-or-nothing property. A
 | **4**     | Approver     | AI operates independently in routine tasks, escalating exceptions to humans.           | A fraud system that blocks common cases but flags unusual ones.           |
 | **5**     | Observer     | AI functions autonomously end-to-end, with little to no human involvement.             | An IT monitoring agent that restarts servers without human input.         |
 
+<p class="center"> _Table 1: Five Levels of Autonomy for AI Agents_ </p>  
+
 In real-world deployments, an agent's autonomy may vary by task or context. For instance, a customer service agent might autonomously answer basic queries but escalate sensitive topics to a human. Many agent designs incorporate such dynamic shifts in autonomy to match risk levels and regulatory expectations.
 
 This tiered approach also aligns with emerging concepts like **AI autonomy certification**, which may eventually help institutions communicate an agent's oversight level more transparently[^d]. While formal standards are still evolving, defining and documenting each agent’s autonomy level can support clearer governance, risk assessment, and stakeholder alignment.
@@ -151,6 +153,8 @@ When an agent has *too much capability or access*, risks are primarily **impact-
 | **Compliance Risk**   | Violates policy or legal requirements.                                     | Agent mishandles personal data.                    |
 | **Cascade Risk**      | Tool chaining triggers unintended downstream effects.                      | Agent runs a script that impacts multiple systems. |
 
+<p class="center"> _Table 2: High Agency Risk Categories_ </p>  
+
 :::info Analogy
 Like giving an intern unrestricted access — well-intentioned, but risky at scale.
 :::
@@ -175,6 +179,8 @@ When an agent operates *too independently* (without oversight or feedback), risk
 | **Ethical Risk**        | Misaligned decisions or fairness violations.    | Agent denies service using biased logic.     |
 | **Accountability Risk** | Unclear responsibility for outcomes.            | Who is liable if the agent fails silently?   |
 | **Runaway Risk**        | Recurring loops or actions without termination. | Agent retries endlessly or spams actions.    |
+
+<p class="center"> _Table 3: High Autonomy Risk Categories_ </p>  
 
 :::info Analogy
 Like a self-driving car told to “keep going” — even when conditions change.
@@ -267,6 +273,8 @@ Performing a **Failure Modes and Effects Analysis (FMEA)** helps proactively ide
 | **Model Drift / Performance Degradation** | Model quality decays or adapts undesirably over time.                | Set up continuous monitoring, champion–challenger testing, and periodic model retraining or review.       |
 | **Security Breaches / Adversarial Attacks**| AI system is manipulated or exploited by external inputs.            | Apply security hardening (e.g., input validation, isolation), rate-limit requests, and test adversarially.|
 
+<p class="center"> _Table 4: Failure Mode Mitigations_ </p>  
+
 Thoughtful FMEA during agent design enables banks to embed safeguards upfront—so systems fail safely, not silently.
 
 ### Illustrative Scenario: Payment Dispute Resolution Workflow
@@ -294,6 +302,7 @@ sequenceDiagram
     ServiceAgent-->>FrontBot: Case opened, credit posted
     FrontBot-->>Customer: Confirms dispute & refund
 ```
+<p class="center"> _Figure 1: Example Payment Dispute Resolution Workflow_ </p>  
 
 Each agent operates with scoped autonomy and clear escalation paths. All actions are auditable.
 

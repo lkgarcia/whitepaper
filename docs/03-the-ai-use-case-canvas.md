@@ -113,7 +113,9 @@ The AI Use Case Canvas covers three dimensions (**Why, How, Cost**), each contai
 
 ![align-center](/img/agentic-ai-canvas.svg)
 
-*Figure 1: The AI Use Case Canvas structure, adapted for banking needs (three dimensions and eight key components).* Each component is described below:
+<p class="center"> _Figure 1: The AI Use Case Canvas structure, adapted for banking needs (three dimensions and nine key components)_ </p>  
+
+Each component is described below:
 
 ### The Why Dimension: Building the Business Case
 
@@ -175,9 +177,11 @@ To illustrate the AI Use Case Canvas in action, let's explore a concrete banking
 
 **Approach A – Agentic AI Chatbot:** Deploy a conversational AI agent that interacts directly with customers in place of a human agent. This chatbot would use a large language model to understand queries and provide answers or take actions (like resetting a password), handing off to a human only for complex cases.
 ![image-center](/img/agentic-ai-canvas-approach-a.svg)
+<p class="center"> _Figure 2: Approach "A" AI Use Case Canvas_ </p>  
 
 **Approach B – AI Assist for Human Agents:** Use AI to support human call center agents rather than replace them. For example, an ML system could listen to calls or read chats and **suggest responses** to the human agent, or automatically retrieve relevant information, speeding up each interaction. The final response is still delivered by the human agent.
 ![image-center](/img/agentic-ai-canvas-approach-b.svg)
+<p class="center"> _Figure 3: Approach "B" AI Use Case Canvas_ </p>  
 
 #### What the Canvas Reveals
 
