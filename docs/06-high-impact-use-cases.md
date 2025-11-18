@@ -126,7 +126,7 @@ Agentic AI acts as a force multiplier in risk management and fraud prevention: a
 
 Agentic AI transforms knowledge management and customer service from scripted chatbots to **conversational agents that can act**.
 
-**Customer service agents:** Natural language interfaces resolving multi-step tasks (card replacement, fee adjustments) autonomously. Gartner forecasts **80% automation of common issues by 2029** with ~30% cost reduction[^6]. Capacity scaling (thousands of simultaneous sessions), reduced handling time (<1 minute), and improved CSAT through instant resolution.
+**Customer service agents:** Natural language interfaces resolving multi-step tasks (card replacement, fee adjustments) autonomously. Gartner forecasts **80% automation of common issues by 2029** with ~30% cost reduction[^6]. Capacity scaling (thousands of simultaneous sessions), reduced handling time (under 1 minute), and improved CSAT through instant resolution.
 
 **Agent-to-agent (A2A) interactions:** Customer’s personal AI assistant securely converses with bank’s service agent for budgeting, limit changes, proactive monitoring – necessitates robust APIs and authentication protocols; a differentiator for engagement and retention.
 
