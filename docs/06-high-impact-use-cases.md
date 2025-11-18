@@ -28,14 +28,14 @@ prompt: |
 
   Structure:
     1) Executive summary (100–150 words)
-    2) Introduction (context & definition of Agentic AI in banking)
-    3) Industry trends & relevance (include external reference link provided)
+    2) Introduction (context)
+    3) Industry trends & relevance (include external reference link provided: [Tearsheet](https://tearsheet.co/podcasts/ai-agents-are-making-real-financial-decisions-nvidias-kevin-levitt-on-the-infrastructure-behind-capital-one-visa-and-rbcs-live-deployments/))
     4) Use case domains:
        - Business process & operations automation
        - Risk & fraud decision augmentation
        - Knowledge & service intelligence (contact centre, internal advisory)
        - Agent-to-Agent (A2A) customer engagement & personalization
-    5) Implementation & integration (APIs/tooling, orchestration patterns, data readiness)
+    5) Implementation & integration (APIs/tooling, orchestration patterns, data readiness) for each use case
     6) Governance & controls (alignment with model risk, auditability, guardrails)
     7) Real-world examples & impact ranges (generalized; no specific banks/jurisdictions)
     8) Recommendations & 3-phase roadmap (short / mid / long)
@@ -52,6 +52,7 @@ prompt: |
     - No specific bank names, regulations, or jurisdictional detail.
     - Quantify only where defensible; provide ranges with citation or clearly mark as directional.
     - Flag assumptions; avoid speculative claims without caveats.
+    - Do not include a definition of Agentic AI in banking as it was already covered in a previous paper.
 
   Sources (target pool): ArXiv (agent architectures, evaluation), Gartner (market & adoption trends), peer-reviewed university research (reinforcement learning, autonomous systems reliability).
 
