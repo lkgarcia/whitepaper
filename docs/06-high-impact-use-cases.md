@@ -186,9 +186,7 @@ Agentic AI offers a pragmatic path to materially improve banking efficiency, dec
 
 Banks that execute this phased strategy will evolve into AI-augmented enterprises delivering faster, smarter, and more customer-centric services while maintaining trust and stability.
 
-## References & Footnotes (Extracted)
-
-> For brevity only first set of footnotes referenced inline here. Full original reference section retained in source HTML. Inline numeric references preserved as Markdown footnotes.
+---
 
 [^1]: Tearsheet (Nov 2025). “AI agents are making real financial decisions…” – Capital One car-buying assistant; Visa payment agents; RBC trading agents (live deployments; autonomy shift).
 [^2]: Tearsheet (Nov 2025). “Banks or Pipes: Where financial institutions go when agents take over.” – 55% engagement boost; changing customer behavior (web traffic down 20–30%).

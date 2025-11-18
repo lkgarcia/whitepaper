@@ -172,7 +172,8 @@ Enterprise AI agents can materially enhance efficiency, engagement, and analytic
 - Use multi-agent orchestration for modularity in complex processes; supervise with guardrails.
 - Maintain feedback loops and adaptive oversight for continuous improvement.
 
-## Footnotes
+---
+
 [^1]: Adoption of AI across retail banking functions improves efficiency and customer experience (salesforce.com).
 [^2]: Definition of enterprise AI agent: perceives, reasons, plans, acts with memory (unstructured.io).
 [^3]: LangChain and similar frameworks enable stitching prompts, tools, reasoning (softcery.com).
