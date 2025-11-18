@@ -64,6 +64,8 @@ prompt: |
 
 # Agentic AI in Banking – High-Impact Use Cases & Strategic Insights
 
+![image-center](https://placehold.co/800x400?text=Hero+Image)
+
 ## Executive Summary
 
 Agentic AI – autonomous software agents that can perceive, decide, and act with minimal human intervention – is poised to transform retail banking operations and customer engagement. This white paper identifies pragmatic, high-impact use cases where these AI agents can drive measurable value in the near term, while outlining a roadmap toward more advanced autonomy in the long run. Key opportunities include automating routine back-office processes, augmenting fraud detection and risk decisions, and enhancing customer service with always-on, personalized assistance. Early deployments have demonstrated tangible gains (e.g. *over 50% boosts in customer engagement and >60% reductions in process cycle times*[^1] [^2]), indicating significant potential for revenue uplift, cost savings, and risk mitigation. However, realizing this value at scale requires careful integration into existing systems, robust governance (with human-in-the-loop checkpoints and transparency), and stringent model risk controls. Banks should start with narrow, well-scoped agentic solutions that deliver clear ROI and operate under human supervision, then progressively expand into multi-agent orchestration and more autonomous workflows as technology and trust mature. By focusing on workflows that improve decision quality, speed, compliance, and personalization – and by instituting guardrails for reliability and ethical compliance – financial institutions can harness agentic AI to gain competitive advantage while managing risks.

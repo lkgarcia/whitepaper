@@ -79,6 +79,8 @@ prompt: |
 
 # Building Enterprise AI Agents: Empowering Business Units Through Secure, Scalable, and Compliant AI Platforms
 
+![image-center](https://placehold.co/800x400?text=Hero+Image)
+
 ## Executive Summary
 Large Language Model (LLM) powered **AI agents** are poised to transform retail banking operations by combining reasoning, planning, autonomous tool use, and continuous learning. Unlike basic chatbots, enterprise-grade agents orchestrate multi‑step tasks, invoke external APIs and data sources, and adapt through memory. Benefits include: higher service efficiency and personalization, streamlined internal workflows, and enhanced risk management under strong governance. This paper presents technical architecture fundamentals, compares **code‑first vs. low/no‑code development environments**, and supplies a decision framework mapping use case attributes to platform and safeguard choices. A phased adoption roadmap enables controlled innovation. With secure data boundaries, fine‑grained identity and access controls, observability, and human oversight, banks can responsibly unlock AI agents’ potential and build a scalable, compliant platform for business-unit empowerment.
 
