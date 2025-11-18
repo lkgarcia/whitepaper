@@ -1,6 +1,6 @@
 ---
 title: Banking Reimagined Through Agentic AI
-date: 2025-11-13T22:00:00
+date: 2025-11-13T10:00:00
 slug: banking-reimagined-through-agentic-ai
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking, future]

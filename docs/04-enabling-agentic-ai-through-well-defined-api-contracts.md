@@ -1,6 +1,6 @@
 ---
 title: "Enabling Agentic AI Through Well-Defined API Contracts"
-date: 2000-01-01T23:00:00
+date: 2025-11-13T10:00:00
 slug: enabling-agentic-ai-through-well-defined-api-contracts
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking]

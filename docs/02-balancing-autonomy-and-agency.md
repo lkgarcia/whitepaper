@@ -1,6 +1,6 @@
 ---
 title: "Balancing Autonomy and Agency"
-date: 2025-11-13T21:00:00
+date: 2025-11-13T10:00:00
 slug: balancing-autonomy-and-agency
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking, risk]

@@ -1,6 +1,6 @@
 ---
 title: Agentic AI in Banking
-date: 2025-11-13T23:00:00
+date: 2025-11-13T10:00:00
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking]
 ---

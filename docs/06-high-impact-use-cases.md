@@ -1,6 +1,6 @@
 ---
 title: "High-Impact Use Cases and Strategic Insights"
-date: 2000-01-01T23:00:00
+date: 2025-11-13T10:00:00
 slug: high-impact-use-cases
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking]

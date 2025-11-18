@@ -1,6 +1,6 @@
 ---
 title: "The AI Use Case Canvas"
-date: 2025-11-13T20:00:00
+date: 2025-11-13T10:00:00
 slug: "the-ai-use-case-canvas"
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking, strategy]

@@ -1,6 +1,6 @@
 ---
 title: "Selecting the Right AI Model"
-date: 2000-01-01T23:00:00
+date: 2025-11-13T10:00:00
 slug: selecting-the-right-ai-model
 authors: [lkgarcia]
 tags: [ai, agentic-ai, banking]
