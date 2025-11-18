@@ -7,12 +7,18 @@ tags: [ai, agentic-ai, banking]
 prompt: |
   Title: Building Enterprise AI Agents: Empowering Business Units Through Secure, Scalable, and Compliant AI Platforms
   
-  Message: [TBD: What is the main message of the white paper?]
+  Message: Use these AI architecture patterns and governance frameworks.
 
   Purpose: Produce a clear, structured, and engaging white paper that explains [TBD:What?].
 
   Goals:
-    - [TBD]
+    - Explain the technical fundamentals of building enterprise-grade AI agents.
+    - Survey the current landscape of agent development environments (IDEs), including traditional and low-code/no-code platforms.
+    - Elaborate various technical architecture patterns for building enterprise-grade AI agents that meet banking requirements for security, scalability, and compliance.
+    - Elaborate vendor solutions:
+      - Microsoft 365 Copilot Agents
+      - Azure Databricks
+    - Provide a decision framework for selecting appropriate agent development platforms and architecture patterns based on use case requirements.
 
   Audience: Technical product managers, architects, and senior banking executives (mix of technical and non-technical readers).
 
@@ -30,9 +36,17 @@ prompt: |
     - 3) technical fundamentals:
       - [TBD: What 2-3 technical fundamentals need to be explained?]
     - 4) Topics:
-      - [TBD: What main topics need to be covered?]
-    - 5) Recommendations and roadmap:
-      - [TBD: What recommendations and roadmap points need to be made?]
+      - Agent development/IDE:
+        - traditional / code-first Pplatforms (e.g. LangChain, LlamaIndex, etc.)
+        - low-code/no-code platforms (e.g. Microsoft Copilot Studio, n8n, etc.)
+      - Architecture patterns for building secure, scalable, compliant AI agents:
+        - Agentic Knowledge Management (use cases: knowledge & service intelligence in contact centre, internal advisory, etc.)
+        - Agentic Process Automation (use cases: business process & operations automation
+        - Agentic Risk Management (use cases: risk & fraud decision augmentation, etc.)
+        - Agentic Customer Engagement (use cases: Agent-to-Agent (A2A) customer engagement & personalization, etc.)
+      - Decision framework for selecting agent development platforms and architecture patterns
+      - Case studies / examples
+    - 5) Recommendations and roadmap
     - 6) short conclusion
 
   Examples & requirements:
