@@ -59,7 +59,7 @@ Agentic AI – AI systems endowed with autonomous decision-making – promises t
 
 The banking sector is experiencing rapid innovation in artificial intelligence. Recent advances in **generative AI** (e.g. large language models capable of producing human-like text) have already begun to augment customer service, fraud detection, and more.
 
-![image-center](https://placehold.co/600x400?text=Evolution+of+AI)
+![image-center](/img/gartner-hype-cycle-for-ai-intelligence-2025.png)
 
 > _"By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate."_  
 > — Gartner, 2025[^1]
