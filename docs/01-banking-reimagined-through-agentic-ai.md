@@ -62,8 +62,10 @@ The banking sector is experiencing rapid innovation in artificial intelligence. 
 ![image-center](/img/gartner-hype-cycle-for-ai-intelligence-2025.png)
 <p class="center">_Figure 1: 2025 Hype Cycle for Artificial Intelligence [^8]_</p>
 
+>  &nbsp;  
 > _"By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate."_  
-> — Gartner, 2025[^1]
+> — Gartner, 2025[^1]  
+>  &nbsp;  
 
 Now, a new evolution is underway toward **“agentic AI,”** where AI systems don’t just inform humans but can **take action** on their own. In banking, this means moving beyond static chatbots or decision support tools to AI-driven agents that can autonomously perform tasks – from executing transactions to answering complex customer requests – all while navigating the bank’s systems and rules. This paradigm shift carries significant implications for retail banking: it offers the potential for unprecedented efficiency and 24/7 personalized service, but also demands careful design to ensure compliance, security, and trust. In this paper, we explore what agentic AI is, how it can be applied in banking, a forward-looking scenario of agents in action, current industry developments, and recommendations for banks to adopt these technologies strategically.
 
@@ -71,13 +73,19 @@ Now, a new evolution is underway toward **“agentic AI,”** where AI systems d
 
 **What is an AI agent?** In simple terms, an AI “agent” is a software entity empowered with *agency* – the ability to make independent decisions and initiate actions toward a goal[^2]. Traditional AI systems (including many ML models and chatbots) typically provide insights or outputs *when prompted by a user*, but an agent goes further: it can proactively plan steps and act on a user’s or organization’s behalf.
 
+>  &nbsp;  
+> **agent** _(noun)_ — /ˈeɪ.dʒənt/  
+> from Latin _**agere**_ _(verb)_, “to do, to act, to bring into effect.”  
+>  &nbsp;  
+
 **Anatomy of an AI agent:** Most agentic AI systems share a common architecture. They are often built on a foundation of large language models or similar AI engines that can reason and generate plans. On top of this “brain,” agents have several key components:
 
-- **Goal or Intent:** A defined objective or problem to solve (provided by a user or another system).
+- **Sensors/Perception:** In software terms, this means the agent’s ability to receive data from its environment – such as user input, transaction data, or alerts. It “perceives” the state of relevant systems before deciding actions.
+- **Memory/Context:** Mechanisms to store and recall information from past interactions. This ensures continuity and allows the agent to handle multi-step workflows (keeping track of prior outputs, user preferences, interim results, etc.). Some agents maintain an internal knowledge base or can retrieve external knowledge (via search or retrieval-augmented generation).
 - **Planning Module:** The ability to break down goals into actionable steps and make decisions in sequence. This often involves iterative reasoning (sometimes using techniques like chain-of-thought prompting or planners) to determine *what* actions to take.
 - **Tools and Actuators:** Interfaces to the external environment that let the agent execute actions. These could be APIs, RPA (robotic process automation) scripts, databases, web services, or other software that the agent can call. For instance, an agent may call a core banking API to transfer funds or use a document parser to read a form.
-- **Memory/Context:** Mechanisms to store and recall information from past interactions. This ensures continuity and allows the agent to handle multi-step workflows (keeping track of prior outputs, user preferences, interim results, etc.). Some agents maintain an internal knowledge base or can retrieve external knowledge (via search or retrieval-augmented generation).
-- **Sensors/Perception:** In software terms, this means the agent’s ability to receive data from its environment – such as user input, transaction data, or alerts. It “perceives” the state of relevant systems before deciding actions.
+- **Multi-Agent System** Complex enterprise goals often require a network of specialized agents collaborating on subtasks—rather than relying on a single, general-purpose agent. This modular approach improves reliability, accuracy, and efficiency, as seen in use cases like security operations centers where distinct agents handle anomaly detection and response execution.
+- **System Prompt:** A defined objective or problem to solve. Define the agent's identity, behavior, constraints, and overall objective.
 
 ![image-center](/img/agentic-ai-anatomy.svg)
 <p class="center"> _Figure 2: Anatomy of an AI Agent_ </p>  
