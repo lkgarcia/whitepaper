@@ -59,8 +59,8 @@ Agentic AI – AI systems endowed with autonomous decision-making – promises t
 
 The banking sector is experiencing rapid innovation in artificial intelligence. Recent advances in **generative AI** (e.g. large language models capable of producing human-like text) have already begun to augment customer service, fraud detection, and more.
 
-![image-center](/img/gartner-hype-cycle-for-ai-intelligence-2025.png)
-<p class="center">_Figure 1: 2025 Hype Cycle for Artificial Intelligence [^8]_</p>
+![image-center](/img/gartner-hype-cycle-for-generative-ai-2025.png)
+<p class="center">_Figure 1: 2025 Hype Cycle for Generative AI [^8]_</p>
 
 >  &nbsp;  
 > _"By 2028, organizations that leverage multiagent AI for 80% of customer-facing business processes will dominate."_  
@@ -70,6 +70,14 @@ The banking sector is experiencing rapid innovation in artificial intelligence. 
 Now, a new evolution is underway toward **“agentic AI,”** where AI systems don’t just inform humans but can **take action** on their own. In banking, this means moving beyond static chatbots or decision support tools to AI-driven agents that can autonomously perform tasks – from executing transactions to answering complex customer requests – all while navigating the bank’s systems and rules. This paradigm shift carries significant implications for retail banking: it offers the potential for unprecedented efficiency and 24/7 personalized service, but also demands careful design to ensure compliance, security, and trust. In this paper, we explore what agentic AI is, how it can be applied in banking, a forward-looking scenario of agents in action, current industry developments, and recommendations for banks to adopt these technologies strategically.
 
 ## Technical Fundamentals of Agentic AI
+
+**What is Agentic AI?** Agentic AI refers to AI systems that operate with a high degree of autonomy and exhibit goal-directed behavior, meaning they can act independently to pursue objectives with minimal human intervention[^9]. These systems engage in advanced planning – breaking down tasks into sub-goals and executing multi-step strategies – and can dynamically use external tools or interact with their environment to achieve their goals[^9] [^10]. In current AI research, Agentic AI systems are characterized by the ability to perceive and reason about their environment, adapt their actions based on feedback, and self-coordinate complex tasks, rather than merely responding to prompts[^11].
+
+Key characteristics include:
+- **Autonomy:** the capacity to make decisions and act with minimal human oversight[^9]
+- **Goal-directedness:** behavior driven by high-level objectives or goals which the system actively pursues[^10] 
+- **Planning:** the ability to formulate and execute multi-step plans or strategies toward those goals[^9]
+- **Tool use:** the capability to invoke external tools or APIs and interact with the environment as needed to accomplish tasks[^10]. Each of these attributes is emphasized in academic definitions of agentic AI as distinguishing features that go beyond reactive or single-step AI responses[^11] [^9].
 
 **What is an AI agent?** In simple terms, an AI “agent” is a software entity empowered with *agency* – the ability to make independent decisions and initiate actions toward a goal[^2]. Traditional AI systems (including many ML models and chatbots) typically provide insights or outputs *when prompted by a user*, but an agent goes further: it can proactively plan steps and act on a user’s or organization’s behalf.
 
@@ -148,4 +156,7 @@ Leaders who act now—via targeted pilots and clear safeguards—will be well-po
 [^5]: [Gartner Press Release (2025) – via CMSWire. _Agentic AI Set to Transform Customer Service & Support_.](https://www.cmswire.com/the-wire/gartner-predicts-agentic-ai-will-autonomously-resolve-80-of-common-customer-service-issues-without-human-intervention-by-2029/)
 [^6]: [Okpala et al. (2024). _Agentic AI Systems Applied to Financial Services_ (arXiv preprint 2502.05439).](https://arxiv.org/abs/2502.05439)
 [^7]: [Gartner (2025). _Press Release: Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by 2027_ (June 25, 2025).](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)
-[^8]: [Gartner Article (2025). _The 2025 Hype Cycle for Artificial Intelligence Goes Beyond GenAI_.](https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence)
+[^8]: [Gartner Article (2025). _The 2025 Hype Cycle for GenAI Highlights Critical Innovations_.](https://www.gartner.com/en/articles/hype-cycle-for-genai)
+[^9]: [MDPI (2024). Agentic AI components and definition.](https://www.mdpi.com/1999-5903/17/9/404)
+[^10]: [arXiv (2025). Agentic AI definition and coordination.](https://arxiv.org/html/2505.06817v1)
+[^11]: [Springer (2025). Autonomous systems exhibiting genuine agent properties.](https://link.springer.com/article/10.1007/s10462-025-11422-4)
