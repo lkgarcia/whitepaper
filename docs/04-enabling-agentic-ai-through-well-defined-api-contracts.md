@@ -77,6 +77,7 @@ prompt: |
 
 # Enabling Agentic AI Through Well-Defined API Contracts: Building Reliable and Scalable Toolchains
 
+## Executive Summary
 Agents powered by large language models (LLMs) are poised to transform workflows in domains like retail banking, but their autonomy must be grounded in robust interfaces. A bank’s AI assistant might need to retrieve customer data, analyze transactions, and execute transfers—all by invoking software tools. Each such tool call is an **affordance** for the agent, defining what action it can take. Well-defined API contracts for these tools are the _substrate of agency_ that makes these actions reliable and governable. In contrast, if agents must infer how to use tools from ad-hoc cues (like scraping web pages or reading unstructured docs), the result is brittle, inefficient, and potentially unsafe integration[arxiv.org](https://arxiv.org/html/2511.11287v1#:~:text=structural%20challenge%3A%20While%20the%20web,long%20trajectories%2C%20and%20limited%20scalability). By designing disciplined API contracts, organizations can expose a controllable action space where agents reason safely and effectively.
 
 **API Contracts as Autonomy Enablers:** An API contract specifies exactly what a tool expects as input and what it returns, along with any constraints or guarantees. For agent toolchains, such contracts serve as explicit affordances the agent can plan over. They eliminate ambiguity and unexpected variability in tool usage, which is crucial because unlike traditional software, LLM-based agents don’t follow a predetermined code path – they decide actions on the fly. Clear contracts let the agent know _a priori_ what each tool can do and how to invoke it correctly. In essence, the contract is a **shared language** between the agent and the tool: a promise that “if you provide input `X` in format `Y`, you will get output `Z`.” This empowers autonomous reasoning while keeping it within safe bounds.
@@ -131,11 +132,32 @@ Designing an API contract for agent use involves more than the typical API spec.
 
 To illustrate, here’s a tiny example of a YAML contract for a hypothetical `check_balance` tool:
 
-yaml
-
-Copy code
-
-`name: check_balance description: >    Retrieve the current balance of a given account.    Use only when the user has been authenticated for that account. input:   type: object   required: [account_id]   properties:     account_id:       type: string       pattern: "^[0-9]{12}$"   # 12-digit account number output:   type: object   properties:     balance:       type: number       description: Balance in account’s currency     currency:       type: string       description: Currency code (ISO 4217) constraints:   rate_limit: 10 per minute   scope: "account_id must belong to requesting customer" risk_level: low`
+```yaml
+name: check_balance
+description: > 
+  Retrieve the current balance of a given account. 
+  Use only when the user has been authenticated for that account.
+input:
+  type: object
+  required: [account_id]
+  properties:
+    account_id:
+      type: string
+      pattern: "^[0-9]{12}$"   # 12-digit account number
+output:
+  type: object
+  properties:
+    balance:
+      type: number
+      description: Balance in account’s currency
+    currency:
+      type: string
+      description: Currency code (ISO 4217)
+constraints:
+  rate_limit: 10 per minute
+  scope: "account_id must belong to requesting customer"
+risk_level: low
+```
 
 Such a contract clearly delineates what the tool does and doesn’t do. An agent using this `check_balance` knows exactly what to provide and what it will get. If it violates the schema or constraints (say, providing an invalid account format or calling too frequently), the system will reject the call – protecting both the backend and maintaining the agent’s logical consistency.
 
@@ -147,7 +169,7 @@ API contracts for agentic AI double as **security boundaries**. In the banking c
     
 *   **Data Masking and Redaction:** Contracts can specify fields that must be redacted or transformed for the agent. For instance, an _account\_lookup_ tool might return a customer profile that includes a national ID or Social Security Number – the contract can mark that field as sensitive and the tool gateway could automatically hash or mask it (or the agent may be restricted from seeing it entirely). Sensitive data classification labels from the contract feed into a redaction engine. This way, even if an agent has access to personal data, we can enforce that certain high-risk data never leaves the secure service boundary or is only provided in a sanitized form. (E.g., last 4 digits of an ID instead of the full number.) Organizations should integrate their data classification policies here, so that any output to an AI agent is treated just like output to any external party in terms of compliance.
     
-*   **Encryption and Transit Security:** While not unique to AI, it’s worth stating that all agent <-> tool communications should be encrypted (TLS) and authenticated. Contracts can declare if additional encryption of payloads is required (for instance, an extra encryption layer for particularly sensitive info, even within internal networks). Given that LLM agents might run in various environments (some on cloud platforms, etc.), it is crucial to prevent man-in-the-middle or eavesdropping on tool APIs. This aligns with existing API security practices but becomes part of the AI governance story.
+*   **Encryption and Transit Security:** While not unique to AI, it’s worth stating that all agent-to-tool communications should be encrypted (TLS) and authenticated. Contracts can declare if additional encryption of payloads is required (for instance, an extra encryption layer for particularly sensitive info, even within internal networks). Given that LLM agents might run in various environments (some on cloud platforms, etc.), it is crucial to prevent man-in-the-middle or eavesdropping on tool APIs. This aligns with existing API security practices but becomes part of the AI governance story.
     
 *   **Execution Sandboxes:** If a tool involves executing code (for example, an agent might have a tool to run a SQL query or a Python script for advanced calculations), that execution environment must be sandboxed. The contract should enumerate what side effects are allowed. A “code execution” tool contract, for instance, might specify that the code runs in a container with no network access and time/memory limits. The agent thus knows any code it sends will only produce a result, and cannot, say, call arbitrary external URLs unless explicitly allowed by the tool’s design. This prevents the agent from using a tool in a malicious way (intentionally or due to prompt injection). Recent threat advisories emphasize such sandboxing and strict access controls as key to AI agent security[dtexsystems.com](https://www.dtexsystems.com/resources/i3-threat-advisory-mitigating-ai-agent-risks/#:~:text=To%20mitigate%20risks%20associated%20with,and%20respond%20to%20anomalies%20promptly).
     
@@ -227,11 +249,20 @@ Suppose we have a simple contract for a `notify_customer` tool that sends a noti
 
 In under 100 lines of Python (using FastAPI for example), one can load an API contract and spin up a server that registers each tool as an endpoint. Here’s a **pseudo-code** illustration of an MCP server handler generation using a contract definition:
 
-python
+```python
+contract = load_contract("transfer_funds.yaml")  # Load the API contract spec
+app = FastAPI()
 
-Copy code
-
-`contract = load_contract("transfer_funds.yaml")  # Load the API contract spec app = FastAPI()  @app.post(f"/tools/{contract.name}") async def invoke_tool(request: Request):     data = await request.json()     validate(data, contract.input_schema)          # Enforce input schema     enforce_policies(contract.name, data)          # Guardrails (if any defined)     result = perform_action(data)                  # Business logic (tool implementation)     validate(result, contract.output_schema)       # Enforce output schema     log_event(contract.name, data, result)         # Emit observability event     return result`
+@app.post(f"/tools/{contract.name}")
+async def invoke_tool(request: Request):
+    data = await request.json()
+    validate(data, contract.input_schema)          # Enforce input schema
+    enforce_policies(contract.name, data)          # Guardrails (if any defined)
+    result = perform_action(data)                  # Business logic (tool implementation)
+    validate(result, contract.output_schema)       # Enforce output schema
+    log_event(contract.name, data, result)         # Emit observability event
+    return result
+```
 
 _(The real code would handle exceptions, auth, etc., but this snippet shows the concept.)_
 
@@ -280,11 +311,43 @@ Throughout all phases, keep stakeholders involved. In retail banking, compliance
 
 **Mermaid Diagram: Agent-Toolchain Lifecycle**
 
-mermaid
-
-Copy code
-
-`flowchart TD     subgraph Agent Orchestrator         direction TB         P[Plan (LLM selects tool & params)]         E[Evaluate result & next step]     end     subgraph Contract Gateway/MCP Server         direction TB         V[Validate request schema]         C[Check policy/constraints]         X[Execute tool action]         R[Validate response schema]     end     subgraph Backend Services         B[(Database/API)]     end     P -->|Tool API call| V     V --> C     C -->|approved| X     C -->|denied| Deny[Return error (policy block)]     X --> B     B --> X     X --> R     R -->|result ok| Agent Orchestrator     R -->|schema error| Err[Return error (contract violation)]     Agent Orchestrator --> E     E --> P     subgraph Monitoring & Governance         L[Log trace & events]         G[Governance Review/Audit]     end     R --> L     C --> L     Err --> L     L --> G`
+```mermaid
+flowchart TD
+    subgraph AgentOrchestrator
+        direction TB
+        P["Plan (LLM selects tool & params)"]
+        E[Evaluate result & next step]
+    end
+    subgraph Contract Gateway/MCP Server
+        direction TB
+        V[Validate request schema]
+        C[Check policy/constraints]
+        X[Execute tool action]
+        R[Validate response schema]
+    end
+    subgraph Backend Services
+        B[(Database/API)]
+    end
+    P -->|Tool API call| V
+    V --> C
+    C -->|approved| X
+    C -->|denied| Deny["Return error (policy block)"]
+    X --> B
+    B --> X
+    X --> R
+    R -->|result ok| AgentOrchestrator
+    R -->|schema error| Err["Return error (contract violation)"]
+    AgentOrchestrator --> E
+    E --> P
+    subgraph Monitoring & Governance
+        L[Log trace & events]
+        G[Governance Review/Audit]
+    end
+    R --> L
+    C --> L
+    Err --> L
+    L --> G
+```
 
 _(Diagram: The agent orchestrator (LLM) decides on an action and calls a tool via the contract gateway. The gateway validates the request against the contract, checks any policies, executes the action on backend services, then validates the response. Logs and events are recorded for governance. The agent receives the tool result and evaluates if another step is needed, forming a feedback loop until the task completes.)_
 
