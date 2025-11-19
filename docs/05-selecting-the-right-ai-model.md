@@ -99,7 +99,7 @@ As generative AI moves past the initial hype, banks face pressure to deliver val
     
 *   **Hallucination Rate:** How often does the model “make up” an answer? Hallucination is especially concerning in finance (e.g. fabricating a regulatory requirement or a transaction that never occurred). Techniques like RAG and prompt constraints help here, but measurement is key – e.g. track the percentage of responses containing unverifiable claims.
     
-*   **Latency:** Response time under expected load. An otherwise accurate model that takes 10 seconds per query may fail in a live chat context. Set targets (e.g. <2 seconds for customer-facing agents) and test with realistic concurrent usage.
+*   **Latency:** Response time under expected load. An otherwise accurate model that takes 10 seconds per query may fail in a live chat context. Set targets (e.g. < 2 seconds for customer-facing agents) and test with realistic concurrent usage.
     
 *   **Cost per Query:** Roughly, the compute or API expense per 1000 tokens for each model. This can vary by an order of magnitude between model choices (as shown in the earlier example of 1B vs 70B token pricing[openreview.net](https://openreview.net/pdf?id=pZFJLsIY2m#:~:text=restricts%20real,1)). Estimating cost at scale prevents sticker shock once deployed.
     
@@ -140,11 +140,25 @@ Selecting the base model is step one; next comes deciding how that model will in
 
 Finally, note that these strategies aren’t mutually exclusive. For instance, you might fine-tune a model and _also_ use retrieval augmentation with it to inject new facts. Or use prompting and RAG together with an LLM. The art of solution design is picking the minimal complexity approach that meets the requirements. A decision flow diagram can help choose a path (see **Figure 1**).
 
-mermaid
-
-Copy code
-
-`flowchart TD     A([Use Case Attributes]) --> B{High domain specificity?}     B -- "Yes" --> C{Labeled domain data available?}     C -- "Yes" --> C1[Fine-Tune a Specialized Model (NLM or SLM)]     C -- "No" --> C2[RAG: LLM with Retrieval Augmentation]     B -- "No" --> D{High reasoning complexity?}     D -- "Yes" --> D1[Use Large Language Model (LLM) with prompts]     D -- "No" --> E{Strict latency or cost constraints?}     E -- "Yes" --> E1[Use Small/Efficient Model (SLM), possibly fine-tuned]     E -- "No" --> E2[Use LLM (general model)]     C1 --> M{Multi-modal inputs (text + images)?}     C2 --> M     D1 --> M     E1 --> M     E2 --> M     M -- "Yes" --> M1[Incorporate Multi-Modal Model or Vision Module]     M -- "No" --> X([Deploy Solution])`
+```mermaid
+flowchart TD
+    A([Use Case Attributes]) --> B{High domain specificity?}
+    B -- "Yes" --> C{Labeled domain data available?}
+    C -- "Yes" --> C1["Fine-Tune a Specialized Model (NLM or SLM)"]
+    C -- "No" --> C2[RAG: LLM with Retrieval Augmentation]
+    B -- "No" --> D{High reasoning complexity?}
+    D -- "Yes" --> D1["Use Large Language Model (LLM) with prompts"]
+    D -- "No" --> E{Strict latency or cost constraints?}
+    E -- "Yes" --> E1["Use Small/Efficient Model (SLM), possibly fine-tuned"]
+    E -- "No" --> E2["Use LLM (general model)"]
+    C1 --> M{"Multi-modal inputs (text + images)?"}
+    C2 --> M
+    D1 --> M
+    E1 --> M
+    E2 --> M
+    M -- "Yes" --> M1[Incorporate Multi-Modal Model or Vision Module]
+    M -- "No" --> X([Deploy Solution])
+```
 
 _Figure 1: Decision flow for model selection._ From top, assess if the problem is domain-specific and whether you have data to fine-tune a custom model. If not, use retrieval to inject domain knowledge into a general model. For general-use cases, decide based on task complexity: simple tasks with tight speed/cost budgets favor smaller models, whereas complex reasoning might require a large model. In all cases, if the use case involves non-text data (e.g. document images), consider a multi-modal extension.
 
