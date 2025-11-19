@@ -3,7 +3,7 @@ title: "Selecting the Right AI Model"
 date: 2025-11-13T10:00:00
 slug: selecting-the-right-ai-model
 authors: [lkgarcia]
-tags: [ai, agentic-ai, banking]
+tags: [banking, ai, agentic-ai, model, llm, slm, nlm]
 prompt: |
   Title: Selecting the Right AI Model: A Framework for Building Reliable and Scalable Agentic Systems
 

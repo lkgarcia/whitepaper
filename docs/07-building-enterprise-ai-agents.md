@@ -3,7 +3,7 @@ title: "Building Enterprise AI Agents"
 date: 2025-11-13T10:00:00
 slug: building-enterprise-ai-agents
 authors: [lkgarcia]
-tags: [ai, agentic-ai, banking]
+tags: [banking, ai, agentic-ai, enterprise, platform]
 prompt: |
   Title: Building Enterprise AI Agents: Empowering Business Units Through Secure, Scalable, and Compliant AI Platforms
 

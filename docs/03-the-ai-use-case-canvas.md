@@ -3,7 +3,7 @@ title: "The AI Use Case Canvas"
 date: 2025-11-13T10:00:00
 slug: "the-ai-use-case-canvas"
 authors: [lkgarcia]
-tags: [ai, agentic-ai, banking, strategy]
+tags: [banking, ai, agentic-ai, decision-framework]
 prompt: |
   Title: The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives
 
