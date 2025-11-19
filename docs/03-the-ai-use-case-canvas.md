@@ -88,8 +88,10 @@ In the previous paper in this series, *Banking Reimagined Through Agentic AI*, w
 
 However, as banks deepen their AI ambitions, a critical challenge emerges: **most AI initiatives in banking fail to deliver ROI due to weak business alignment**[^3] [^4]. Studies show **95% of AI pilots fall short**, and **over 40% of agentic AI projects will be canceled by 2027** due to unclear value and high cost[^5] [^6]. Poorly scoped AI can cause compliance issues, customer dissatisfaction, and wasted resources.
 
+> &nbsp;  
 > _"It is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail."_  
-> — Abraham Maslow (The Psychology of Science, 1966)
+> — Abraham Maslow (The Psychology of Science, 1966)  
+> &nbsp;  
 
 The issue isn’t the technology—it’s the lack of a strong business case. As experts note, *AI accelerates existing flaws if the process isn’t sound*[^7]. To avoid this, banks need a structured way to evaluate AI proposals. The **AI Use Case Canvas** helps shift from an "AI-first" to a **problem-first** mindset—prioritizing projects based on real business value, feasibility, and risk. The following sections explain how to apply this framework to make informed, value-driven AI decisions.
 

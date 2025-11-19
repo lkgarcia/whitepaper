@@ -91,8 +91,10 @@ By 2025, nearly half of banks had created “AI supervisor” roles, reflecting 
 
 Regulators and executives are taking notice. In 2024, the U.S. Consumer Financial Protection Bureau warned that poorly governed banking chatbots risk compliance violations by mishandling disputes or giving incorrect information[^b]. Globally, oversight expectations are rising. Similarly, the EU’s upcoming AI Act classifies many financial AI systems as “high risk,” requiring strict controls on privacy, fairness, and human accountability.
 
+> &nbsp;  
 > _Singapore’s central bank (MAS) proposed holding boards directly accountable for AI failures, warning that **“AI agents with greater autonomy and tool access could amplify risks”** if not properly governed._  
-> — CIO.com (2025)[^c]
+> — CIO.com (2025)[^c]  
+> &nbsp;  
 
 This white paper focuses on **banking** use cases and the emerging risks of AI agents. We explore how **agency** and **autonomy** enable powerful capabilities but also introduce new failure modes[^d]. We offer practical guidance—from design choices (e.g. limiting autonomy) to governance practices (e.g. auditability, human oversight)—and present a three-phase roadmap (pilot → scale → govern) to help banks deploy agentic AI responsibly, driving innovation **without** compromising compliance, security, or trust.
 
@@ -102,15 +104,30 @@ To assess risk, it's critical to define **agency** and **autonomy** in AI system
 
 ### What is Agency?
 
-*Agency* refers to an AI’s capacity to act purposefully, make decisions, and influence its environment on behalf of users. Unlike rule-based bots, agentic systems can interpret goals, take initiative, and adapt strategies—even in novel situations[^e]. For example, a high-agency service agent might analyze financial data and initiate loan processing, while a low-agency one simply retrieves information. Greater agency enables flexibility but increases risk if misaligned with intent or policy.
+*Agency* refers to an AI’s capacity to act purposefully, make decisions, and influence its environment on behalf of users. 
+
+> &nbsp;  
+> The *power* or *capability* of the agent — what it can do (e.g., tools, APIs, systems access).  
+> &nbsp;
+
+Unlike rule-based bots, agentic systems can interpret goals, take initiative, and adapt strategies—even in novel situations[^e]. For example, a high-agency service agent might analyze financial data and initiate loan processing, while a low-agency one simply retrieves information. Greater agency enables flexibility but increases risk if misaligned with intent or policy.
 
 ### What is Autonomy?
 
-*Autonomy* measures how independently an agent operates without human input. It reflects the level of oversight built into its workflow—from fully supervised to end-to-end execution. Most bank use cases today adopt low to moderate autonomy to preserve control in high-risk scenarios. For instance, a chatbot may handle basic queries autonomously but escalate fraud concerns to a human.
+*Autonomy* measures how independently an agent operates without human input.
+
+> &nbsp;  
+> The *freedom* of the agent — how independently it acts without supervision.  
+> &nbsp;
+
+It reflects the level of oversight built into its workflow—from fully supervised to end-to-end execution. Most bank use cases today adopt low to moderate autonomy to preserve control in high-risk scenarios. For instance, a chatbot may handle basic queries autonomously but escalate fraud concerns to a human.
 
 Agency and autonomy are distinct **governance levers**. An agent may have low agency (e.g., limited tools) but high autonomy (e.g., runs unsupervised), or vice versa. Seeking approval signals limited autonomy; modifying systems reflects greater agency. Disentangling the two helps tailor oversight to the nature and risk of the task.
 
 ## Levels of Autonomy in AI Agents
+
+![image-center](/img/five-levels-of-autonomy-for-ai-agents.png)
+<p class="center"> _Figure 1: Five Levels of Autonomy for AI Agents_ [^d] </p>  
 
 Autonomy in AI agents exists on a spectrum, not as an all-or-nothing property. A five-level framework—ranging from **Operator** to **Observer**—is commonly used to describe how much independence an agent has in decision-making and execution[^d]. This structure clarifies the balance of control between human and AI across different use cases:
 
@@ -134,9 +151,15 @@ This tiered approach also aligns with emerging concepts like **AI autonomy certi
 
 ### High Agency
 
-When an agent has *too much capability or access*, risks are primarily **impact-based** — i.e., what damage it could cause *if it acts incorrectly*. Agentic systems may make policy-like decisions that introduce bias, misalign with goals, or reduce explainability, complicating audits and customer resolution.
+When an agent has *too much capability or access*, risks are primarily **impact-based** — i.e., what damage it could cause *if it acts incorrectly*.
 
-:::tip Example Scenarios
+:::tip Key Governance Lever
+*Scope control* — limit the agent’s reach and abilities.
+:::
+
+Agentic systems may make policy-like decisions that introduce bias, misalign with goals, or reduce explainability, complicating audits and customer resolution.
+
+:::note Example Scenarios
 
 * Agent can execute API calls across financial systems.
 * Agent modifies data, triggers transactions, or reconfigures settings.
@@ -153,7 +176,7 @@ When an agent has *too much capability or access*, risks are primarily **impact-
 | **Compliance Risk**   | Violates policy or legal requirements.                                     | Agent mishandles personal data.                    |
 | **Cascade Risk**      | Tool chaining triggers unintended downstream effects.                      | Agent runs a script that impacts multiple systems. |
 
-<p class="center"> _Table 2: High Agency Risk Categories_ </p>  
+<p class="center"> _Table 2: High Agency Risk Categories_ [^d] </p>  
 
 :::info Analogy
 Like giving an intern unrestricted access — well-intentioned, but risky at scale.
@@ -161,9 +184,15 @@ Like giving an intern unrestricted access — well-intentioned, but risky at sca
 
 ### High Autonomy
 
-When an agent operates *too independently* (without oversight or feedback), risks are primarily **process-based** — i.e., when, how, and under what conditions it acts. Unchecked behavior can result in **disruptions**, **security breaches**, or customer harm — such as chatbots giving false information or exposing sensitive data.
+When an agent operates *too independently* (without oversight or feedback), risks are primarily **process-based** — i.e., when, how, and under what conditions it acts.
 
-:::tip Example Scenarios
+:::tip Key Governance Lever
+*Oversight control* — limit how long or how freely it runs without human input.
+:::
+
+Unchecked behavior can result in **disruptions**, **security breaches**, or customer harm — such as chatbots giving false information or exposing sensitive data.
+
+:::note Example Scenarios
 
 * Agent runs continuously without checkpoints.
 * Agent self-initiates actions or escalations.
@@ -302,7 +331,7 @@ sequenceDiagram
     ServiceAgent-->>FrontBot: Case opened, credit posted
     FrontBot-->>Customer: Confirms dispute & refund
 ```
-<p class="center"> _Figure 1: Example Payment Dispute Resolution Workflow_ </p>  
+<p class="center"> _Figure 2: Example Payment Dispute Resolution Workflow_ </p>  
 
 Each agent operates with scoped autonomy and clear escalation paths. All actions are auditable.
 
