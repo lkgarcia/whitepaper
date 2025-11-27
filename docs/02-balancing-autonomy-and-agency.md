@@ -131,13 +131,13 @@ Agency and autonomy are distinct **governance levers**. An agent may have low ag
 
 Autonomy in AI agents exists on a spectrum, not as an all-or-nothing property. A five-level framework—ranging from **Operator** to **Observer**—is commonly used to describe how much independence an agent has in decision-making and execution[^d]. This structure clarifies the balance of control between human and AI across different use cases:
 
-| **Level** | **Role**     | **Description**                                                                        | **Example**                                                               |
+| **Level** | **User Role**     | **Description**                                                                        | **Example: Credit Card Dispute Resolution**                                                               |
 | :-------- | :----------- | :------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
-| **1**     | Operator     | AI acts only when explicitly instructed by a human.                                    | A task bot triggered manually to retrieve reports.                        |
-| **2**     | Collaborator | AI assists users but requires frequent guidance or intervention.                       | A chatbot that drafts replies but needs staff approval to send them.      |
-| **3**     | Consultant   | AI performs defined tasks with some independence, deferring major decisions to humans. | A credit risk agent that recommends approvals reviewed by an underwriter. |
-| **4**     | Approver     | AI operates independently in routine tasks, escalating exceptions to humans.           | A fraud system that blocks common cases but flags unusual ones.           |
-| **5**     | Observer     | AI functions autonomously end-to-end, with little to no human involvement.             | An IT monitoring agent that restarts servers without human input.         |
+| **1**     | Operator     | AI acts only when explicitly instructed by a human.                                    | User tells AI exactly what to do: *“Summarize this customer note,”* *“Draft this email,”* *“Extract timestamps.”* |
+| **2**     | Collaborator | AI assists users but requires frequent guidance or intervention.                       | AI suggests next steps and prepares evidence, but user chooses each action and approves all outputs.              |
+| **3**     | Consultant   | AI performs defined tasks with some independence, deferring major decisions to humans. | AI gathers evidence, scores claim validity, and recommends an outcome; human decides and submits.                 |
+| **4**     | Approver     | AI operates independently in routine tasks, escalating exceptions to humans.           | AI fully processes standard disputes and issues credit; escalates unclear or risky cases.                         |
+| **5**     | Observer     | AI functions autonomously end-to-end, with little to no human involvement.             | AI adjudicates disputes, contacts merchants, issues credits/debits; humans only monitor dashboards.               |
 
 <p class="center"> _Table 1: Five Levels of Autonomy for AI Agents_ </p>  
 
@@ -253,7 +253,7 @@ Effective AI agent deployment in banking requires coordinated **technical contro
 
 Constrain agents handling sensitive decisions (e.g. credit or fund transfers) by hard-coding rules or using a “policy wrapper” to enforce strict decision boundaries.
 
-:::tip Example
+:::note Example
 A loan approval agent can only select from pre-approved loan products and must apply fixed eligibility rules—no dynamic criteria changes or offer generation.
 :::
 
@@ -261,7 +261,7 @@ A loan approval agent can only select from pre-approved loan products and must a
 
 Start with low autonomy during early stages. Increase gradually with testing, and use conditional autonomy to trigger supervision when risks arise.
 
-:::tip Example
+:::note Example
 A customer support agent operates autonomously for FAQs but instantly drops to Level 2 autonomy when keywords like “fraud” or “complaint” are detected.
 :::
 
@@ -269,7 +269,7 @@ A customer support agent operates autonomously for FAQs but instantly drops to L
 
 Insert human review or approval at key steps, using parallel checks or post-action audits with reversal capability.
 
-:::tip Example
+:::note Example
 Before issuing a provisional credit in a dispute, the agent prompts a back-office analyst for one-click approval, with justification auto-filled by the agent.
 :::
 
@@ -277,7 +277,7 @@ Before issuing a provisional credit in a dispute, the agent prompts a back-offic
 
 Use specialized agents with limited scopes that collaborate, preventing any single agent from having unchecked end-to-end control.
 
-:::tip Example
+:::note Example
 A service agent drafts a message, a second agent verifies it against policy, and a third agent decides if human sign-off is required before sending.
 :::
 
@@ -285,7 +285,7 @@ A service agent drafts a message, a second agent verifies it against policy, and
 
 Allow operators to halt agents instantly. Use fallback routes (e.g. human reps) and cautious rollouts like shadow mode or A/B testing.
 
-:::tip Example
+:::note Example
 All production agents are connected to a “kill switch” dashboard with human override rights and automated routing to live reps in case of errors or latency spikes.
 :::
 
