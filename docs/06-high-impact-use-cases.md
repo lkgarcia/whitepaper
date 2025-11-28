@@ -80,20 +80,6 @@ Extending these foundations, this paper focuses on **where agentic AI delivers t
 
 By pairing innovation with disciplined governance, banks can unlock significant gains in efficiency, risk management, and customer experience—while preserving the trust and stability that underpin financial services.
 
-## Industry Trends & Relevance
-
-The concept of autonomous AI agents in banking has quickly moved from futuristic speculation to *early reality*. In fact, several leading institutions have already deployed agentic AI in production settings. For example, Capital One has an AI “concierge” that helps customers navigate the car-buying process, Visa has experimented with letting AI agents initiate customer payments, and RBC (Royal Bank of Canada) uses AI agents to execute trades and adapt to market conditions in real time[^1]. These are not merely pilot programs, but live systems handling real transactions and customer interactions. Such deployments, launched in 2025, mark a fundamental shift: **AI is no longer just advising humans – in some cases, it is acting autonomously on behalf of customers or employees**[^1].
-
-Early results illustrate why interest has surged: Capital One’s multi-agent auto-buying assistant connected to thousands of auto dealers and drove a **55% boost in customer engagement** by automating key steps like scheduling test drives and arranging financing[^2]. RBC’s research assistant platform (“Aiden”) has **cut the cycle time for equity research report generation by over 60%** while enabling analysts to digest **10× more data** than before, by offloading routine summarization and drafting to AI agents[^3].
-
-Broader trends signal an inflection point. Users increasingly start with conversational AI interfaces for financial needs; some analyses suggest bank web traffic is down 20–30% as users begin with AI assistants instead of search[^2]. Younger customers expect natural, chat-based interactions; banks that embrace AI agents can capture loyalty and volume while laggards risk erosion in relevance.
-
-Surveys show mixed readiness: as of early 2025 only ~19% of organizations had made significant investments in agentic AI while ~50% remained cautious[^5]. Gartner warns **over 40% of agentic AI projects could be canceled by 2027** due to cost, unclear ROI, or inadequate controls[^5]. “Agent-washing” (relabeling basic automation as agents) and current model limitations temper expectations. Still, Gartner projects by 2028 at least **15% of day-to-day work decisions** will be made autonomously and one-third of enterprise software will embed agentic capabilities[^5]. In customer service specifically, agentic AI is forecast to autonomously resolve **80% of common requests by 2029**, driving **~30% cost reduction**[^6].
-
-Multi-agent systems and orchestration infrastructure are emerging: “crews” of specialized agents (data prep, analysis, validation) coordinate under a judge/orchestrator agent[^10]; proposals like the **Model Context Protocol (MCP)** aim to standardize agent communication[^8]. Banks are training domain-specific GPT models to serve as agent “brains”[^8] [^5], while major AI vendors embed agentic features, lowering barriers[^7].
-
-In summary, the industry context is one of *cautious momentum*. Early adopters have validated key use cases with measurable benefits; customer expectations are shifting toward AI-driven interactions. The imperative is to **cut through the hype** and target genuinely high-impact opportunities with disciplined execution and robust governance.
-
 ## Business Process & Operations Automation
 
 One of the clearest near-term wins lies in **automating internal business processes and operations**. Banks host numerous labor-intensive workflows (loan origination, account opening, KYC, regulatory reporting, payment validation) that are ripe for autonomous streamlining. Traditional RPA is brittle; an agentic AI combining LLM understanding with API/RPA tool access can adapt to exceptions and make simple judgment calls.
