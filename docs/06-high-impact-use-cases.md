@@ -68,6 +68,10 @@ prompt: |
 
 ## Executive Summary
 
+:::danger WORK IN PROGRESS
+Revise executive summary after full draft
+:::
+
 Agentic AI—autonomous software agents that can perceive, decide, and act with minimal human intervention—is set to meaningfully transform retail banking. Near-term value lies in automating routine back-office tasks, augmenting fraud and risk decisions, and elevating customer service through always-on, personalized assistance. Early deployments report **50%+ increases in engagement** and **60%+ reductions in cycle time**[^1] [^2], demonstrating strong potential for revenue lift, cost efficiency, and improved risk outcomes.
 
 To scale safely, banks must integrate agents into existing systems with robust governance, human-in-the-loop checkpoints, and strict model-risk controls. The recommended path is to begin with narrow, ROI-positive, supervised agents, then expand toward multi-agent orchestration and higher autonomy as technology and trust mature. By targeting workflows that improve decision quality, speed, compliance, and personalization—while enforcing reliability and ethical guardrails—banks can capture competitive advantage while managing emerging risks.
@@ -80,7 +84,132 @@ Extending these foundations, this paper focuses on **where agentic AI delivers t
 
 By pairing innovation with disciplined governance, banks can unlock significant gains in efficiency, risk management, and customer experience—while preserving the trust and stability that underpin financial services.
 
-## Business Process & Operations Automation
+---
+
+## Use Case #1: Business Process & Operations Automation
+
+### Business Problem
+
+Retail banks continue to rely on **manual, fragmented workflows** across many core business processes—especially those requiring coordination across multiple systems and judgment-based decision-making. One prominent example is **customer dispute handling**, such as credit card chargebacks and transaction errors, which remains heavily labor-intensive.
+
+Employees must retrieve data from disparate systems, review supporting documents, interpret context, and apply evolving regulatory rules—making the process slow, error-prone, and hard to scale. As digital transaction volumes surge, banks face growing **backlogs, compliance risk, and customer dissatisfaction**.
+
+Traditional automation methods—such as **straight-through processing (STP)** workflows and **robotic process automation (RPA)**—have offered only partial relief. They struggle with **case variability**, unstructured inputs, and exception handling—leaving human teams to manage the most frequent and complex cases manually.
+
+
+* **Urgency:** 4 / 5
+* **Frequency:** 5 / 5
+
+### Business Value
+
+Solving this problem with agentic AI unlocks measurable benefits:
+
+* **Cost savings** from reduced manual processing and headcount strain
+* **Faster resolution times**, improving SLA compliance and customer satisfaction
+* **Higher accuracy and fewer errors**, lowering regulatory exposure
+* **Scalability**, allowing operations to absorb dispute volume growth without adding staff
+
+AI agents can handle standard cases autonomously, escalate complex ones with full context, and provide real-time updates to customers.
+
+* **ROI Potential:** 5 / 5
+* **Strategic Importance:** 4 / 5
+
+### Case Study
+
+A major U.S. bank deployed agentic AI to automate credit card dispute resolution. The agents retrieved data, interpreted customer-submitted documents, applied chargeback policies, and generated resolution packets. [^sutherland]
+
+The outcome:
+
+* 60% reduction in manual effort
+* 99.5% processing accuracy
+* ~40% faster resolution times
+* $2.4 million in cost savings over three years
+
+This demonstrates how agentic AI can transform a high-friction, high-volume process into a scalable, compliant, and customer-friendly workflow.
+
+:::danger BOOKMARK WORK IN PROGRESS
+:::
+
+### **Phased Roadmap to Scale Agentic Dispute Resolution**
+
+#### **Phase 1: Supervised Pilots (0–6 months)**
+
+* **Scope:** One dispute type (e.g., card-not-present chargebacks) with clear criteria.
+* **Agent Capabilities:**
+
+  * Document extraction
+  * Transaction lookup
+  * Drafting resolution recommendation
+* **Human Oversight:** All agent recommendations reviewed by analysts.
+* **Tech Focus:** Tool integration, explainability, audit logging.
+* **Success Metrics:** Accuracy, resolution time, manual effort saved, regulator feedback.
+
+#### **Phase 2: Semi-Autonomous Expansion (6–18 months)**
+
+* **Scope:** Broader set of dispute types (e.g., fraud, service errors).
+* **Agent Capabilities:**
+
+  * Risk-based case triage
+  * Autonomous resolution of low-value or low-risk disputes
+  * Customer update messaging
+* **Human Oversight:** Threshold-based approvals; analyst intervention only on flagged cases.
+* **Tech Enhancements:**
+
+  * Policy update workflows
+  * Compliance dashboards
+  * Real-time monitoring tools
+* **Governance:** Introduce ethics review and model validation procedures.
+
+#### **Phase 3: Multi-Agent Ecosystem (18+ months)**
+
+* **Scope:** End-to-end dispute resolution across multiple product lines (cards, transfers, P2P payments).
+* **Agent Roles:**
+
+  * Intake agent (chatbot or form handler)
+  * Investigation agent
+  * Policy compliance agent
+  * Communication agent
+* **Autonomy Level:** Full resolution of standard disputes; adaptive learning from historical resolutions.
+* **Governance:** Continuous monitoring, retraining protocols, external audit readiness.
+* **Integration:** Agents embedded across the dispute lifecycle; self-service portal and CRM synchronized.
+
+---
+
+### **Technical Patterns for Safe Agent Deployment in Dispute Resolution**
+
+1. **Agent Design & Role Definition**
+
+   * **Specialized Task Agents:** Handle discrete steps (e.g., data retrieval, document parsing, policy lookup).
+   * **Coordinator Agents:** Orchestrate workflows, assign subtasks, monitor progress, escalate exceptions.
+
+2. **Tool Integration Layer**
+
+   * **API Gateways:** Connect to internal systems (e.g., CRM, transaction databases, card networks).
+   * **RPA/Legacy Bridge:** For systems lacking APIs, agents trigger RPA bots for UI-based access.
+   * **Document Processing Stack:** OCR + NLP pipelines to extract structured data from receipts, emails, attachments.
+
+3. **Reasoning & Decision Engine**
+
+   * **LLM Core + Policy Constraints:** LLMs reason through unstructured evidence within guardrails defined by dispute policies (e.g. Reg E/Z logic, chargeback codes).
+   * **Prompt Engineering + Context Windows:** Use well-structured, updatable prompts to ensure policy compliance and explainability.
+
+4. **Human-in-the-Loop (HITL) Controls**
+
+   * **Confidence Thresholds & Routing:** Agents auto-resolve low-risk cases; escalate high-risk/ambiguous ones for manual review.
+   * **Explainability Outputs:** Each agent decision generates a human-readable rationale and traceable evidence packet.
+
+5. **Audit & Compliance Logging**
+
+   * **Action Logging:** Every step (data source access, decision points, communications) is time-stamped and recorded.
+   * **Real-Time Dashboards:** Track resolution timelines, SLA compliance, and system confidence levels for internal and external audits.
+
+6. **Monitoring & Fail-Safes**
+
+   * **Anomaly Detection:** Monitor for unusual agent behavior or repeated errors.
+   * **Rollback & Escalation Protocols:** Allow agents to halt or defer actions if outside expected bounds.
+
+
+## Use Case #1: Business Process & Operations Automation
 
 One of the clearest near-term wins lies in **automating internal business processes and operations**. Banks host numerous labor-intensive workflows (loan origination, account opening, KYC, regulatory reporting, payment validation) that are ripe for autonomous streamlining. Traditional RPA is brittle; an agentic AI combining LLM understanding with API/RPA tool access can adapt to exceptions and make simple judgment calls.
 
@@ -187,3 +316,4 @@ Banks that execute this phased strategy will evolve into AI-augmented enterprise
 [^12]: Policy-as-prompt / safety-aware evaluation agent concepts (runtime policy classifiers).
 [^13]: Payment instruction validation accuracy & throughput improvement example.
 [^16]: AI-driven personalized recommendations producing multi-billion incremental value; cross-sell lifts.
+[^sutherland]: [Sutherland Global Case Study (2025). _Sutherland Transforms Credit Card Dispute Resolution for a Leading Bank, Achieving 60% Reduction in Manual Effort and $2.4M in Cost Savings_](https://www.sutherlandglobal.com/insights/case-study/leading-bank-achieving-reduction-in-manual-effort-and-cost-savings)
