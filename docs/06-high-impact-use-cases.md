@@ -82,6 +82,11 @@ In the previous paper, *Banking Reimagined Through Agentic AI*, we showed how AI
 
 Extending these foundations, this paper focuses on **where agentic AI delivers the highest value in banking today**. We identify high-impact use cases across operations, risk, customer service, and customer engagement; outline the technical patterns needed to deploy agents safely; and propose a phased roadmap—from narrow, supervised pilots to scalable multi-agent ecosystems.
 
+:::danger WORK IN PROGRESS
+Revisit statement:
+> _We identify high-impact use cases across operations, risk, customer service, and customer engagement; outline the technical patterns needed to deploy agents safely; and propose a phased roadmap—from narrow, supervised pilots to scalable multi-agent ecosystems._
+:::
+
 By pairing innovation with disciplined governance, banks can unlock significant gains in efficiency, risk management, and customer experience—while preserving the trust and stability that underpin financial services.
 
 ---
@@ -127,101 +132,20 @@ The outcome:
 
 This demonstrates how agentic AI can transform a high-friction, high-volume process into a scalable, compliant, and customer-friendly workflow.
 
+### Phased Roadmap
+
+#### Phase 1: Supervised (Human-in-the-Loop) Pilots
+
+This phase focuses on supervised pilots for a single dispute type, where agents handle data lookup and draft recommendations under full human review, with emphasis on integration, explainability, and accuracy.
+
+![image-center](/img/agentic-ai-use-case-1-phase-1-canvas.svg)
+<p class="center"> _Figure 1: Dispute Resolution Phase 1 - AI Use Case Canvas_ </p>  
+
+![image-center](/img/agentic-ai-use-case-1-phase-1-concept.svg)
+<p class="center"> _Figure 2: Dispute Resolution Phase 1 - Concept_ </p>  
+
 :::danger BOOKMARK WORK IN PROGRESS
 :::
-
-### **Phased Roadmap to Scale Agentic Dispute Resolution**
-
-#### **Phase 1: Supervised Pilots (0–6 months)**
-
-* **Scope:** One dispute type (e.g., card-not-present chargebacks) with clear criteria.
-* **Agent Capabilities:**
-
-  * Document extraction
-  * Transaction lookup
-  * Drafting resolution recommendation
-* **Human Oversight:** All agent recommendations reviewed by analysts.
-* **Tech Focus:** Tool integration, explainability, audit logging.
-* **Success Metrics:** Accuracy, resolution time, manual effort saved, regulator feedback.
-
-#### **Phase 2: Semi-Autonomous Expansion (6–18 months)**
-
-* **Scope:** Broader set of dispute types (e.g., fraud, service errors).
-* **Agent Capabilities:**
-
-  * Risk-based case triage
-  * Autonomous resolution of low-value or low-risk disputes
-  * Customer update messaging
-* **Human Oversight:** Threshold-based approvals; analyst intervention only on flagged cases.
-* **Tech Enhancements:**
-
-  * Policy update workflows
-  * Compliance dashboards
-  * Real-time monitoring tools
-* **Governance:** Introduce ethics review and model validation procedures.
-
-#### **Phase 3: Multi-Agent Ecosystem (18+ months)**
-
-* **Scope:** End-to-end dispute resolution across multiple product lines (cards, transfers, P2P payments).
-* **Agent Roles:**
-
-  * Intake agent (chatbot or form handler)
-  * Investigation agent
-  * Policy compliance agent
-  * Communication agent
-* **Autonomy Level:** Full resolution of standard disputes; adaptive learning from historical resolutions.
-* **Governance:** Continuous monitoring, retraining protocols, external audit readiness.
-* **Integration:** Agents embedded across the dispute lifecycle; self-service portal and CRM synchronized.
-
----
-
-### **Technical Patterns for Safe Agent Deployment in Dispute Resolution**
-
-1. **Agent Design & Role Definition**
-
-   * **Specialized Task Agents:** Handle discrete steps (e.g., data retrieval, document parsing, policy lookup).
-   * **Coordinator Agents:** Orchestrate workflows, assign subtasks, monitor progress, escalate exceptions.
-
-2. **Tool Integration Layer**
-
-   * **API Gateways:** Connect to internal systems (e.g., CRM, transaction databases, card networks).
-   * **RPA/Legacy Bridge:** For systems lacking APIs, agents trigger RPA bots for UI-based access.
-   * **Document Processing Stack:** OCR + NLP pipelines to extract structured data from receipts, emails, attachments.
-
-3. **Reasoning & Decision Engine**
-
-   * **LLM Core + Policy Constraints:** LLMs reason through unstructured evidence within guardrails defined by dispute policies (e.g. Reg E/Z logic, chargeback codes).
-   * **Prompt Engineering + Context Windows:** Use well-structured, updatable prompts to ensure policy compliance and explainability.
-
-4. **Human-in-the-Loop (HITL) Controls**
-
-   * **Confidence Thresholds & Routing:** Agents auto-resolve low-risk cases; escalate high-risk/ambiguous ones for manual review.
-   * **Explainability Outputs:** Each agent decision generates a human-readable rationale and traceable evidence packet.
-
-5. **Audit & Compliance Logging**
-
-   * **Action Logging:** Every step (data source access, decision points, communications) is time-stamped and recorded.
-   * **Real-Time Dashboards:** Track resolution timelines, SLA compliance, and system confidence levels for internal and external audits.
-
-6. **Monitoring & Fail-Safes**
-
-   * **Anomaly Detection:** Monitor for unusual agent behavior or repeated errors.
-   * **Rollback & Escalation Protocols:** Allow agents to halt or defer actions if outside expected bounds.
-
-
-## Use Case #1: Business Process & Operations Automation
-
-One of the clearest near-term wins lies in **automating internal business processes and operations**. Banks host numerous labor-intensive workflows (loan origination, account opening, KYC, regulatory reporting, payment validation) that are ripe for autonomous streamlining. Traditional RPA is brittle; an agentic AI combining LLM understanding with API/RPA tool access can adapt to exceptions and make simple judgment calls.
-
-**Example use cases:** *Loan processing* – an agent extracts data (OCR+NLP), queries internal databases, cross-verifies documents, flags discrepancies, and drafts an initial credit decision for human sign-off. *Regulatory reporting* – an agent gathers multi-source data, populates templates, validates consistency, and routes a draft report for approval.
-
-**Value levers:** **Cost efficiency, speed, and error reduction.** Early experiments show material gains (e.g., payment instruction validation agent accelerating throughput and accuracy[^13]; cash sweep optimization agent improving yields within predefined limits[^9]). Agents elevate automation by adding reasoning and adaptability beyond the “happy path.”
-
-Banks can target **10–30% reduction in processing times and error rates** in back-office tasks via narrow agents, plus meaningful FTE hour savings (overnight batch handling, alert triage). Multi-agent collaboration (e.g., model risk documentation drafting/review) has shown faster completion with comparable thoroughness[^10].
-
-**Agent roles:** *Task automation agents* (focused functions like form extraction) and *autonomous coordinators* (orchestrating end-to-end workflows, delegating subtasks). Early deployments keep humans in approval loops for final actions; autonomy expands gradually for low-risk scenarios.
-
-**Challenges:** Legacy systems without APIs, data quality issues, and change management. Mitigation via *“smart overlays”* – agents follow existing SOPs step-by-step, constrained by documented procedures[^9]. Longer-term value unlocks when processes are reengineered *“agentic by design”* to enable straight-through processing and simplified tool invocation.
 
 ## Risk & Fraud Decision Augmentation
 
