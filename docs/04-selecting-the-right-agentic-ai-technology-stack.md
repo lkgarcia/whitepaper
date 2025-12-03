@@ -43,27 +43,129 @@ Today’s agentic AI ecosystem can be viewed in several categories, from open fr
 
 <p class="center"> _Table 1: Agentic AI Technologies - Category Comparison_ </p>  
 
-Below we map the landscape, including prominent examples in each category:
+### Open Source Libraries & Frameworks (Build-Your-Own Agents)
+
+**Code-first frameworks** enable developers to compose custom AI agents programmatically, offering maximal flexibility and extensibility. These libraries often require software development effort but give fine-grained control over agent logic, integration, and deployment environment.
+
+---
+
+#### **LangChain** *(LangChain, Inc.)*
+**GitHub:** [https://github.com/langchain-ai/langchain](https://github.com/langchain-ai/langchain)
+
+<img src="/whitepaper/img/langchain.png" alt="image-center" width="600"/>
+&nbsp;  
+
+A widely adopted Python framework for building LLM-powered applications and agents, offering modular components for prompts, memory, tool use, and multi-step chains, with enterprise features like LangSmith.
+
+**Key strength:** Broad, mature ecosystem for building general-purpose LLM workflows and tool integrations.  
+**Ideal Use Cases:** Linear workflows, RAG chatbots, tool-using assistants, decision-making agents, general LLM application scaffolding.
+
+```python title="Example: Create an agent"
+# pip install -qU langchain "langchain[anthropic]"
+from langchain.agents import create_agent
+
+def get_weather(city: str) -> str:
+    """Get weather for a given city."""
+    return f"It's always sunny in {city}!"
+
+agent = create_agent(
+    model="claude-sonnet-4-5-20250929",
+    tools=[get_weather],
+    system_prompt="You are a helpful assistant",
+)
+
+# Run the agent
+agent.invoke(
+    {"messages": [{"role": "user", "content": "what is the weather in sf"}]}
+)
+```
+
+---
+
+#### **LangGraph** *(LangChain, Inc.)*
+**GitHub:** [https://github.com/langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)
+
+<img src="/whitepaper/img/langgraph.png" alt="image-center" width="600"/>
+&nbsp;  
+
+A graph-based orchestration framework built on LangChain that models agent workflows as stateful graphs with nodes, edges, branching logic, and support for long-running, multi-step agents.
+
+**Key strength:** Fine-grained, deterministic control over complex, stateful agent workflows.  
+**Ideal Use Cases:** Dynamic workflows, multi-step, long-running agents; workflows requiring explicit control of transitions, loops, and state.
+
+```python title="Example"
+from langgraph.graph import StateGraph, MessagesState, START, END
+
+def mock_llm(state: MessagesState):
+    return {"messages": [{"role": "ai", "content": "hello world"}]}
+
+graph = StateGraph(MessagesState)
+graph.add_node(mock_llm)
+graph.add_edge(START, "mock_llm")
+graph.add_edge("mock_llm", END)
+graph = graph.compile()
+
+graph.invoke({"messages": [{"role": "user", "content": "hi!"}]})
+```
+
+---
 
 :::danger BOOKMARK WORK IN PROGRESS
 :::
 
-### Open Source Libraries & Frameworks (Build-Your-Own Agents)
+#### **AutoGen** *(Microsoft Research)*
+**GitHub:** [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
 
-**Code-first frameworks** enable developers to compose custom AI agents programmatically, offering maximal flexibility and extensibility. These libraries often require software development effort but give fine-grained control over agent logic, integration, and deployment environment. Notable examples include:
+An open-source framework for composing tasks through multi-agent conversational workflows, enabling specialised agents to collaborate asynchronously via message passing.
 
-*   **LangChain:** A popular Python framework for building LLM-powered applications and agents[^4]. It provides modular components for prompts, memory, tool use, and chain-of-thought reasoning, allowing developers to construct complex agent behaviors. LangChain has become a de-facto standard for chaining LLM calls and integrating tools, with enterprise-focused additions for observability and debugging (e.g. LangSmith). It’s widely used for building retrieval-augmented chatbots, decision-making agents, and more[^4].
-    
-*   **LangGraph:** An extension of LangChain that introduces a _graph-based_ approach to orchestrating agents. LangGraph models agent workflows as stateful graphs of nodes (steps/agents) and edges (transitions), enabling **long-running, multi-step agents with memory**[^5] [^6]. This graph architecture offers transparency into agent state and decision paths. Each node can represent an action or tool, and edges can branch based on conditions, allowing complex non-linear workflows. In effect, _LangGraph provides a low-level orchestration framework for building and managing resilient, stateful AI agents_[^5] [^6]. It’s useful for scenarios requiring explicit control over each decision step or iterative loops in an agent’s reasoning.
-    
-*   **AutoGen:** An open-source framework from Microsoft Research for composing **multi-agent conversations**[^7]. AutoGen treats complex tasks as dialogues among multiple specialized agents (e.g. a “Planner” agent coordinating with a “Solver” agent). It supports asynchronous, event-driven messaging between agents, allowing them to **converse and collaborate in real-time**[^7]. This is well-suited for long-running tasks or scenarios where agents need to wait for I/O or human input. By enabling “LLMs talking to other LLMs,” AutoGen facilitates dynamic tool usage and complex problem solving via back-and-forth communication. Developers define the agents, their roles, and tools in code (Python), giving fine control. AutoGen is MIT-licensed and backed by active research, making it a cutting-edge choice for experimental multi-agent systems[^7] [^7].
-    
-*   **CrewAI:** An open-source Python framework purpose-built to orchestrate _teams of AI agents working together_[^7]. It introduces the concept of a **“Crew”** – a container for multiple role-based agents (e.g. Researcher, Writer, Reviewer) that share context and collectively tackle a task[^7]. Agents in a crew can delegate tasks to each other, critique each other’s outputs, and converge on solutions, mimicking a collaborative human team. CrewAI emphasizes performance and low latency – it’s implemented from scratch (not on top of larger libraries) to be lean and fast[^7]. Despite a simple configuration, it provides advanced features like memory modules and error-handling hooks for complex conversations[^7]. This makes CrewAI suitable for **enterprise-grade multi-agent workflows** where parallelism or checks-and-balances between agents are needed (e.g. one agent plans while another validates). It has a rapidly growing community and has been adopted in many automation use cases. In short, CrewAI enables a code-first approach to _“AI teams”_ collaborating on tasks[^7].
-    
-*   **LlamaIndex:** An open-source “data framework” originally created to connect LLMs with external knowledge, now evolving into a broader agent toolkit[^8]. LlamaIndex provides tooling to ingest and index enterprise data (from documents, databases, APIs) and enables LLMs to query that data efficiently. It allows developers to build **knowledge-aware agents** that can retrieve relevant information on the fly and incorporate it into responses. Recently, LlamaIndex has introduced an “agent” abstraction (sometimes called _llama-agents_[^9]), positioning itself as a _developer-first agent framework_ for building production-ready applications that leverage private data[^9]. For example, one can create an agent that, given a user query, will search a document index and then use an LLM to formulate an answer with citations. LlamaIndex is particularly suited for **retrieval-augmented generation (RAG)** and enterprise search/chatbot use cases that need integration with proprietary data. It can be used stand-alone or in conjunction with orchestration libraries like LangChain.
-    
-*   **Haystack:** An open-source end-to-end framework from deepset for building **LLM-powered search, QA, and agentic pipelines**[^10]. Haystack offers modular components to connect LLMs with vector databases, document stores, and APIs, enabling complex pipelines (for example, a user query triggers a search tool, then an LLM generates an answer with references). It has native support for tools, function calling, multi-step reasoning, and includes an **“Agentic Pipeline”** abstraction. Critically, Haystack is designed for **production readiness** – it emphasizes transparency, debugging, and scalability. Developers can inspect each step’s input/output, set breakpoints, and log decisions. _“Haystack’s modular framework gives you full visibility to inspect, debug, and optimize every decision your AI makes”_[^11], which is crucial for enterprise governance. It integrates with a wide range of external systems (OpenAI, Anthropic, HuggingFace models; Weaviate, Pinecone, Elasticsearch for data; etc.) with **no vendor lock-in**[^11]. This open architecture allows mixing and matching components to fit your workflow. Moreover, Haystack pipelines are cloud-agnostic and can run at enterprise scale (Kubernetes-ready, with logging/monitoring hooks)[^11]. In summary, Haystack is a strong choice for enterprises looking to build custom agentic workflows or RAG systems with an open, transparent stack backed by enterprise support options.
-    
+**Key strength:** Deep support for multi-agent dialogue and coordinated problem solving.
+**Ideal Use Cases:** Planner–solver patterns, collaborative reasoning, long-running tasks requiring agent-to-agent communication or human-in-the-loop messaging.
+
+#### **CrewAI** *(CrewAI Community / Open Source)*
+**GitHub:** [https://github.com/crewai/crewAI](https://github.com/crewai/crewAI)
+
+A lightweight, high-performance Python framework for orchestrating teams of role-based agents (“crews”) that share context, critique each other’s work, and collectively complete tasks.
+
+**Key strength:** Structured, role-based multi-agent coordination with strong performance and low latency.
+**Ideal Use Cases:** Research–draft–review pipelines, parallelised agent teams, workflows with built-in validation between agents.
+
+#### **LlamaIndex** *(LlamaIndex, Inc.)*
+**GitHub:** [https://github.com/run-llama/llama_index](https://github.com/run-llama/llama_index)
+
+A developer-first data framework connecting LLMs to enterprise knowledge sources, with strong ingestion, indexing, and retrieval capabilities, now expanded with agent abstractions.
+
+**Key strength:** Best-in-class retrieval and data integration for knowledge-grounded agents.
+**Ideal Use Cases:** RAG systems, enterprise search, agents operating over proprietary or large-scale datasets.
+
+#### **Haystack** *(deepset GmbH)*
+**GitHub:** [https://github.com/deepset-ai/haystack](https://github.com/deepset-ai/haystack)
+
+An open-source, production-grade framework for building transparent, auditable LLM search, QA, and agent pipelines, with modular components, step-level debugging, and cloud-agnostic deployment.
+
+**Key strength:** Full visibility, governance, and traceability across multi-step agentic pipelines.
+**Ideal Use Cases:** Regulated, audit-heavy workflows; enterprise-scale RAG; traceable multi-step reasoning and tool use.
+
+#### Feature Matrix: Open Agentic AI Frameworks
+
+| **Feature / Capability**           | **LangChain**                        | **LangGraph**                                    | **AutoGen**                                 | **CrewAI**                                 | **LlamaIndex**                                   | **Haystack**                                 |
+| ---------------------------------- | ------------------------------------ | ------------------------------------------------ | ------------------------------------------- | ------------------------------------------ | ------------------------------------------------ | -------------------------------------------- |
+| **Primary Purpose**                | Modular LLM app & agent toolkit      | Stateful graph-based agent orchestration         | Multi-agent conversational systems          | Teams of role-based agents                 | Data + retrieval framework with agent extensions | End-to-end search, QA, and agentic pipelines |
+| **Architecture Model**             | Chains / tools                       | Directed state graph                             | Multi-agent messaging                       | Role-based multi-agent orchestration       | Retrieval + agent abstraction                    | Pipeline graph with nodes                    |
+| **Supports Multi-Agent**           | Limited                              | Yes (via graphs)                                 | **Yes (core)**                              | **Yes (core)**                             | Limited                                          | Yes                                          |
+| **Tool / Function Calling**        | Strong                               | Strong                                           | Strong                                      | Strong                                     | Strong                                           | Strong                                       |
+| **Long-Running State**             | Partial                              | **Full support**                                 | Yes (async conversations)                   | Yes                                        | Limited                                          | Yes                                          |
+| **Deterministic Workflow Control** | Moderate                             | **High (explicit graphs)**                       | Low–moderate                                | Moderate                                   | Low                                              | High                                         |
+| **Looping / Branching**            | Limited                              | **Native support**                               | Message-driven                              | Message-driven                             | No explicit model                                | **Native support**                           |
+| **Memory / Context Management**    | Yes                                  | Yes                                              | Yes                                         | Yes                                        | **Strong (data-aware)**                          | Yes                                          |
+| **RAG / Data Integration**         | Good                                 | Good                                             | Moderate                                    | Moderate                                   | **Excellent (core)**                             | **Excellent**                                |
+| **Observability / Debugging**      | LangSmith                            | Graph inspection                                 | Event logs                                  | Conversational logs                        | Index + query logs                               | **Step-level debugging / traceability**      |
+| **Production Readiness**           | Mature ecosystem                     | Emerging but growing                             | Research-backed, evolving                   | Growing adoption                           | Mature for RAG                                   | **High (enterprise-ready)**                  |
+| **Performance / Latency Focus**    | Moderate                             | Moderate                                         | Moderate                                    | **High (lean implementation)**             | Moderate                                         | High                                         |
+| **Ecosystem Maturity**             | **Very High**                        | Medium                                           | Medium                                      | Medium                                     | High                                             | High                                         |
+| **Cloud / Vendor Lock-in**         | None                                 | None                                             | None                                        | None                                       | None                                             | None                                         |
+| **Ideal Use Cases**                | General-purpose LLM agents, RAG apps | Complex, stateful and controlled agent workflows | Multi-agent collaboration & problem solving | Team-based agents with roles and critiques | Knowledge-grounded agents, enterprise RAG        | Transparent, governable pipelines at scale   |
+
+<p class="center"> _Table 2: Open Frameworks - Feature Matrix_ </p>  
 
 Beyond these, there are other emerging libraries (e.g. Semantic Kernel by Microsoft for .NET, IBM’s **Agentic AI** tools in Watsonx, etc.), but the ones above represent the leading _build-your-own_ options. These frameworks require software engineering effort and ML expertise, but offer **maximal control**: you decide where the model runs (cloud or on-prem), what tools it can use, how its memory is managed, and how it’s integrated into your architecture. Open frameworks are thus ideal if you have unique requirements (security, data locality, custom tools) or need to embed an agent deeply into existing products. However, they demand strong governance discipline from the team, as you’ll be responsible for implementing guardrails, monitoring, scaling, and maintenance.
 
