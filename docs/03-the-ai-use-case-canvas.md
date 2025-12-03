@@ -75,7 +75,7 @@ prompt: |
 
 # The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives
 
-![image-center](/img/business-plan-animate.svg)
+![image-center](/img/agentic-ai-canvas-hero.svg)
 
 ## Executive Summary
 
@@ -101,7 +101,7 @@ The idea of a **“canvas”** comes from tools like the **Business Model Canvas
 
 To fill this gap, researchers created AI-specific canvases. Ajay Agrawal’s **AI Canvas** centers on prediction, judgment, and action[^9], while Michael Porath’s **AI Use Case Canvas** extends the canvas approach to cover both business and technical considerations. As Porath notes, it’s essentially *a business model canvas designed for AI decision-making*[^10].
 
-The **AI Use Case Canvas** organizes **eight components** across three dimensions:
+The **AI Use Case Canvas** organizes **nine components** across three dimensions:
 
 * **Why** — business problem, value, and success metrics
 * **How** — data needs, solution approach, and implementation plan
