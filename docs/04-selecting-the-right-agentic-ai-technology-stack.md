@@ -30,13 +30,23 @@ It can be delivered more safely and cost-effectively using **Microsoft 365 Copil
 
 The purpose of this white paper is to provide a **vendor-neutral, architecture-led decision framework** to help organisations navigate this complexity. It maps the technology landscape, evaluates the strengths and constraints of each category, and introduces a practical model linking use-case complexity to the appropriate technology stack—ensuring agentic AI is deployed safely, efficiently, and strategically.
 
+## Landscape of Agentic AI Technologies
+
+Today’s agentic AI ecosystem can be viewed in several categories, from open frameworks for building bespoke agents to fully managed enterprise platforms.
+
+| **Category**          | **Examples**                                                    | **Strengths**                                                  | **Limitations**                                        | **Enterprise Fit**                                   |
+| --------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------- |
+| **Open Frameworks**   | LangChain, LangGraph, CrewAI, AutoGen                           | Full flexibility; custom control; on-prem possible             | Engineering-heavy; requires custom governance          | High-autonomy agents; regulated/complex integrations |
+| **Managed Platforms** | Copilot Studio, Azure Agents, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
+| **Low-Code Builders** | n8n, LangFlow, Flowise, Dify                                         | Rapid prototyping, visual debugging                            | Limited robustness; not ideal for mission-critical ops | POCs, early workflows, small applications            |
+| **Model-Native APIs** | OpenAI, Anthropic, Gemini                                       | Fastest implementation; minimal infra                          | Not full orchestration; limited governance             | Lightweight assistants, component-level agents       |
+
+<p class="center"> _Table 1: Agentic AI Technologies - Category Comparison_ </p>  
+
+Below we map the landscape, including prominent examples in each category:
 
 :::danger BOOKMARK WORK IN PROGRESS
 :::
-
-## Landscape of Agentic AI Technologies
-
-Today’s agentic AI ecosystem can be viewed in several categories, from open frameworks for building bespoke agents to fully managed enterprise platforms. Below we map the landscape, including prominent examples in each category:
 
 ### Open Source Libraries & Frameworks (Build-Your-Own Agents)
 
