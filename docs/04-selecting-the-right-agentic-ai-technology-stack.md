@@ -13,9 +13,17 @@ tags: [banking, ai, agentic-ai, technology]
 ![image-center](/img/tech-stack-hero.png)
 
 ## Executive Summary
-:::warning TODO
-Update once the rest of the doc is done
-:::
+
+Agentic AI is accelerating from experimentation to enterprise-scale deployment, but the technology landscape has fragmented—spanning open-source frameworks, managed cloud platforms, low-code builders, and model-native agent capabilities. Each option differs in governance, integration, security, and maturity, making stack selection a strategic architectural decision rather than a tooling choice.
+
+This white paper provides a **vendor-neutral framework** to help enterprises choose the right approach. It maps the ecosystem, compares leading technologies, and shows how to match each category to use-case complexity. A central insight is that **most workflows do not require custom multi-agent engineering**; simpler tasks—like policy lookup or document summarisation—can be delivered more safely and cost-effectively using existing enterprise ecosystems (e.g., Microsoft 365 Copilot extensions). Conversely, high-autonomy, integration-heavy, or domain-specific processes may justify open frameworks or cloud-native agent services.
+
+The paper introduces a concise **evaluation model** covering architecture fit, security and access control, governance and auditability, autonomy constraints, reliability, and cost. It then applies this model to real enterprise scenarios, helping avoid pitfalls such as agent sprawl, over-engineering, and unmanaged risk.
+
+Finally, the paper recommends a **phased adoption strategy**: start with low-risk copilots, leverage existing platforms where possible, embed governance and observability early, scale autonomy gradually, and architect for modularity and future change.
+
+Overall, this guidance enables enterprise architects to deploy agentic AI **safely, efficiently, and strategically**, aligned with existing infrastructure, regulatory expectations, and long-term technology direction.
+
 
 ## Introduction
 
