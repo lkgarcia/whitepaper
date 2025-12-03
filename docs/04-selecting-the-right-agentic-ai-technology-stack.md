@@ -139,7 +139,7 @@ asyncio.run(main())
 ---
 
 #### **CrewAI** *(CrewAI Community / Open Source)*
-**GitHub:** [https://github.com/crewAIInc/crewAI](https://github.com/crewai/crewAI)
+**GitHub:** [https://github.com/crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
 
 <img src="/whitepaper/img/crewai.png" alt="image-center" width="600"/>
 &nbsp;  
@@ -149,59 +149,89 @@ A lightweight, high-performance Python framework for orchestrating teams of role
 **Key strength:** Structured, role-based multi-agent coordination with strong performance and low latency.  
 **Ideal Use Cases:** Research–draft–review pipelines, parallelised agent teams, workflows with built-in validation between agents.
 
-```python title="Example: Create a CrewAI agent"
-# src/my_project/crew.py
-from crewai import Agent, Crew, Process, Task
-from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SerperDevTool
-from crewai.agents.agent_builder.base_agent import BaseAgent
-from typing import List
+<details>
+  <summary>Example: Create an agent</summary>
 
-@CrewBase
-class LatestAiDevelopmentCrew():
-  """LatestAiDevelopment crew"""
-  agents: List[BaseAgent]
-  tasks: List[Task]
+  1. Modify your `agents.yaml` file
+  ```yaml title="agents.yaml"
+  researcher:
+    role: >
+      {topic} Senior Data Researcher
+    goal: >
+      Uncover cutting-edge developments in {topic}
+    backstory: >
+      You're a seasoned researcher with a knack for uncovering the latest
+      developments in {topic}. Known for your ability to find the most relevant
+      information and present it in a clear and concise manner.
+  ```
 
-  @agent
-  def researcher(self) -> Agent:
-    return Agent(
-      config=self.agents_config['researcher'],
-      verbose=True,
-      tools=[SerperDevTool()]
-    )
+  1. Modify your `tasks.yaml` file
+  ```yaml title="tasks.yaml"
+  research_task:
+    description: >
+      Conduct a thorough research about {topic}
+      Make sure you find any interesting and relevant information given
+      the current year is 2025.
+    expected_output: >
+      A list with 10 bullet points of the most relevant information about {topic}
+    agent: researcher
+  ```
 
-  @task
-  def research_task(self) -> Task:
-    return Task(
-      config=self.tasks_config['research_task'],
-    )
+  1. Modify your `crew.py` file
+  ```python title="crew.py"
+  from crewai import Agent, Crew, Process, Task
+  from crewai.project import CrewBase, agent, crew, task
+  from crewai_tools import SerperDevTool
+  from crewai.agents.agent_builder.base_agent import BaseAgent
+  from typing import List
 
-  @crew
-  def crew(self) -> Crew:
-    """Creates the LatestAiDevelopment crew"""
-    return Crew(
-      agents=self.agents, # Automatically created by the @agent decorator
-      tasks=self.tasks, # Automatically created by the @task decorator
-      process=Process.sequential,
-      verbose=True,
-    )
+  @CrewBase
+  class LatestAiDevelopmentCrew():
+    """LatestAiDevelopment crew"""
+    agents: List[BaseAgent]
+    tasks: List[Task]
 
----
+    @agent
+    def researcher(self) -> Agent:
+      return Agent(
+        config=self.agents_config['researcher'],
+        verbose=True,
+        tools=[SerperDevTool()]
+      )
 
-# src/my_project/main.py
-import sys
-from latest_ai_development.crew import LatestAiDevelopmentCrew
+    @task
+    def research_task(self) -> Task:
+      return Task(
+        config=self.tasks_config['research_task'],
+      )
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'topic': 'AI Agents'
-    }
-    LatestAiDevelopmentCrew().crew().kickoff(inputs=inputs)
-```
+    @crew
+    def crew(self) -> Crew:
+      """Creates the LatestAiDevelopment crew"""
+      return Crew(
+        agents=self.agents, # Automatically created by the @agent decorator
+        tasks=self.tasks, # Automatically created by the @task decorator
+        process=Process.sequential,
+        verbose=True,
+      )
+  ```
+
+  4. Modify your `main.py` file
+  ```python title="main.py"
+  import sys
+  from latest_ai_development.crew import LatestAiDevelopmentCrew
+
+  def run():
+      """
+      Run the crew.
+      """
+      inputs = {
+          'topic': 'AI Agents'
+      }
+      LatestAiDevelopmentCrew().crew().kickoff(inputs=inputs)
+  ```
+
+</details>
 
 ---
 
@@ -228,16 +258,42 @@ print(response)
 
 ---
 
-:::danger BOOKMARK WORK IN PROGRESS
-:::
-
-#### **Haystack** *(deepset GmbH)*
+#### **Haystack** *(deepset)*
 **GitHub:** [https://github.com/deepset-ai/haystack](https://github.com/deepset-ai/haystack)
+
+<img src="/whitepaper/img/haystack.png" alt="image-center" width="600"/>
+&nbsp;  
 
 An open-source, production-grade framework for building transparent, auditable LLM search, QA, and agent pipelines, with modular components, step-level debugging, and cloud-agnostic deployment.
 
-**Key strength:** Full visibility, governance, and traceability across multi-step agentic pipelines.
+**Key strength:** Full visibility, governance, and traceability across multi-step agentic pipelines.  
 **Ideal Use Cases:** Regulated, audit-heavy workflows; enterprise-scale RAG; traceable multi-step reasoning and tool use.
+
+```python title="Example: Create an agent"
+# pip install haystack-ai
+import os
+
+from haystack.components.agents import Agent
+from haystack.components.generators.chat import OpenAIChatGenerator
+from haystack.dataclasses import ChatMessage
+from haystack.tools import ComponentTool
+from haystack.components.websearch import SerperDevWebSearch
+
+os.environ["OPENAI_API_KEY"] = "<YOUR OPENAI API KEY>"
+os.environ["SERPERDEV_API_KEY"] = "<YOUR SERPERDEV API KEY>"
+
+search_tool = ComponentTool(component=SerperDevWebSearch())
+
+basic_agent = Agent(
+    chat_generator=OpenAIChatGenerator(model="gpt-4o-mini"),
+    system_prompt="You are a helpful web agent.",
+    tools=[search_tool],
+)
+
+result = basic_agent.run(messages=[ChatMessage.from_user("When was the first version of Haystack released?")])
+
+print(result['last_message'].text)
+```
 
 #### Feature Matrix: Open Agentic AI Frameworks
 
@@ -261,7 +317,10 @@ An open-source, production-grade framework for building transparent, auditable L
 
 <p class="center"> _Table 2: Open Frameworks - Feature Matrix_ </p>  
 
-Beyond these, there are other emerging libraries (e.g. Semantic Kernel by Microsoft for .NET, IBM’s **Agentic AI** tools in Watsonx, etc.), but the ones above represent the leading _build-your-own_ options. These frameworks require software engineering effort and ML expertise, but offer **maximal control**: you decide where the model runs (cloud or on-prem), what tools it can use, how its memory is managed, and how it’s integrated into your architecture. Open frameworks are thus ideal if you have unique requirements (security, data locality, custom tools) or need to embed an agent deeply into existing products. However, they demand strong governance discipline from the team, as you’ll be responsible for implementing guardrails, monitoring, scaling, and maintenance.
+Beyond these, other emerging libraries exist (e.g., Microsoft’s Semantic Kernel for .NET, IBM’s agentic tooling in Watsonx), but the frameworks above represent the leading *build-your-own* options. They require engineering effort and ML expertise but offer **maximum control** over runtime environment, tool access, memory, and system integration. Open frameworks are best suited for organisations with unique requirements—such as strict security, data locality, or custom toolchains—and for deeply embedding agents into existing products. However, they also place full responsibility on teams to implement governance, guardrails, monitoring, scaling, and ongoing maintenance.
+
+:::danger BOOKMARK WORK IN PROGRESS
+:::
 
 ### Managed Agent Platforms (Enterprise Services)
 
