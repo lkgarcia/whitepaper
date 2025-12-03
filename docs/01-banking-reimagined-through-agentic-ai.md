@@ -71,7 +71,7 @@ Now, a new evolution is underway toward **“agentic AI,”** where AI systems d
 
 ## Technical Fundamentals of Agentic AI
 
-![image-center](/img/agentic-ai.jpg)
+<img src="/whitepaper/img/agentic-ai.jpg" alt="image-center" width="600"/>
 <p class="center">_Figure 2: Agentic AI Cycle [^12]_</p>
 
 **What is Agentic AI?** Agentic AI refers to AI systems that operate with a high degree of autonomy and exhibit goal-directed behavior, meaning they can act independently to pursue objectives with minimal human intervention[^9]. These systems engage in advanced planning – breaking down tasks into sub-goals and executing multi-step strategies – and can dynamically use external tools or interact with their environment to achieve their goals[^9] [^10]. In current AI research, Agentic AI systems are characterized by the ability to perceive and reason about their environment, adapt their actions based on feedback, and self-coordinate complex tasks, rather than merely responding to prompts[^11].
