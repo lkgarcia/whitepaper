@@ -189,7 +189,6 @@ class LatestAiDevelopmentCrew():
 
 ---
 
-#!/usr/bin/env python
 # src/my_project/main.py
 import sys
 from latest_ai_development.crew import LatestAiDevelopmentCrew
@@ -206,16 +205,31 @@ def run():
 
 ---
 
-:::danger BOOKMARK WORK IN PROGRESS
-:::
-
 #### **LlamaIndex** *(LlamaIndex, Inc.)*
 **GitHub:** [https://github.com/run-llama/llama_index](https://github.com/run-llama/llama_index)
 
+<img src="/whitepaper/img/llamaindex.png" alt="image-center" width="600"/>
+
 A developer-first data framework connecting LLMs to enterprise knowledge sources, with strong ingestion, indexing, and retrieval capabilities, now expanded with agent abstractions.
 
-**Key strength:** Best-in-class retrieval and data integration for knowledge-grounded agents.
+**Key strength:** Best-in-class retrieval and data integration for knowledge-grounded agents.  
 **Ideal Use Cases:** RAG systems, enterprise search, agents operating over proprietary or large-scale datasets.
+
+```python title="Example: Create an agent"
+# pip install llama-index
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+
+documents = SimpleDirectoryReader("data").load_data()
+index = VectorStoreIndex.from_documents(documents)
+query_engine = index.as_query_engine()
+response = query_engine.query("Some question about the data should go here")
+print(response)
+```
+
+---
+
+:::danger BOOKMARK WORK IN PROGRESS
+:::
 
 #### **Haystack** *(deepset GmbH)*
 **GitHub:** [https://github.com/deepset-ai/haystack](https://github.com/deepset-ai/haystack)
