@@ -138,16 +138,76 @@ asyncio.run(main())
 
 ---
 
-:::danger BOOKMARK WORK IN PROGRESS
-:::
-
 #### **CrewAI** *(CrewAI Community / Open Source)*
-**GitHub:** [https://github.com/crewai/crewAI](https://github.com/crewai/crewAI)
+**GitHub:** [https://github.com/crewAIInc/crewAI](https://github.com/crewai/crewAI)
+
+<img src="/whitepaper/img/crewai.png" alt="image-center" width="600"/>
+&nbsp;  
 
 A lightweight, high-performance Python framework for orchestrating teams of role-based agents (“crews”) that share context, critique each other’s work, and collectively complete tasks.
 
-**Key strength:** Structured, role-based multi-agent coordination with strong performance and low latency.
+**Key strength:** Structured, role-based multi-agent coordination with strong performance and low latency.  
 **Ideal Use Cases:** Research–draft–review pipelines, parallelised agent teams, workflows with built-in validation between agents.
+
+```python title="Example: Create a CrewAI agent"
+# src/my_project/crew.py
+from crewai import Agent, Crew, Process, Task
+from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool
+from crewai.agents.agent_builder.base_agent import BaseAgent
+from typing import List
+
+@CrewBase
+class LatestAiDevelopmentCrew():
+  """LatestAiDevelopment crew"""
+  agents: List[BaseAgent]
+  tasks: List[Task]
+
+  @agent
+  def researcher(self) -> Agent:
+    return Agent(
+      config=self.agents_config['researcher'],
+      verbose=True,
+      tools=[SerperDevTool()]
+    )
+
+  @task
+  def research_task(self) -> Task:
+    return Task(
+      config=self.tasks_config['research_task'],
+    )
+
+  @crew
+  def crew(self) -> Crew:
+    """Creates the LatestAiDevelopment crew"""
+    return Crew(
+      agents=self.agents, # Automatically created by the @agent decorator
+      tasks=self.tasks, # Automatically created by the @task decorator
+      process=Process.sequential,
+      verbose=True,
+    )
+
+---
+
+#!/usr/bin/env python
+# src/my_project/main.py
+import sys
+from latest_ai_development.crew import LatestAiDevelopmentCrew
+
+def run():
+    """
+    Run the crew.
+    """
+    inputs = {
+        'topic': 'AI Agents'
+    }
+    LatestAiDevelopmentCrew().crew().kickoff(inputs=inputs)
+```
+
+---
+
+:::danger BOOKMARK WORK IN PROGRESS
+:::
 
 #### **LlamaIndex** *(LlamaIndex, Inc.)*
 **GitHub:** [https://github.com/run-llama/llama_index](https://github.com/run-llama/llama_index)
