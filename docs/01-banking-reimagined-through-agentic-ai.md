@@ -71,6 +71,9 @@ Now, a new evolution is underway toward **“agentic AI,”** where AI systems d
 
 ## Technical Fundamentals of Agentic AI
 
+![image-center](/img/agentic-ai.jpg)
+<p class="center">_Figure 2: Agentic AI Cycle [^12]_</p>
+
 **What is Agentic AI?** Agentic AI refers to AI systems that operate with a high degree of autonomy and exhibit goal-directed behavior, meaning they can act independently to pursue objectives with minimal human intervention[^9]. These systems engage in advanced planning – breaking down tasks into sub-goals and executing multi-step strategies – and can dynamically use external tools or interact with their environment to achieve their goals[^9] [^10]. In current AI research, Agentic AI systems are characterized by the ability to perceive and reason about their environment, adapt their actions based on feedback, and self-coordinate complex tasks, rather than merely responding to prompts[^11].
 
 Key characteristics include:
@@ -96,7 +99,7 @@ Key characteristics include:
 - **System Prompt:** A defined objective or problem to solve. Define the agent's identity, behavior, constraints, and overall objective.
 
 ![image-center](/img/agentic-ai-anatomy.svg)
-<p class="center"> _Figure 2: Anatomy of an AI Agent_ </p>  
+<p class="center"> _Figure 3: Anatomy of an AI Agent_ </p>  
 
 Together, these components enable a cycle of *perceive → decide → act*. The agent perceives inputs or changes, reasons about what to do, then takes actions, possibly generating new inputs in a loop. Crucially, agentic AI systems are designed to operate with **minimal human supervision** once deployed, within the bounds of their defined goals and permissions[^2]. This sets them apart from earlier AI assistants or analytic models that required a human to initiate every action.
 
@@ -107,7 +110,7 @@ While advancing quickly, fully autonomous banking agents remain in early stages.
 ## Future in Action: Agent-to-Agent Customer Service Interaction
 
 ![Agentic AI Concept](/img/agentic-ai-concept.svg)
-<p class="center"> _Figure 3: Agentic AI Concept_ </p>  
+<p class="center"> _Figure 4: Agentic AI Concept_ </p>  
 
 This scenario illustrates how AI agents in retail banking can autonomously collaborate to fulfill a high-value customer request—such as transferring $50,000 internationally—while embedding compliance and oversight.
 
@@ -160,3 +163,4 @@ Leaders who act now—via targeted pilots and clear safeguards—will be well-po
 [^9]: [MDPI (2024). Agentic AI components and definition.](https://www.mdpi.com/1999-5903/17/9/404)
 [^10]: [arXiv (2025). Agentic AI definition and coordination.](https://arxiv.org/html/2505.06817v1)
 [^11]: [Springer (2025). Autonomous systems exhibiting genuine agent properties.](https://link.springer.com/article/10.1007/s10462-025-11422-4)
+[^12]: [Aprimo Blog (2025). _What Is an Agentic AI Tool? The Complete Guide to Autonomous AI Systems_](https://www.aprimo.com/blog/what-is-an-agentic-ai-tool-the-complete-guide-to-autonomous-ai-systems)

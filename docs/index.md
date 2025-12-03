@@ -22,7 +22,15 @@ Ultimately, the series will culminate in a **Banking AI Agent Reference Architec
 | 1 | **Banking Reimagined Through Agentic AI**             | Foundational concepts |
 | 2 | **Balancing Autonomy and Agency: Managing Emerging Risks in AI Agents** | Risk management |
 | 3 | **The AI Use Case Canvas: A Structured Framework for Evaluating and Prioritizing AI Initiatives** | Strategic enablement |
-| 4 | **Enabling Agentic AI Through Well-Defined API Contracts: Building Reliable and Scalable Toolchains** | Technical enablement |
-| 5 | **Selecting the Right AI Model: A Framework for Building Reliable and Scalable Agentic Systems** | Technical enablement |
-| 6 | **Agentic AI in Banking: High-Impact Use Cases and Strategic Insights for Measurable Business Value** | Real-world business applications |
-| 7 | **Building Enterprise AI Agents: Empowering Business Units Through Secure, Scalable, and Compliant AI Platforms** | Enterprise adoption |
+| 4 | **Selecting the Right Agentic AI Technology Stack: A Neutral Framework for Enterprise Architects** | Technical enablement |
+| 5 | **Agentic AI in Banking: High-Impact Use Cases and Strategic Insights for Measurable Business Value** | Real-world business applications |
+
+
+---
+:::warning WORK IN PROGRESS
+:::
+## Additional Papers to Consider
+| No. | Paper                                                      | Focus Area        |
+| :-: | :--------------------------------------------------------------- | :--------------------- |
+| 1 | **Tools: API & AI Agent Commiunication (MCP, A2A, ACP, Solace Agent Mesh)** | Technical enablement |
+| 2 | **Building Enterprise AI Agents: Empowering Business Units Through Secure, Scalable, and Compliant AI Platforms** | Enterprise adoption |
