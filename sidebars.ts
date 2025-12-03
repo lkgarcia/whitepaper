@@ -41,6 +41,7 @@ const sidebars: SidebarsConfig = {
         'banking-reimagined-through-agentic-ai',
         'balancing-autonomy-and-agency',
         'the-ai-use-case-canvas',
+        'selecting-the-right-agentic-ai-technology-stack',
         'enabling-agentic-ai-through-well-defined-api-contracts',
         'selecting-the-right-ai-model',
         'high-impact-use-cases',
