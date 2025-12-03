@@ -110,16 +110,36 @@ graph.invoke({"messages": [{"role": "user", "content": "hi!"}]})
 
 ---
 
-:::danger BOOKMARK WORK IN PROGRESS
-:::
-
 #### **AutoGen** *(Microsoft Research)*
 **GitHub:** [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
 
+<img src="/whitepaper/img/autogen.png" alt="image-center" width="600"/>
+&nbsp;  
+
 An open-source framework for composing tasks through multi-agent conversational workflows, enabling specialised agents to collaborate asynchronously via message passing.
 
-**Key strength:** Deep support for multi-agent dialogue and coordinated problem solving.
+**Key strength:** Deep support for multi-agent dialogue and coordinated problem solving.  
 **Ideal Use Cases:** Planner–solver patterns, collaborative reasoning, long-running tasks requiring agent-to-agent communication or human-in-the-loop messaging.
+
+```python title="Example: Create an agent"
+# pip install -U "autogenstudio"
+import asyncio
+from autogen_agentchat.agents import AssistantAgent
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+
+async def main() -> None:
+    model_client = OpenAIChatCompletionClient(model="gpt-4.1")
+    agent = AssistantAgent("assistant", model_client=model_client)
+    print(await agent.run(task="Say 'Hello World!'"))
+    await model_client.close()
+
+asyncio.run(main())
+```
+
+---
+
+:::danger BOOKMARK WORK IN PROGRESS
+:::
 
 #### **CrewAI** *(CrewAI Community / Open Source)*
 **GitHub:** [https://github.com/crewai/crewAI](https://github.com/crewai/crewAI)
