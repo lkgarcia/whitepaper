@@ -340,7 +340,7 @@ Managed agent platforms provide **end-to-end environments** to design, deploy, a
 
 A low-code environment for building, testing, and publishing AI agents across the Microsoft 365 ecosystem, evolving from Power Virtual Agents into a richer “Copilot” agent platform.[^2] Builders define agents through a graphical interface or natural language, connect them to knowledge sources and tools, and deploy directly into Teams, Outlook, SharePoint, and other M365 surfaces.[^2] Copilot Studio agents can call Microsoft Graph, Power Platform connectors, and other services, and upcoming **Connected Agents** features enable cross-platform multi-agent orchestration between Copilot Studio, Azure AI, and Fabric.[^12] Governance is anchored in Microsoft’s security stack: agents are identities in Entra ID, governed by Purview and standard M365 admin controls.[^12]
 
-**Key strength:** Deep integration with Microsoft 365, enabling governed, low-code agents where employees already work.
+**Key strength:** Deep integration with Microsoft 365, enabling governed, low-code agents where employees already work.  
 **Ideal Use Cases:** Internal support (IT/HR), knowledge assistants, workflow copilots for sales/operations in Microsoft-centric enterprises.
 
 ---
@@ -353,7 +353,7 @@ A low-code environment for building, testing, and publishing AI agents across th
 
 Azure’s agent service (part of Azure AI) offers a **cloud-native runtime** for hosting and orchestrating agents, accessible via SDKs or Azure AI Studio.[^12] It supports multiple models—including Azure OpenAI and customer-hosted models—plus connections to tools, APIs, and data services within Azure. Compared to Copilot Studio, it targets pro developers building standalone applications or platform capabilities, with tighter integration to DevOps/ML Ops practices and broader deployment options.
 
-**Key strength:** Developer-oriented agent hosting with tight integration into Azure infrastructure, security, and DevOps.
+**Key strength:** Developer-oriented agent hosting with tight integration into Azure infrastructure, security, and DevOps.  
 **Ideal Use Cases:** Custom business applications, back-office automations, and platform services in Azure-first environments.
 
 ---
@@ -366,7 +366,7 @@ Azure’s agent service (part of Azure AI) offers a **cloud-native runtime** for
 
 Agents for Amazon Bedrock layer a managed agent engine (“AgentCore”) on top of Bedrock models.[^13] Developers configure agents by specifying models, tools/APIs, instructions, and data sources; AWS handles orchestration, scaling, and secure tool invocation. Governance is built into the runtime: **AgentCore Policies** enforce natural-language rules over agent actions (e.g., refund limits), automatically blocking non-compliant calls,[^14] while **AgentCore Evaluations** and **AgentCore Memory** provide guardrails, metrics, and long-term context for personalization.[^14] Real-world adopters like Rocket Mortgage use Bedrock Agents to serve complex, data-intensive financial journeys.[^3]
 
-**Key strength:** Turnkey, policy-driven agent runtime with strong integration into AWS security, observability, and data services.
+**Key strength:** Turnkey, policy-driven agent runtime with strong integration into AWS security, observability, and data services.  
 **Ideal Use Cases:** Regulated, high-volume workloads on AWS—such as customer service, underwriting support, and financial product recommendation flows.
 
 ---
@@ -379,7 +379,7 @@ Agents for Amazon Bedrock layer a managed agent engine (“AgentCore”) on top 
 
 Vertex AI’s **Agent Builder** and **Agent Engine** form a full-stack platform for developing, cataloging, and running agents on Google’s models (PaLM, Gemini) and beyond.[^15] The open-source Agent Development Kit (ADK) supports multi-agent systems, while **Agent Garden** supplies pre-built agents and tools.[^15] Deployed agents run on the managed Agent Engine, which handles scaling, versioning, logging (Cloud Logging/Monitoring/Trace), evaluation, and long-term **Memory Bank** support.[^15] A rich tool catalog connects agents to web search, code execution, retrieval, SaaS connectors, and Google Cloud services (e.g., via Apigee APIs). Security features like **Agent Identity** (service-account–based IAM) and **Agent Threat Detection** help monitor and constrain agent behavior.[^15]
 
-**Key strength:** Comprehensive, cloud-native agent lifecycle platform with strong multi-tool integration and observability.
+**Key strength:** Comprehensive, cloud-native agent lifecycle platform with strong multi-tool integration and observability.  
 **Ideal Use Cases:** Multi-tool and multi-agent workloads on Google Cloud—customer support, knowledge agents, and composable AI services.
 
 #### Feature Matrix: Managed Agent Platforms
