@@ -49,7 +49,7 @@ Today’s agentic AI ecosystem can be viewed in several categories, from open fr
 | **Category**          | **Examples**                                                    | **Strengths**                                                  | **Limitations**                                        | **Enterprise Fit**                                   |
 | --------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------- |
 | **Open Frameworks**   | LangChain, LangGraph, CrewAI, AutoGen                           | Full flexibility; custom control; on-prem possible             | Engineering-heavy; requires custom governance          | High-autonomy agents; regulated/complex integrations |
-| **Managed Platforms** | Copilot Studio, Azure Agents, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
+| **Managed Platforms** | Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
 | **Low-Code Builders** | n8n, LangFlow, Flowise, Dify                                         | Rapid prototyping, visual debugging                            | Limited robustness; not ideal for mission-critical ops | POCs, early workflows, small applications            |
 | **Vendor Product Embedded Agents** | Microsoft Dynamics 365 Autonomous Agents               | Domain-specific; turnkey workflows                             | Limited customisability; vendor lock-in                 | CRM, ERP, vertical SaaS use cases                     |
 
@@ -327,7 +327,7 @@ An open-source, production-grade framework for building transparent, auditable L
   ```
 </details>
 
-#### Feature Matrix: Open Agentic AI Frameworks
+#### Feature Matrix: Open Frameworks
 
 | **Feature / Capability**           | **LangChain**                        | **LangGraph**                                    | **AutoGen**                                 | **CrewAI**                                 | **LlamaIndex**                                   | **Haystack**                                        |
 | ---------------------------------- | ------------------------------------ | ------------------------------------------------ | ------------------------------------------- | ------------------------------------------ | ------------------------------------------------ | --------------------------------------------------- |
@@ -357,29 +357,51 @@ Managed agent platforms provide **end-to-end environments** to design, deploy, a
 
 ---
 
-#### **Microsoft Copilot Studio** *(Microsoft)*
+#### Copilot Studio *(Microsoft)*
+**References:** [Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/) | [Introduction Video](https://www.youtube.com/watch?v=u85b51fFV6Q)
 
-<!-- <img src="/whitepaper/img/x.png" alt="image-center" width="600"/> -->
-<img src="https://placehold.co/600x400?text=Hero+Image" alt="image-center" width="600"/>
+<img src="/whitepaper/img/copilot-studio.png" alt="image-center" width="600"/>
 &nbsp;  
 
-A low-code environment for building, testing, and publishing AI agents across the Microsoft 365 ecosystem, evolving from Power Virtual Agents into a richer “Copilot” agent platform.[^2] Builders define agents through a graphical interface or natural language, connect them to knowledge sources and tools, and deploy directly into Teams, Outlook, SharePoint, and other M365 surfaces.[^2] Copilot Studio agents can call Microsoft Graph, Power Platform connectors, and other services, and upcoming **Connected Agents** features enable cross-platform multi-agent orchestration between Copilot Studio, Azure AI, and Fabric.[^12] Governance is anchored in Microsoft’s security stack: agents are identities in Entra ID, governed by Purview and standard M365 admin controls.[^12]
+**Purpose:**  
+A **low-code, graphical builder** for creating and customizing copilots (conversational agents and workflow bots).
 
-**Key strength:** Deep integration with Microsoft 365, enabling governed, low-code agents where employees already work.  
-**Ideal Use Cases:** Internal support (IT/HR), knowledge assistants, workflow copilots for sales/operations in Microsoft-centric enterprises.
+**Who it’s for:**  
+Business users, analysts, and low-code makers.
+
+**What it does:**  
+* Build conversational copilots using a visual designer or natural language
+* Connect to data via Power Platform connectors and Microsoft Graph
+* Automate tasks through agent flows
+* Deploy copilots across Microsoft 365 surfaces (Teams, Outlook, SharePoint) and external channels
+* Governance and identity through Power Platform + Entra ID
+
+**Best for:**  
+End-user–facing assistants, support bots, guided workflows, and Microsoft 365 integrated copilots
 
 ---
 
-#### **Azure AI Agents Service** *(Microsoft / Azure)*
+#### Microsoft Foundry *(Microsoft)*
+**References:** [Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/) | [Introduction Video](https://www.youtube.com/watch?v=C6rxEGJay70)
 
-<!-- <img src="/whitepaper/img/x.png" alt="image-center" width="600"/> -->
-<img src="https://placehold.co/600x400?text=Hero+Image" alt="image-center" width="600"/>
+<img src="/whitepaper/img/microsoft-foundry.png" alt="image-center" width="600"/>
 &nbsp;  
 
-Azure’s agent service (part of Azure AI) offers a **cloud-native runtime** for hosting and orchestrating agents, accessible via SDKs or Azure AI Studio.[^12] It supports multiple models—including Azure OpenAI and customer-hosted models—plus connections to tools, APIs, and data services within Azure. Compared to Copilot Studio, it targets pro developers building standalone applications or platform capabilities, with tighter integration to DevOps/ML Ops practices and broader deployment options.
+**Purpose:**  
+A **developer-focused platform-as-a-service** for building **advanced AI applications and agents** using Azure AI, models, tools, and enterprise infrastructure.
 
-**Key strength:** Developer-oriented agent hosting with tight integration into Azure infrastructure, security, and DevOps.  
-**Ideal Use Cases:** Custom business applications, back-office automations, and platform services in Azure-first environments.
+**Who it’s for:**  
+Developers, engineers, and enterprise AI teams.
+
+**What it does:**  
+* Unified workspace for models, agents, tools, vector stores, and data
+* Full lifecycle: build → evaluate → deploy → govern AI systems
+* Supports custom agent orchestration and multi-agent systems
+* Integrated observability, networking, DevOps, security, and responsible AI controls
+* Runs as a scalable Azure resource for production workloads
+
+**Best for:**  
+Complex, highly integrated AI agents, domain systems, and production-grade AI applications
 
 ---
 
@@ -618,3 +640,5 @@ In summary, **selecting the right agentic AI stack is not a one-time decision bu
 [^21]: https://huggingface.co/docs/transformers/en/agents
 [^22]: https://architect.salesforce.com/fundamentals/agentic-enterprise-it-architecture
 [^23]: https://medium.com/data-science-collective/guardrails-for-ai-agents-8913f6b67b51
+[^24]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio
+[^25]: https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry?view=foundry&preserve-view=true
