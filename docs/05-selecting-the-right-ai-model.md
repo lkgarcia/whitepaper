@@ -68,6 +68,11 @@ prompt: |
 :::warning WORK IN PROGRESS
 :::
 
+:::danger TO ADD
+1. When to choose LLM, NLM, SLM?
+2. When is fine-tuning neccessary?
+:::
+
 # Selecting the Right AI Model: A Framework for Reliable and Scalable Agentic Systems
 
 ## Executive Summary
