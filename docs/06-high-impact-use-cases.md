@@ -147,6 +147,49 @@ This phase focuses on supervised pilots for a single dispute type, where agents 
 :::danger BOOKMARK WORK IN PROGRESS
 :::
 
+```markdown
+### **Phased Roadmap to Scale Agentic Dispute Resolution**
+
+#### **Phase 1: Supervised (Human-in-the-Loop) Pilots (0–6 months)**
+
+* **Scope:** One dispute type (e.g., card-not-present chargebacks) with clear criteria.
+* **Agent Capabilities:**
+  * Account & Transaction lookup
+  * Drafting resolution recommendation
+* **Human Oversight:** All agent recommendations reviewed by analysts.
+* **Tech Focus:** Tool integration, explainability, audit logging.
+* **Success Metrics:** Accuracy
+
+#### **Phase 2: Semi-Autonomous Expansion (6–18 months)**
+
+* **Scope:** Broader set of dispute types (e.g., fraud, service errors).
+* **Agent Capabilities:**
+
+  * Risk-based case triage
+  * Autonomous resolution of low-value or low-risk disputes
+  * Customer update messaging
+* **Human Oversight:** Threshold-based approvals; analyst intervention only on flagged cases.
+* **Tech Enhancements:**
+
+  * Policy update workflows
+  * Compliance dashboards
+  * Real-time monitoring tools
+* **Governance:** Introduce ethics review and model validation procedures.
+
+#### **Phase 3: Multi-Agent Ecosystem (18+ months)**
+
+* **Scope:** End-to-end dispute resolution across multiple product lines (cards, transfers, P2P payments).
+* **Agent Roles:**
+
+  * Intake agent (chatbot or form handler)
+  * Investigation agent
+  * Policy compliance agent
+  * Communication agent
+* **Autonomy Level:** Full resolution of standard disputes; adaptive learning from historical resolutions.
+* **Governance:** Continuous monitoring, retraining protocols, external audit readiness.
+* **Integration:** Agents embedded across the dispute lifecycle; self-service portal and CRM synchronized.
+```
+
 ## Risk & Fraud Decision Augmentation
 
 Agentic AI acts as a force multiplier in risk management and fraud prevention: augmenting credit underwriting, portfolio monitoring, transaction fraud detection, AML investigations.

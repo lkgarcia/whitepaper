@@ -174,6 +174,10 @@ Enterprise AI agents can materially enhance efficiency, engagement, and analytic
 - Use multi-agent orchestration for modularity in complex processes; supervise with guardrails.
 - Maintain feedback loops and adaptive oversight for continuous improvement.
 
+:::danger TODO
+Illustrate layered architecture (business layer, AI layer, Data layer, DevOps layer)
+:::
+
 ---
 
 [^1]: Adoption of AI across retail banking functions improves efficiency and customer experience (salesforce.com).

@@ -8,11 +8,15 @@ tags: [banking, ai, agentic-ai, technology]
 :::warning WORK IN PROGRESS
 :::
 
-# Selecting the Right Agentic AI Technology Stack: A Neutral Framework for Enterprise Architects
+# Selecting the Right Agentic AI Technology Stack
 
 ![image-center](/img/tech-stack-hero.png)
 
 ## Executive Summary
+
+:::danger WORK IN PROGRESS
+Revise executive summary after full draft
+:::
 
 Agentic AI is accelerating from experimentation to enterprise-scale deployment, but the technology landscape has fragmented—spanning open-source frameworks, managed cloud platforms, low-code builders, and model-native agent capabilities. Each option differs in governance, integration, security, and maturity, making stack selection a strategic architectural decision rather than a tooling choice.
 
@@ -29,7 +33,7 @@ Overall, this guidance enables enterprise architects to deploy agentic AI **safe
 
 Building on the themes from *Banking Reimagined Through Agentic AI* and *Balancing Autonomy and Agency*, this paper moves from conceptual foundations to the practical question now facing banking and enterprise leaders: how to architect and select the right technologies for agentic AI at scale. As organisations shift from standalone LLM assistants to agents embedded in core workflows, technology choices increasingly shape risk posture, integration complexity, and long-term platform strategy.
 
-This decision has become significantly more challenging. The ecosystem has fragmented into open frameworks (LangChain, LangGraph, AutoGen, CrewAI, LlamaIndex), managed cloud platforms (Copilot Studio, Azure AI Agents, Bedrock Agents, Vertex Agents), and low-code builders—all overlapping in capability but inconsistent in maturity, governance, and integration patterns. Without a structured selection approach, enterprises risk over-engineering simple use cases, under-engineering complex ones, and creating unmanaged “agent sprawl” across business units.
+This decision has become significantly more challenging. The ecosystem has fragmented into open frameworks (e.g., LangChain, AutoGen, LlamaIndex), managed cloud platforms (e.g., Copilot Studio, Azure AI Agents), and low-code builders—all overlapping in capability but inconsistent in maturity, governance, and integration patterns. Without a structured selection approach, enterprises risk over-engineering simple use cases, under-engineering complex ones, and creating unmanaged “agent sprawl” across business units.
 
 :::note Example
 A workflow such as “policy lookup → summarise → draft email” does **not** require a custom LangChain + vector database stack.
@@ -47,6 +51,7 @@ Today’s agentic AI ecosystem can be viewed in several categories, from open fr
 | **Open Frameworks**   | LangChain, LangGraph, CrewAI, AutoGen                           | Full flexibility; custom control; on-prem possible             | Engineering-heavy; requires custom governance          | High-autonomy agents; regulated/complex integrations |
 | **Managed Platforms** | Copilot Studio, Azure Agents, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
 | **Low-Code Builders** | n8n, LangFlow, Flowise, Dify                                         | Rapid prototyping, visual debugging                            | Limited robustness; not ideal for mission-critical ops | POCs, early workflows, small applications            |
+| **Vendor Product Embedded Agents** | Microsoft Dynamics 365 Autonomous Agents               | Domain-specific; turnkey workflows                             | Limited customisability; vendor lock-in                 | CRM, ERP, vertical SaaS use cases                     |
 
 <p class="center"> _Table 1: Agentic AI Technologies - Category Comparison_ </p>  
 
@@ -67,25 +72,29 @@ A widely adopted Python framework for building LLM-powered applications and agen
 **Key strength:** Broad, mature ecosystem for building general-purpose LLM workflows and tool integrations.  
 **Ideal Use Cases:** Linear workflows, RAG chatbots, tool-using assistants, decision-making agents, general LLM application scaffolding.
 
-```python title="Example: Create an agent"
-# pip install -qU langchain "langchain[anthropic]"
-from langchain.agents import create_agent
+<details>
+  <summary>Example: Create an agent</summary>
 
-def get_weather(city: str) -> str:
-    """Get weather for a given city."""
-    return f"It's always sunny in {city}!"
+  ```python title="agent.py"
+  # pip install -qU langchain "langchain[anthropic]"
+  from langchain.agents import create_agent
 
-agent = create_agent(
-    model="claude-sonnet-4-5-20250929",
-    tools=[get_weather],
-    system_prompt="You are a helpful assistant",
-)
+  def get_weather(city: str) -> str:
+      """Get weather for a given city."""
+      return f"It's always sunny in {city}!"
 
-# Run the agent
-agent.invoke(
-    {"messages": [{"role": "user", "content": "what is the weather in sf"}]}
-)
-```
+  agent = create_agent(
+      model="claude-sonnet-4-5-20250929",
+      tools=[get_weather],
+      system_prompt="You are a helpful assistant",
+  )
+
+  # Run the agent
+  agent.invoke(
+      {"messages": [{"role": "user", "content": "what is the weather in sf"}]}
+  )
+  ```
+</details>
 
 ---
 
@@ -100,20 +109,24 @@ A graph-based orchestration framework built on LangChain that models agent workf
 **Key strength:** Fine-grained, deterministic control over complex, stateful agent workflows.  
 **Ideal Use Cases:** Dynamic workflows, multi-step, long-running agents; workflows requiring explicit control of transitions, loops, and state.
 
-```python title="Example"
-from langgraph.graph import StateGraph, MessagesState, START, END
+<details>
+  <summary>Example: Create an agent</summary>
 
-def mock_llm(state: MessagesState):
-    return {"messages": [{"role": "ai", "content": "hello world"}]}
+  ```python title="Example"
+  from langgraph.graph import StateGraph, MessagesState, START, END
 
-graph = StateGraph(MessagesState)
-graph.add_node(mock_llm)
-graph.add_edge(START, "mock_llm")
-graph.add_edge("mock_llm", END)
-graph = graph.compile()
+  def mock_llm(state: MessagesState):
+      return {"messages": [{"role": "ai", "content": "hello world"}]}
 
-graph.invoke({"messages": [{"role": "user", "content": "hi!"}]})
-```
+  graph = StateGraph(MessagesState)
+  graph.add_node(mock_llm)
+  graph.add_edge(START, "mock_llm")
+  graph.add_edge("mock_llm", END)
+  graph = graph.compile()
+
+  graph.invoke({"messages": [{"role": "user", "content": "hi!"}]})
+  ```
+</details>
 
 ---
 
@@ -128,20 +141,24 @@ An open-source framework for composing tasks through multi-agent conversational 
 **Key strength:** Deep support for multi-agent dialogue and coordinated problem solving.  
 **Ideal Use Cases:** Planner–solver patterns, collaborative reasoning, long-running tasks requiring agent-to-agent communication or human-in-the-loop messaging.
 
-```python title="Example: Create an agent"
-# pip install -U "autogenstudio"
-import asyncio
-from autogen_agentchat.agents import AssistantAgent
-from autogen_ext.models.openai import OpenAIChatCompletionClient
+<details>
+  <summary>Example: Create an agent</summary>
 
-async def main() -> None:
-    model_client = OpenAIChatCompletionClient(model="gpt-4.1")
-    agent = AssistantAgent("assistant", model_client=model_client)
-    print(await agent.run(task="Say 'Hello World!'"))
-    await model_client.close()
+  ```python title="agent.py"
+  # pip install -U "autogenstudio"
+  import asyncio
+  from autogen_agentchat.agents import AssistantAgent
+  from autogen_ext.models.openai import OpenAIChatCompletionClient
 
-asyncio.run(main())
-```
+  async def main() -> None:
+      model_client = OpenAIChatCompletionClient(model="gpt-4.1")
+      agent = AssistantAgent("assistant", model_client=model_client)
+      print(await agent.run(task="Say 'Hello World!'"))
+      await model_client.close()
+
+  asyncio.run(main())
+  ```
+</details>
 
 ---
 
@@ -172,7 +189,7 @@ A lightweight, high-performance Python framework for orchestrating teams of role
       information and present it in a clear and concise manner.
   ```
 
-  1. Modify your `tasks.yaml` file
+  2. Modify your `tasks.yaml` file
   ```yaml title="tasks.yaml"
   research_task:
     description: >
@@ -184,7 +201,7 @@ A lightweight, high-performance Python framework for orchestrating teams of role
     agent: researcher
   ```
 
-  1. Modify your `crew.py` file
+  3. Modify your `crew.py` file
   ```python title="crew.py"
   from crewai import Agent, Crew, Process, Task
   from crewai.project import CrewBase, agent, crew, task
@@ -252,16 +269,20 @@ A developer-first data framework connecting LLMs to enterprise knowledge sources
 **Key strength:** Best-in-class retrieval and data integration for knowledge-grounded agents.  
 **Ideal Use Cases:** RAG systems, enterprise search, agents operating over proprietary or large-scale datasets.
 
-```python title="Example: Create an agent"
-# pip install llama-index
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+<details>
+  <summary>Example: Create an agent</summary>
 
-documents = SimpleDirectoryReader("data").load_data()
-index = VectorStoreIndex.from_documents(documents)
-query_engine = index.as_query_engine()
-response = query_engine.query("Some question about the data should go here")
-print(response)
-```
+  ```python title="agent.py"
+  # pip install llama-index
+  from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+
+  documents = SimpleDirectoryReader("data").load_data()
+  index = VectorStoreIndex.from_documents(documents)
+  query_engine = index.as_query_engine()
+  response = query_engine.query("Some question about the data should go here")
+  print(response)
+  ```
+</details>
 
 ---
 
@@ -276,31 +297,35 @@ An open-source, production-grade framework for building transparent, auditable L
 **Key strength:** Full visibility, governance, and traceability across multi-step agentic pipelines.  
 **Ideal Use Cases:** Regulated, audit-heavy workflows; enterprise-scale RAG; traceable multi-step reasoning and tool use.
 
-```python title="Example: Create an agent"
-# pip install haystack-ai
-import os
+<details>
+  <summary>Example: Create an agent</summary>
 
-from haystack.components.agents import Agent
-from haystack.components.generators.chat import OpenAIChatGenerator
-from haystack.dataclasses import ChatMessage
-from haystack.tools import ComponentTool
-from haystack.components.websearch import SerperDevWebSearch
+  ```python title="agent.py"
+  # pip install haystack-ai
+  import os
 
-os.environ["OPENAI_API_KEY"] = "<YOUR OPENAI API KEY>"
-os.environ["SERPERDEV_API_KEY"] = "<YOUR SERPERDEV API KEY>"
+  from haystack.components.agents import Agent
+  from haystack.components.generators.chat import OpenAIChatGenerator
+  from haystack.dataclasses import ChatMessage
+  from haystack.tools import ComponentTool
+  from haystack.components.websearch import SerperDevWebSearch
 
-search_tool = ComponentTool(component=SerperDevWebSearch())
+  os.environ["OPENAI_API_KEY"] = "<YOUR OPENAI API KEY>"
+  os.environ["SERPERDEV_API_KEY"] = "<YOUR SERPERDEV API KEY>"
 
-basic_agent = Agent(
-    chat_generator=OpenAIChatGenerator(model="gpt-4o-mini"),
-    system_prompt="You are a helpful web agent.",
-    tools=[search_tool],
-)
+  search_tool = ComponentTool(component=SerperDevWebSearch())
 
-result = basic_agent.run(messages=[ChatMessage.from_user("When was the first version of Haystack released?")])
+  basic_agent = Agent(
+      chat_generator=OpenAIChatGenerator(model="gpt-4o-mini"),
+      system_prompt="You are a helpful web agent.",
+      tools=[search_tool],
+  )
 
-print(result['last_message'].text)
-```
+  result = basic_agent.run(messages=[ChatMessage.from_user("When was the first version of Haystack released?")])
+
+  print(result['last_message'].text)
+  ```
+</details>
 
 #### Feature Matrix: Open Agentic AI Frameworks
 
@@ -459,6 +484,10 @@ General-purpose automation tools such as **n8n**, Node-RED, and Pipedream add LL
 
 **Key strength:** Unified automation canvases that blend traditional integration/ETL flows with LLM-powered decision steps.
 **Ideal Use Cases:** Extending existing automation stacks with AI steps (classification, summarization, routing) without adopting a new agent-specific platform.
+
+### Vendor Product Embedded Agents
+:::warning WORK IN PROGRESS
+:::
 
 ---
 
