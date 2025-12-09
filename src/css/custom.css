@@ -39,6 +39,11 @@ img[alt="image-center"] {
 }
 
 /* Center text */
-p.center {
+p.center, .docusaurus-mermaid-container  {
   text-align: center;
+}
+
+/* Fix Mermaid Issue: Legend Text Truncated */
+.docusaurus-mermaid-container svg {
+  overflow: visible; 
 }

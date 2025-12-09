@@ -44,13 +44,13 @@ The purpose of this white paper is to provide a **vendor-neutral, architecture-l
 
 ## Landscape of Agentic AI Technologies
 
-Today’s agentic AI ecosystem can be viewed in several categories, from open frameworks for building bespoke agents to fully managed enterprise platforms.
+Today’s agentic AI ecosystem can be viewed in several categories, from code-first frameworks for building bespoke agents to fully managed enterprise platforms.
 
-| **Category**                    | **Examples**                                                    | **Strengths**                                                  | **Limitations**                                        | **Enterprise Fit**                                   |
-| ------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------- |
-| **Code-First Frameworks**       | LangChain, LangGraph, CrewAI, AutoGen                          | Full flexibility; custom control; on-prem possible             | Engineering-heavy; requires custom governance          | High-autonomy agents; regulated/complex integrations |
-| **Visual & Low-Code Builders**  | n8n, LangFlow, Flowise, Dify                                   | Rapid prototyping, visual debugging                            | Limited robustness; not ideal for mission-critical ops | POCs, early workflows, small applications            |
-| **Managed Agent Platforms**     | Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
+| **Category**                       | **Examples**                                                    | **Strengths**                                                  | **Limitations**                                        | **Enterprise Fit**                                   |
+| ---------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------- |
+| **Code-First Frameworks**          | LangChain, LangGraph, CrewAI, AutoGen                          | Full flexibility; custom control; on-prem possible             | Engineering-heavy; requires custom governance          | High-autonomy agents; regulated/complex integrations |
+| **Visual & Low-Code Builders**     | n8n, LangFlow, Flowise, Dify                                   | Rapid prototyping, visual debugging                            | Limited robustness; not ideal for mission-critical ops | POCs, early workflows, small applications            |
+| **Managed Agent Platforms**        | Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock Agents, Vertex Agents | Identity, compliance, logging; enterprise connectors; scalable | Vendor-bound paradigms; less low-level control         | Broad deployment; governance-critical workflows      |
 | **Vendor Product Embedded Agents** | Microsoft Dynamics 365 Autonomous Agents                      | Domain-specific; turnkey workflows                             | Limited customisability; vendor lock-in                | CRM, ERP, vertical SaaS use cases                    |
 
 <p class="center"> _Table 1: Agentic AI Technologies - Category Comparison_ </p>  
@@ -413,9 +413,6 @@ Regulated, audit-heavy workflows; enterprise-scale RAG; and multi-step agent pip
 
 <p class="center"> _Table 2: Code-First Frameworks - Feature Matrix_ </p>  
 
-#### Conclusion: Open Frameworks
-Beyond these, other emerging libraries exist (e.g., Microsoft’s Semantic Kernel for .NET, IBM’s agentic tooling in Watsonx), but the frameworks above represent the leading *build-your-own* options. They require engineering effort and ML expertise but offer **maximum control** over runtime environment, tool access, memory, and system integration. Open frameworks are best suited for organisations with unique requirements—such as strict security, data locality, or custom toolchains—and for deeply embedding agents into existing products. However, they also place full responsibility on teams to implement governance, guardrails, monitoring, scaling, and ongoing maintenance.
-
 ### Visual & Low-Code Builders
 
 Visual and low-code builders provide **drag-and-drop canvases** to design agent flows without deep programming expertise. They help bridge business and engineering teams, accelerate prototyping, and can support production workloads where their execution and governance features are sufficient.
@@ -536,10 +533,6 @@ Extending existing automation and integration workflows with AI capabilities (su
 | **Vendor Lock-In**             | 🟡 Moderate                              | 🟢 Low (open ecosystem)                     | 🟢 Low (open-source)                      | 🟢 Low (connector-driven, OSS option)         |
 
 <p class="center"> _Table 3: Visual & Low-Code Builders - Feature Matrix_ </p>  
-
-#### Conclusion: Visual & Low-Code Builders
-
-General-purpose automation tools such as **n8n**, Node-RED, and Pipedream add LLM nodes into their broader workflow catalogs, enabling “mini-agents” that respond to events, call models, and trigger downstream actions. Specialist visual tools and commercial IDEs are also emerging in this space.
 
 ### Managed Agent Platforms (Enterprise Services)
 
@@ -667,21 +660,61 @@ Customer support, knowledge agents, and composable AI services on GCP that requi
 
 <p class="center"> _Table 4: Managed Agent Platforms - Feature Matrix_ </p>
 
-#### Conclusion: Managed Agent Platforms
-Beyond these, enterprise vendors (e.g., Salesforce Einstein, IBM watsonx Orchestrate) and vertical SaaS players (e.g., Moveworks) embed agentic capabilities directly into CRM, HR, and ITSM products. These pair domain-specific connectors and workflows with managed LLMs and orchestration, often delivered as “digital workers” or copilots bound to a specific business domain.
+### Vendor Product Embedded Agents
+:::warning TODO
+Content for "Vendor Product Embedded Agents" section to be added later.
+:::
 
 :::danger BOOKMARK WORK IN PROGRESS
 :::
 
-### Vendor Product Embedded Agents
-:::warning WORK IN PROGRESS
-:::
-
----
-
-**Summary of Landscape:** The agentic AI stack spans from **code-centric frameworks** (for maximum flexibility and on-prem control) to **managed cloud platforms** (for quick deployment and integrated governance), with **visual low-code tools** bridging the gap by simplifying development. Many organizations will find they need a combination: e.g. using a managed platform for certain use cases (where speed and reliability are paramount) and open frameworks for others (where customization or sensitive data handling is critical). The following sections will provide a framework to evaluate these options and guidance on matching technologies to use case complexity.
-
 ## Evaluation Framework for Agentic AI Solutions
+```mermaid
+---
+config:
+  radar:
+    width: 600
+    height: 400
+    axisScaleFactor: 1
+    curveTension: 0.1
+  theme: base
+  themeVariables:
+    fontFamily: "Arial"
+    fontSize: "18px"
+    cScale0: "#7D17F2"
+    cScale1: "#25C2A0"
+    cScale2: "#BE8BF9"
+    primaryTextColor: "#FFFFFF"
+    lineColor: "#FFFFFF"
+    radar:
+      axisColor: "#848484"
+      curveOpacity: 0.1
+      curveStrokeWidth: 4
+      graticuleOpacity: 0.1
+      legendBoxSize: 100
+---
+radar-beta
+  title Agentic AI Technology Categories – Comparative Radar
+  graticule polygon
+  showLegend true
+  max 5
+  min 0
+
+  axis integ["Integration & Tooling"]
+  axis sec["Security & Identity"], guard["Autonomy Controls & Guardrails"]
+  axis scale["Scalability & Reliability"], audit["Auditability & Traceability"]
+  axis sprawl["Agent Sprawl Prevention"], access["Accessibility (Eng. Maturity)"], tco["Total Cost of Ownership"]
+
+  %% Code-First Frameworks
+  curve code["Code-First Frameworks"]{3, 2, 3, 3, 2, 1, 1, 3}
+
+  %% Low-Code Builders
+  curve lowcode["Low-Code Builders"]{4, 3, 2, 4, 3, 2, 2, 4}
+
+  %% Managed Enterprise Platforms
+  curve managed["Managed Platforms"]{5, 5, 5, 5, 5, 4, 4, 2}
+
+```
 
 When selecting an agentic AI technology stack, enterprise decision-makers should evaluate options across several key dimensions. Below is a detailed evaluation framework with criteria that are particularly important in enterprise contexts:
 
@@ -761,7 +794,7 @@ By implementing these patterns, enterprises can significantly mitigate the risks
 
 In choosing and deploying an agentic AI technology stack, enterprise leaders should take a strategic, phased approach. The following recommendations serve as guidance for maximizing success and business value:
 
-*   **Start Small, Demonstrate Value:** Begin with _pilot projects at lower autonomy levels_ to build organizational confidence. Identify a contained use case (e.g. an internal knowledge assistant or a co-pilot for a specific team) and implement it with a manageable stack (maybe using a visual tool or a single-agent framework). Ensure you measure improvements (time saved, satisfaction) and gather feedback. This not only proves ROI early (critical for executive buy-in), but also lets your team learn how to work with the agent technology in a low-risk environment. For instance, automate a report generation that used to take an analyst 3 hours – if the agent does it in 5 minutes and the analyst just reviews it, that’s quick value to showcase. As AWS advises, _“develop a strategic roadmap for AI agent implementation, starting with basic automation and progressively moving toward more autonomous systems – with clear governance frameworks from the start”_[^3]. In practice, that might mean year 1 you do co-pilots (Level 2), year 2 you automate entire tasks (Level 3), etc., with milestones and checkpoints.
+*   **Start Small, Demonstrate Value:** Begin with _pilot projects at lower autonomy levels_ to build organizational confidence. Identify a contained use case (e.g. an internal knowledge assistant or a co-pilot for a specific team) and implement it with a manageable stack (maybe using a visual tool or a single-agent framework). Ensure you measure improvements (time saved, satisfaction) and gather feedback. This not only proves ROI early (critical for executive buy-in), but also lets your team learn how to work with the agent technology in a low-risk environment. For instance, automate a report generation that used to take an analyst 3 hours – if the agent does it in 5 minutes and the analyst just reviews it, that’s quick value to showcase. As AWS advises, _“develop a strategic roadmap for AI agent implementation, starting with basic automation and progressively moving toward more autonomous systems – with clear governance frameworks from the start”_[^3]. In practical terms, that might mean year 1 you do co-pilots (Level 2), year 2 you automate entire tasks (Level 3), etc., with milestones and checkpoints.
     
 *     **Leverage Existing Ecosystems:** Make strategic use of platforms that align with your current infrastructure to accelerate adoption. If you are a Microsoft-centric enterprise (Office 365, Teams, Azure), **Copilot Studio and Azure AI Agents** will integrate more naturally and benefit from your existing security setup. Similarly, AWS-centric firms should pilot Bedrock Agents, and Google Cloud users should try Vertex Agent Builder. These platforms not only reduce development effort but also ensure **compatibility with your enterprise IT governance** (which is often as important as technical capability). They handle many non-differentiating heavy-lifts (scaling, logging, updates) so your team can focus on customizing the agent’s knowledge and behavior to your business. That said, remain flexible: avoid hard lock-in by using open standards where possible. For example, if you use Vertex ADK to build an agent, note that it supports standard protocols like A2A and tools like LangChain[^15] – meaning you could port parts of your solution elsewhere if needed. Strategically, this balances speed with long-term agility.
     
